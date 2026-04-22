@@ -10,8 +10,11 @@
   const metricById = new Map(data.metricCatalog.map((metric) => [metric.id, metric]));
   const themeById = new Map(data.themeCatalog.map((theme) => [theme.id, theme]));
   const textQuestionById = new Map(data.textQuestionCatalog.map((question) => [question.id, question]));
+  const textCoverageById = new Map((data.textQuestionCoverage || []).map((question) => [question.id, question]));
   const compareGroupById = new Map(data.compareGroups.map((group) => [group.id, group]));
-  const validTabs = new Set(["highlights", "compare", "evidence", "map"]);
+  const modelById = new Map((data.analyticModels || []).map((model) => [model.id, model]));
+  const measurementByMetricId = new Map((data.measurementAudit || []).map((item) => [item.metricId, item]));
+  const validTabs = new Set(["highlights", "compare", "evidence", "research", "map"]);
   const validMapStyles = new Set(["towers", "filled"]);
   const qualityGuidance = data.qualityGuidance || {
     general: { displayMinimum: 2, directionalMinimum: 8, strongMinimum: 18 },
@@ -20,6 +23,7 @@
     text: { displayMinimum: 2, directionalMinimum: 5, strongMinimum: 10 },
   };
   const scoreMethodology = data.scoreMethodology || [];
+  const analyticModels = data.analyticModels || [];
 
   const defaultState = {
     tab: validTabs.has(data.defaults.tab) ? data.defaults.tab : "highlights",
@@ -34,6 +38,18 @@
     mapStyle: "filled",
     textQuestion: data.defaults.textQuestion,
     selectedTheme: data.defaults.theme,
+    researchModel:
+      data.defaults.researchModel && modelById.has(data.defaults.researchModel)
+        ? data.defaults.researchModel
+        : analyticModels[0]
+          ? analyticModels[0].id
+          : "",
+    researchGroup:
+      data.defaults.researchGroup && compareGroupById.has(data.defaults.researchGroup)
+        ? data.defaults.researchGroup
+        : data.compareGroups[0]
+          ? data.compareGroups[0].id
+          : "teachingBand",
   };
   const state = { ...defaultState };
 
@@ -96,6 +112,20 @@
     resourceList: document.getElementById("resource-list"),
     evidenceFindingSummary: document.getElementById("evidence-finding-summary"),
     evidenceFindingList: document.getElementById("evidence-finding-list"),
+    researchModelSelect: document.getElementById("research-model-select"),
+    researchGroupSelect: document.getElementById("research-group-select"),
+    researchSummary: document.getElementById("research-summary"),
+    researchMethodNoteGrid: document.getElementById("research-method-note-grid"),
+    researchAuditSummary: document.getElementById("research-audit-summary"),
+    researchAuditCards: document.getElementById("research-audit-cards"),
+    researchAuditComponents: document.getElementById("research-audit-components"),
+    researchModelSummary: document.getElementById("research-model-summary"),
+    researchModelCallout: document.getElementById("research-model-callout"),
+    researchCoefficientList: document.getElementById("research-coefficient-list"),
+    researchJointSummary: document.getElementById("research-joint-summary"),
+    researchJointList: document.getElementById("research-joint-list"),
+    researchCodebookSummary: document.getElementById("research-codebook-summary"),
+    researchCodebookCards: document.getElementById("research-codebook-cards"),
     mapMetricSelect: document.getElementById("map-metric-select"),
     mapStyleSelect: document.getElementById("map-style-select"),
     mapSummary: document.getElementById("map-summary"),
@@ -175,6 +205,18 @@
           `<option value="${escapeAttribute(group.id)}">${escapeHtml(group.label)}</option>`,
       )
       .join("");
+    dom.researchGroupSelect.innerHTML = data.compareGroups
+      .map(
+        (group) =>
+          `<option value="${escapeAttribute(group.id)}">${escapeHtml(group.label)}</option>`,
+      )
+      .join("");
+    dom.researchModelSelect.innerHTML = analyticModels
+      .map(
+        (model) =>
+          `<option value="${escapeAttribute(model.id)}">${escapeHtml(model.label)}</option>`,
+      )
+      .join("");
 
     dom.textQuestionSelect.innerHTML = data.textQuestionCatalog
       .map(
@@ -233,6 +275,8 @@
     const mapStyle = params.get("mapStyle");
     const textQuestion = params.get("question");
     const selectedTheme = params.get("theme");
+    const researchModel = params.get("researchModel");
+    const researchGroup = params.get("researchGroup");
 
     if (tab && validTabs.has(tab)) {
       state.tab = tab;
@@ -269,6 +313,12 @@
     }
     if (selectedTheme && themeById.has(selectedTheme)) {
       state.selectedTheme = selectedTheme;
+    }
+    if (researchModel && modelById.has(researchModel)) {
+      state.researchModel = researchModel;
+    }
+    if (researchGroup && compareGroupById.has(researchGroup)) {
+      state.researchGroup = researchGroup;
     }
   }
 
@@ -434,6 +484,8 @@
     maybeSetSearchParam(params, "mapStyle", state.mapStyle, defaultState.mapStyle);
     maybeSetSearchParam(params, "question", state.textQuestion, defaultState.textQuestion);
     maybeSetSearchParam(params, "theme", state.selectedTheme, defaultState.selectedTheme);
+    maybeSetSearchParam(params, "researchModel", state.researchModel, defaultState.researchModel);
+    maybeSetSearchParam(params, "researchGroup", state.researchGroup, defaultState.researchGroup);
 
     url.search = params.toString();
     return url.toString();
@@ -533,6 +585,14 @@
       state.mapStyle = dom.mapStyleSelect.value;
       renderAll();
     });
+    dom.researchModelSelect.addEventListener("change", () => {
+      state.researchModel = dom.researchModelSelect.value;
+      renderAll();
+    });
+    dom.researchGroupSelect.addEventListener("change", () => {
+      state.researchGroup = dom.researchGroupSelect.value;
+      renderAll();
+    });
     dom.textQuestionSelect.addEventListener("change", () => {
       state.textQuestion = dom.textQuestionSelect.value;
       renderAll();
@@ -573,6 +633,12 @@
     }
     if (dataset.actionTheme && themeById.has(dataset.actionTheme)) {
       state.selectedTheme = dataset.actionTheme;
+    }
+    if (dataset.actionResearchModel && modelById.has(dataset.actionResearchModel)) {
+      state.researchModel = dataset.actionResearchModel;
+    }
+    if (dataset.actionResearchGroup && compareGroupById.has(dataset.actionResearchGroup)) {
+      state.researchGroup = dataset.actionResearchGroup;
     }
     if (dataset.actionFocusState) {
       state.focusState = dataset.actionFocusState;
@@ -627,6 +693,12 @@
     dom.mapStyleSelect.value = state.mapStyle;
     dom.textQuestionSelect.value = state.textQuestion;
     dom.themeSelect.value = state.selectedTheme;
+    if (dom.researchModelSelect) {
+      dom.researchModelSelect.value = state.researchModel;
+    }
+    if (dom.researchGroupSelect) {
+      dom.researchGroupSelect.value = state.researchGroup;
+    }
     renderTabs();
   }
 
@@ -656,6 +728,7 @@
     renderMethodology();
     renderCompare(cohort);
     renderEvidence(cohort, focused, findings);
+    renderResearch(cohort);
     renderMap(cohort, focused);
     writeStateToUrl();
   }
@@ -1259,6 +1332,191 @@
       : '<p class="empty-state">No evidence-led findings are available for this cohort.</p>';
   }
 
+  function renderResearch(cohort) {
+    const model = modelById.get(state.researchModel) || analyticModels[0];
+    const question = textQuestionById.get(state.textQuestion);
+    const questionCoverage = textCoverageById.get(state.textQuestion);
+    const selectedTheme = themeById.get(state.selectedTheme);
+    const audit = model ? measurementByMetricId.get(model.outcomeMetricId) : null;
+    const metric = model ? metricById.get(model.outcomeMetricId) : null;
+    const cohortMetric = model ? computeMetric(cohort, model.outcomeMetricId) : null;
+    const jointEntries = model
+      ? buildJointDisplayEntries(cohort, state.researchGroup, model.outcomeMetricId, state.textQuestion)
+      : [];
+    const cooccurrence = getThemeCooccurrence(cohort, state.textQuestion, state.selectedTheme);
+
+    if (!model) {
+      dom.researchSummary.textContent =
+        "No exploratory model metadata is available in this build, so the research layer cannot be populated yet.";
+      dom.researchMethodNoteGrid.innerHTML = "";
+      dom.researchAuditSummary.textContent = "No measurement audit is available.";
+      dom.researchAuditCards.innerHTML = '<p class="empty-state">No measurement audit is available in this build.</p>';
+      dom.researchAuditComponents.innerHTML = "";
+      dom.researchModelSummary.textContent = "No model summary is available.";
+      dom.researchModelCallout.innerHTML = "";
+      dom.researchCoefficientList.innerHTML = '<p class="empty-state">No coefficients are available in this build.</p>';
+      dom.researchJointSummary.textContent = "No joint display can be built without model metadata.";
+      dom.researchJointList.innerHTML = '<p class="empty-state">No mixed-methods display is available in this build.</p>';
+      dom.researchCodebookSummary.textContent = "No qualitative codebook metadata is available in this build.";
+      dom.researchCodebookCards.innerHTML = "";
+      return;
+    }
+
+    dom.researchSummary.textContent =
+      `${model.label} is the active exploratory model for this cohort. It uses ${sampleLabel(model.sampleSize, model.outcomeMetricId)} and pairs additive subgroup associations with the current story lens on ${lowercaseFirst(question ? question.label : "the selected text question")}. Read this tab as a research appendix: it makes the assumptions, omissions, and interpretive choices inspectable rather than implicit.`;
+
+    dom.researchMethodNoteGrid.innerHTML = [
+      makeMethodCard(
+        "Quantitative method",
+        "Modeling",
+        data.quantitativeMethodology
+          ? `${data.quantitativeMethodology.approach} ${data.quantitativeMethodology.modelingNote}`
+          : "Quantitative method notes are not available in this build.",
+        data.quantitativeMethodology ? data.quantitativeMethodology.limitations : [],
+      ),
+      makeMethodCard(
+        "Qualitative method",
+        "Coding",
+        data.qualitativeMethodology
+          ? `${data.qualitativeMethodology.approach} ${data.qualitativeMethodology.codingUnit}`
+          : "Qualitative method notes are not available in this build.",
+        data.qualitativeMethodology ? data.qualitativeMethodology.limitations : [],
+      ),
+    ].join("");
+
+    dom.researchAuditSummary.textContent = audit
+      ? `${audit.label} is the selected model outcome. Complete-case reliability is summarized here so readers can see whether the derived score is acting like a coherent measure before interpreting subgroup differences or model coefficients.`
+      : `No measurement audit is available for ${metric ? metric.label : "the selected outcome"}.`;
+
+    dom.researchAuditCards.innerHTML = (data.measurementAudit || []).length
+      ? (data.measurementAudit || [])
+          .map((item) =>
+            makeMiniCard(
+              item.label,
+              item.cronbachAlpha === null || item.cronbachAlpha === undefined ? item.reliabilityLabel : `α=${item.cronbachAlpha}`,
+              `${sampleLabel(item.sampleSize, item.metricId)} • ${item.reliabilityLabel}`,
+            ),
+          )
+          .join("")
+      : '<p class="empty-state">No measurement audit is available in this build.</p>';
+
+    dom.researchAuditComponents.innerHTML = audit
+      ? audit.components
+          .map((component) =>
+            makeMethodCard(
+              component.label,
+              "Component",
+              `${component.mean === null ? "No mean available" : `Mean ${formatNumber(component.mean)}`} • ${component.std === null ? "SD unavailable" : `SD ${formatNumber(component.std)}`} • ${component.itemTotalCorrelation === null ? "Item-total r unavailable" : `item-total r ${formatSigned(component.itemTotalCorrelation)}`}`,
+              [
+                `${formatInteger(component.coverage)} respondents`,
+                `${component.coverageShare === null ? "Coverage unavailable" : `${formatNumber(component.coverageShare)}% coverage`}`,
+              ],
+            ),
+          )
+          .join("")
+      : '<p class="empty-state">No component-level measurement detail is available for this outcome.</p>';
+
+    const strongestStable = model.strongestTerms.find((term) => term.direction === "positive" || term.direction === "negative");
+    const calloutTone = strongestStable
+      ? strongestStable.direction === "negative"
+        ? "caution"
+        : "positive"
+      : "neutral";
+    const omittedNote = model.omittedLevels && model.omittedLevels.length
+      ? `Sparse levels below n=5 were omitted (${model.omittedLevels.map((item) => `${item.level} in ${predictorFieldLabel(item.predictorId)}`).join(", ")}).`
+      : "No subgroup levels were omitted for sparsity.";
+    dom.researchModelSummary.textContent =
+      `${metric.label} is modeled across ${sampleLabel(model.sampleSize, model.outcomeMetricId)} with an exploratory R² of ${model.rSquared === null ? "-" : Number(model.rSquared).toFixed(3)}. Coefficients compare each level to a reference category, and the interval notes below come from bootstrap percentile bands rather than a causal design. ${omittedNote}`;
+    dom.researchModelCallout.innerHTML = strongestStable
+      ? makeResearchModelCallout(model, strongestStable)
+      : `
+        <div class="compare-callout">
+          <div class="finding-head">
+            <span class="finding-kind">Exploratory readout</span>
+            <span class="signal-pill">Wide intervals</span>
+          </div>
+          <h3>No single subgroup coefficient clearly dominates this model.</h3>
+          <p>The additive model still helps by showing where intervals remain wide or cross zero, which is useful for keeping claims modest.</p>
+        </div>
+      `;
+
+    const coefficientEntries = model.coefficients.filter((term) => term.predictorId !== "intercept");
+    const maxCoefficient = Math.max(
+      ...coefficientEntries.flatMap((term) => [Math.abs(term.beta || 0), Math.abs(term.ciLow || 0), Math.abs(term.ciHigh || 0)]),
+      1,
+    );
+    dom.researchCoefficientList.innerHTML = coefficientEntries.length
+      ? coefficientEntries
+          .sort((left, right) => Math.abs(right.beta || 0) - Math.abs(left.beta || 0))
+          .map((term) =>
+            makeDeltaRow({
+              label: term.label,
+              sublabel: term.baseline ? `Reference level: ${term.baseline}` : "",
+              valueLabel: formatSigned(term.beta),
+              deltaValue: term.beta,
+              maxDelta: maxCoefficient,
+              deltaLabel: formatCoefficientInterval(term),
+              badgeLabel: coefficientSignalLabel(term.direction),
+              badgeTone: coefficientSignalTone(term.direction),
+              muted: term.direction === "crosses_zero",
+            }),
+          )
+          .join("")
+      : '<p class="empty-state">No coefficient-level detail is available for this model.</p>';
+
+    const groupLabel = compareGroupById.get(state.researchGroup);
+    dom.researchJointSummary.textContent =
+      `${metric.label} is linked here to the current story lens on ${lowercaseFirst(question ? question.label : "the selected question")}, grouped by ${groupLabel ? groupLabel.label.toLowerCase() : state.researchGroup}. Each card pairs a subgroup score with its dominant coded theme and a representative quote so the numeric pattern stays accountable to actual response language.`;
+    dom.researchJointList.innerHTML = jointEntries.length
+      ? jointEntries.map((entry) => makeJointCard(entry, model.outcomeMetricId, question ? question.label : "Selected question")).join("")
+      : '<p class="empty-state">No mixed-methods joint display can be built for the current cohort and story lens.</p>';
+
+    const topThemes = questionCoverage && questionCoverage.topThemes
+      ? questionCoverage.topThemes
+          .map((item) => `${themeById.get(item.themeId) ? themeById.get(item.themeId).label : item.themeId} (${formatInteger(item.count)})`)
+      : [];
+    dom.researchCodebookSummary.textContent =
+      `${selectedTheme ? selectedTheme.label : "The selected theme"} is documented here as a coding construct rather than a natural fact. These cards show how the code is defined, where it appears on the current question, and which other ideas most often travel with it in this cohort.`;
+    dom.researchCodebookCards.innerHTML = [
+      selectedTheme
+        ? makeMethodCard(
+            selectedTheme.label,
+            "Codebook",
+            selectedTheme.description,
+            selectedTheme.inclusionCues || [],
+          )
+        : "",
+      selectedTheme
+        ? makeMethodCard(
+            "Boundary rule",
+            "Interpretation",
+            selectedTheme.boundaryNote || "No boundary note is available for this code.",
+            selectedTheme.analyticUse ? [selectedTheme.analyticUse] : [],
+          )
+        : "",
+      questionCoverage
+        ? makeMethodCard(
+            questionCoverage.label,
+            "Question scope",
+            `${formatInteger(questionCoverage.responseCount)} responses were available on this question, and ${formatInteger(questionCoverage.codedCount)} of them received at least one theme code in the current build.`,
+            topThemes,
+          )
+        : "",
+      makeMethodCard(
+        "Co-occurring ideas",
+        "Theme pattern",
+        cooccurrence.length
+          ? `${selectedTheme ? selectedTheme.label : "This theme"} most often appears alongside the themes listed below on the current story lens.`
+          : "No co-occurring theme pattern is available for the current selection.",
+        cooccurrence.length
+          ? cooccurrence.map((item) => `${themeById.get(item.themeId) ? themeById.get(item.themeId).label : item.themeId} (${formatInteger(item.count)})`)
+          : ["No repeated co-occurrence in this cohort"],
+      ),
+    ]
+      .filter(Boolean)
+      .join("");
+  }
+
   function renderMap(cohort, focused) {
     const metric = metricById.get(state.mapMetric);
     latestStateMetrics = aggregateByState(cohort, state.mapMetric);
@@ -1751,6 +2009,167 @@
       })
       .slice(0, limit)
       .map(([label, count]) => ({ label, count }));
+  }
+
+  function buildJointDisplayEntries(cohort, groupField, metricId, questionId) {
+    const grouped = new Map();
+    cohort.forEach((respondent) => {
+      const key = respondent[groupField] || "Unspecified";
+      if (!grouped.has(key)) {
+        grouped.set(key, []);
+      }
+      grouped.get(key).push(respondent);
+    });
+
+    const cohortMetric = computeMetric(cohort, metricId);
+    return Array.from(grouped.entries())
+      .map(([label, respondents]) => {
+        const metricResult = computeMetric(respondents, metricId);
+        const distribution = getThemeDistribution(respondents, questionId);
+        const topTheme = distribution.items[0] || null;
+        const quote = getQuotes(respondents, respondents, questionId, topTheme ? topTheme.themeId : state.selectedTheme)[0] || null;
+        return {
+          label,
+          respondents: respondents.length,
+          metricResult,
+          delta:
+            metricResult.value !== null && cohortMetric.value !== null
+              ? metricResult.value - cohortMetric.value
+              : null,
+          metricSignal: getSignalMeta(metricResult.denominator, metricId, "compare"),
+          distribution,
+          topTheme,
+          quote,
+        };
+      })
+      .filter((entry) => entry.metricSignal.visible || entry.distribution.responseCount >= qualityGuidance.text.displayMinimum)
+      .sort((left, right) => {
+        if ((right.metricResult.value || -Infinity) !== (left.metricResult.value || -Infinity)) {
+          return (right.metricResult.value || -Infinity) - (left.metricResult.value || -Infinity);
+        }
+        return left.label.localeCompare(right.label);
+      })
+      .slice(0, 6);
+  }
+
+  function getThemeCooccurrence(respondents, questionId, themeId) {
+    if (!themeId) {
+      return [];
+    }
+
+    const counts = new Map();
+    respondents.forEach((respondent) => {
+      const response = respondent.openResponses[questionId];
+      if (!response || !response.themes.includes(themeId)) {
+        return;
+      }
+      response.themes.forEach((candidateId) => {
+        if (candidateId === themeId) {
+          return;
+        }
+        counts.set(candidateId, (counts.get(candidateId) || 0) + 1);
+      });
+    });
+
+    return Array.from(counts.entries())
+      .map(([candidateId, count]) => ({ themeId: candidateId, count }))
+      .sort((left, right) => {
+        if (right.count !== left.count) {
+          return right.count - left.count;
+        }
+        return (themeById.get(left.themeId)?.label || left.themeId).localeCompare(themeById.get(right.themeId)?.label || right.themeId);
+      })
+      .slice(0, 4);
+  }
+
+  function predictorFieldLabel(predictorId) {
+    return compareGroupById.get(predictorId)?.label || predictorId;
+  }
+
+  function coefficientSignalLabel(direction) {
+    if (direction === "positive") {
+      return "Above zero";
+    }
+    if (direction === "negative") {
+      return "Below zero";
+    }
+    return "Crosses zero";
+  }
+
+  function coefficientSignalTone(direction) {
+    if (direction === "positive") {
+      return "strong";
+    }
+    if (direction === "negative") {
+      return "directional";
+    }
+    return "weak";
+  }
+
+  function formatSignedFixed(value, digits) {
+    if (value === null || value === undefined || Number.isNaN(value)) {
+      return "-";
+    }
+    const formatted = Number(value).toFixed(digits);
+    return `${value >= 0 ? "+" : ""}${formatted}`;
+  }
+
+  function formatCoefficientInterval(term) {
+    const intervalCopy =
+      term.ciLow === null || term.ciHigh === null
+        ? "Bootstrap interval unavailable"
+        : `95% bootstrap interval ${formatSignedFixed(term.ciLow, 2)} to ${formatSignedFixed(term.ciHigh, 2)}`;
+    const directionCopy =
+      term.direction === "positive"
+        ? "interval remains above zero"
+        : term.direction === "negative"
+          ? "interval remains below zero"
+          : "interval crosses zero";
+    return `${intervalCopy} • ${directionCopy}`;
+  }
+
+  function makeResearchModelCallout(model, term) {
+    const outcomeMetric = metricById.get(model.outcomeMetricId);
+    return `
+      <div class="compare-callout">
+        <div class="finding-head">
+          <span class="finding-kind">Exploratory readout</span>
+          <span class="signal-pill">${escapeHtml(coefficientSignalLabel(term.direction))}</span>
+        </div>
+        <h3>${escapeHtml(term.label)} is the clearest coefficient in the current ${outcomeMetric ? outcomeMetric.label.toLowerCase() : "selected"} model.</h3>
+        <p>${escapeHtml(`${formatSignedFixed(term.beta, 2)} points relative to the reference category, with a ${term.direction === "negative" ? "negative" : "positive"} interval pattern.`)}</p>
+        <div class="metric-pill-row">
+          <span class="metric-pill">${escapeHtml(`Coefficient: ${formatSignedFixed(term.beta, 2)}`)}</span>
+          <span class="metric-pill">${escapeHtml(term.baseline ? `Reference: ${term.baseline}` : "Reference varies by model")}</span>
+          <span class="metric-pill">${escapeHtml(formatCoefficientInterval(term))}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function makeJointCard(entry, metricId, questionLabel) {
+    const theme = entry.topTheme ? themeById.get(entry.topTheme.themeId) : null;
+    const textSignal = entry.topTheme
+      ? getSignalMeta(entry.distribution.responseCount, `theme:${entry.topTheme.themeId}`, "text")
+      : null;
+    return `
+      <article class="joint-card ${escapeAttribute(entry.metricSignal.calloutEligible ? "supported" : "muted")}">
+        <div class="finding-head">
+          <span class="finding-kind">${escapeHtml(entry.label)}</span>
+          <span class="signal-pill">${escapeHtml(entry.metricSignal.label)}</span>
+        </div>
+        <h3 class="joint-title">${escapeHtml(`${formatMetricValue(metricId, entry.metricResult.value)} on ${metricById.get(metricId)?.label.toLowerCase() || metricId}`)}</h3>
+        <p class="joint-summary">${escapeHtml(entry.delta === null ? "No cohort comparison is available." : `${formatSigned(entry.delta)} vs the filtered cohort on the quantitative lens.`)}</p>
+        <div class="joint-metrics">
+          <span>${escapeHtml(sampleLabel(entry.metricResult.denominator, metricId))}</span>
+          <span>${escapeHtml(`${formatInteger(entry.respondents)} subgroup respondents`)}</span>
+          <span>${escapeHtml(`Text basis: ${sampleLabel(entry.distribution.responseCount, entry.topTheme ? `theme:${entry.topTheme.themeId}` : `theme:${state.selectedTheme}`)}`)}</span>
+        </div>
+        <p class="joint-theme-copy">${escapeHtml(theme ? `${theme.label} is the dominant coded theme on ${lowercaseFirst(questionLabel)}, appearing in ${formatPercent(entry.topTheme.share)} of coded responses for this subgroup.` : `No dominant coded theme is available on ${lowercaseFirst(questionLabel)} for this subgroup.`)}</p>
+        ${theme && textSignal ? `<span class="joint-theme-signal">${escapeHtml(`${textSignal.label} on the text basis`)}</span>` : ""}
+        ${entry.quote ? `<blockquote class="joint-quote">${escapeHtml(entry.quote.text)}</blockquote>` : '<p class="empty-state">No representative quote is available for this subgroup on the current story lens.</p>'}
+      </article>
+    `;
   }
 
   function generateFindings(cohort, focused) {

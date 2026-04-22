@@ -460,6 +460,7 @@ select {
 .highlights-grid,
 .compare-grid,
 .evidence-grid,
+.research-grid,
 .map-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.92fr);
@@ -508,6 +509,7 @@ select {
 .compare-banner,
 .bar-list,
 .insight-card-list,
+.joint-display-list,
 .quote-list,
 .stance-list,
 .finding-list,
@@ -731,6 +733,7 @@ select {
 .finding-list,
 .route-list,
 .insight-card-list,
+.joint-display-list,
 .quote-list {
   display: grid;
   gap: 0.9rem;
@@ -738,6 +741,7 @@ select {
 
 .finding-card,
 .route-card,
+.joint-card,
 .quote-card {
   position: relative;
   z-index: 1;
@@ -860,6 +864,57 @@ select {
 .route-card {
   display: grid;
   gap: 0.7rem;
+}
+
+.joint-card {
+  display: grid;
+  gap: 0.7rem;
+  border-left: 4px solid rgba(199, 104, 61, 0.5);
+}
+
+.joint-card.muted {
+  opacity: 0.72;
+}
+
+.joint-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.26rem;
+  line-height: 1.12;
+}
+
+.joint-summary,
+.joint-theme-copy,
+.joint-quote {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.joint-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.85rem;
+  color: var(--muted-ink);
+  font-size: 0.84rem;
+}
+
+.joint-theme-signal {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-height: 1.8rem;
+  padding: 0.22rem 0.55rem;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(23, 33, 39, 0.58);
+  background: rgba(23, 33, 39, 0.05);
+}
+
+.joint-quote {
+  border-left: 2px solid rgba(23, 33, 39, 0.12);
+  padding-left: 0.9rem;
+  color: rgba(23, 33, 39, 0.92);
 }
 
 .method-card {
@@ -1319,6 +1374,7 @@ select {
   .discover-grid,
   .compare-grid,
   .evidence-grid,
+  .research-grid,
   .map-grid,
   .cohort-header {
     grid-template-columns: 1fr;

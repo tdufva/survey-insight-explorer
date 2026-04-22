@@ -3,7 +3,7 @@ window.SURVEY_DASHBOARD_DATA = {
   "subtitle": "Analyst dashboard, theme explorer, and insight finder for mapped U.S. survey responses.",
   "sourceWorkbook": "Survey data-0204 (for interview selection-updated)(automatiskt återställd).xlsx",
   "sourceReport": "NAEF Report.pdf",
-  "generatedAt": "2026-04-21 08:39 UTC",
+  "generatedAt": "2026-04-22 13:21 UTC",
   "surveyWindow": {
     "start": "2024-11-21",
     "end": "2025-02-02"
@@ -468,51 +468,1057 @@ window.SURVEY_DASHBOARD_DATA = {
       ]
     }
   ],
+  "measurementAudit": [
+    {
+      "metricId": "aiReadiness",
+      "label": "AI readiness",
+      "kind": "Composite average",
+      "sampleSize": 148,
+      "scoreCoverage": 148,
+      "scoreMean": 62.7,
+      "scoreStd": 29.63,
+      "componentCount": 3,
+      "cronbachAlpha": 0.89,
+      "averageInterItemCorrelation": 0.732,
+      "reliabilityLabel": "Stronger internal consistency",
+      "components": [
+        {
+          "id": "aiOpenness",
+          "label": "Overall AI attitude",
+          "coverage": 148,
+          "coverageShare": 100.0,
+          "mean": 70.1,
+          "std": 30.81,
+          "itemTotalCorrelation": 0.768
+        },
+        {
+          "id": "aiComfort",
+          "label": "Comfort integrating AI",
+          "coverage": 148,
+          "coverageShare": 100.0,
+          "mean": 65.7,
+          "std": 32.51,
+          "itemTotalCorrelation": 0.824
+        },
+        {
+          "id": "aiRelevance",
+          "label": "Perceived relevance of AI image generators",
+          "coverage": 148,
+          "coverageShare": 100.0,
+          "mean": 52.2,
+          "std": 34.74,
+          "itemTotalCorrelation": 0.77
+        }
+      ]
+    },
+    {
+      "metricId": "digitalReadiness",
+      "label": "Digital readiness",
+      "kind": "Composite average",
+      "sampleSize": 137,
+      "scoreCoverage": 148,
+      "scoreMean": 78.1,
+      "scoreStd": 18.29,
+      "componentCount": 3,
+      "cronbachAlpha": 0.618,
+      "averageInterItemCorrelation": 0.358,
+      "reliabilityLabel": "Moderate internal consistency",
+      "components": [
+        {
+          "id": "digitalIntegration",
+          "label": "Current digital integration",
+          "coverage": 147,
+          "coverageShare": 99.3,
+          "mean": 78.7,
+          "std": 24.01,
+          "itemTotalCorrelation": 0.5
+        },
+        {
+          "id": "digitalConfidence",
+          "label": "Confidence using digital tools",
+          "coverage": 146,
+          "coverageShare": 98.6,
+          "mean": 82.9,
+          "std": 22.51,
+          "itemTotalCorrelation": 0.534
+        },
+        {
+          "id": "supportReadiness",
+          "label": "School or district support",
+          "coverage": 139,
+          "coverageShare": 93.9,
+          "mean": 72.5,
+          "std": 25.71,
+          "itemTotalCorrelation": 0.273
+        }
+      ]
+    },
+    {
+      "metricId": "mediaArtsReadiness",
+      "label": "Media arts readiness",
+      "kind": "Composite average",
+      "sampleSize": 117,
+      "scoreCoverage": 148,
+      "scoreMean": 59.0,
+      "scoreStd": 35.01,
+      "componentCount": 3,
+      "cronbachAlpha": 0.657,
+      "averageInterItemCorrelation": 0.43,
+      "reliabilityLabel": "Moderate internal consistency",
+      "components": [
+        {
+          "id": "mediaArtsAdoption",
+          "label": "Current media arts adoption",
+          "coverage": 119,
+          "coverageShare": 80.4,
+          "mean": 71.6,
+          "std": 23.45,
+          "itemTotalCorrelation": 0.481
+        },
+        {
+          "id": "standardsFamiliarity",
+          "label": "Media arts standards familiarity",
+          "coverage": 122,
+          "coverageShare": 82.4,
+          "mean": 58.6,
+          "std": 38.4,
+          "itemTotalCorrelation": 0.521
+        },
+        {
+          "id": "mediaArtsBackgroundBinary",
+          "label": "Formal media arts background (Yes=100, No=0)",
+          "coverage": 147,
+          "coverageShare": 99.3,
+          "mean": 56.5,
+          "std": 49.75,
+          "itemTotalCorrelation": 0.522
+        }
+      ]
+    },
+    {
+      "metricId": "aiConcern",
+      "label": "AI concern",
+      "kind": "Single normalized item",
+      "sampleSize": 139,
+      "scoreCoverage": 139,
+      "scoreMean": 83.3,
+      "scoreStd": 24.59,
+      "componentCount": 1,
+      "cronbachAlpha": null,
+      "averageInterItemCorrelation": null,
+      "reliabilityLabel": "Single-item measure",
+      "components": [
+        {
+          "id": "aiConcern",
+          "label": "Reported ethical concern about AI",
+          "coverage": 139,
+          "coverageShare": 93.9,
+          "mean": 83.3,
+          "std": 24.59,
+          "itemTotalCorrelation": null
+        }
+      ]
+    }
+  ],
+  "analyticModels": [
+    {
+      "id": "aiReadinessModel",
+      "label": "AI readiness associations",
+      "description": "Exploratory additive model relating AI readiness to school context, teaching band, experience, media arts background, and AI usage status.",
+      "outcomeMetricId": "aiReadiness",
+      "formula": "aiReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus",
+      "sampleSize": 148,
+      "rSquared": 0.539,
+      "predictorCount": 14,
+      "omittedLevels": [
+        {
+          "predictorId": "schoolType",
+          "level": "Charter",
+          "count": 4,
+          "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "schoolType",
+          "level": "Other",
+          "count": 3,
+          "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "mediaArtsBackground",
+          "level": "Unspecified",
+          "count": 1,
+          "reason": "Below model minimum of n=5"
+        }
+      ],
+      "coefficients": [
+        {
+          "id": "intercept",
+          "label": "Intercept",
+          "predictorId": "intercept",
+          "level": null,
+          "baseline": null,
+          "beta": 30.97,
+          "ciLow": 11.42,
+          "ciHigh": 54.13,
+          "direction": "positive"
+        },
+        {
+          "id": "schoolType:Private",
+          "label": "School type: Private vs Public",
+          "predictorId": "schoolType",
+          "level": "Private",
+          "baseline": "Public",
+          "beta": 3.48,
+          "ciLow": -4.69,
+          "ciHigh": 13.4,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Middle",
+          "label": "Teaching band: Middle vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Middle",
+          "baseline": "Elementary",
+          "beta": -11.34,
+          "ciLow": -23.59,
+          "ciHigh": 1.11,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:High School",
+          "label": "Teaching band: High School vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "High School",
+          "baseline": "Elementary",
+          "beta": -11.83,
+          "ciLow": -23.07,
+          "ciHigh": -1.79,
+          "direction": "negative"
+        },
+        {
+          "id": "teachingBand:Multi-level",
+          "label": "Teaching band: Multi-level vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Multi-level",
+          "baseline": "Elementary",
+          "beta": -13.99,
+          "ciLow": -26.22,
+          "ciHigh": -2.24,
+          "direction": "negative"
+        },
+        {
+          "id": "teachingBand:Other",
+          "label": "Teaching band: Other vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Other",
+          "baseline": "Elementary",
+          "beta": -2.07,
+          "ciLow": -21.44,
+          "ciHigh": 20.33,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:4-6 years",
+          "label": "Teaching experience: 4-6 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "4-6 years",
+          "baseline": "0-3 years",
+          "beta": 16.33,
+          "ciLow": -5.26,
+          "ciHigh": 36.83,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:7-10 years",
+          "label": "Teaching experience: 7-10 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "7-10 years",
+          "baseline": "0-3 years",
+          "beta": 16.17,
+          "ciLow": -3.68,
+          "ciHigh": 37.81,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:11-15 years",
+          "label": "Teaching experience: 11-15 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "11-15 years",
+          "baseline": "0-3 years",
+          "beta": 9.34,
+          "ciLow": -11.95,
+          "ciHigh": 28.56,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:16-20 years",
+          "label": "Teaching experience: 16-20 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "16-20 years",
+          "baseline": "0-3 years",
+          "beta": 13.29,
+          "ciLow": -8.44,
+          "ciHigh": 36.81,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:20 + years",
+          "label": "Teaching experience: 20 + years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "20 + years",
+          "baseline": "0-3 years",
+          "beta": 14.59,
+          "ciLow": -3.62,
+          "ciHigh": 34.65,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "mediaArtsBackground:Yes",
+          "label": "Formal media arts background: Yes vs No",
+          "predictorId": "mediaArtsBackground",
+          "level": "Yes",
+          "baseline": "No",
+          "beta": 12.97,
+          "ciLow": 4.0,
+          "ciHigh": 20.74,
+          "direction": "positive"
+        },
+        {
+          "id": "aiUsageStatus:Active classroom AI use",
+          "label": "AI usage status: Active classroom AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Active classroom AI use",
+          "baseline": "Interested, not yet using",
+          "beta": 40.28,
+          "ciLow": 29.8,
+          "ciHigh": 48.86,
+          "direction": "positive"
+        },
+        {
+          "id": "aiUsageStatus:Personal AI use",
+          "label": "AI usage status: Personal AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Personal AI use",
+          "baseline": "Interested, not yet using",
+          "beta": 32.17,
+          "ciLow": 20.27,
+          "ciHigh": 42.05,
+          "direction": "positive"
+        },
+        {
+          "id": "aiUsageStatus:Other",
+          "label": "AI usage status: Other vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Other",
+          "baseline": "Interested, not yet using",
+          "beta": 7.93,
+          "ciLow": -12.1,
+          "ciHigh": 26.59,
+          "direction": "crosses_zero"
+        }
+      ],
+      "strongestTerms": [
+        {
+          "id": "aiUsageStatus:Active classroom AI use",
+          "label": "AI usage status: Active classroom AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Active classroom AI use",
+          "baseline": "Interested, not yet using",
+          "beta": 40.28,
+          "ciLow": 29.8,
+          "ciHigh": 48.86,
+          "direction": "positive"
+        },
+        {
+          "id": "aiUsageStatus:Personal AI use",
+          "label": "AI usage status: Personal AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Personal AI use",
+          "baseline": "Interested, not yet using",
+          "beta": 32.17,
+          "ciLow": 20.27,
+          "ciHigh": 42.05,
+          "direction": "positive"
+        },
+        {
+          "id": "experienceBand:4-6 years",
+          "label": "Teaching experience: 4-6 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "4-6 years",
+          "baseline": "0-3 years",
+          "beta": 16.33,
+          "ciLow": -5.26,
+          "ciHigh": 36.83,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:7-10 years",
+          "label": "Teaching experience: 7-10 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "7-10 years",
+          "baseline": "0-3 years",
+          "beta": 16.17,
+          "ciLow": -3.68,
+          "ciHigh": 37.81,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:20 + years",
+          "label": "Teaching experience: 20 + years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "20 + years",
+          "baseline": "0-3 years",
+          "beta": 14.59,
+          "ciLow": -3.62,
+          "ciHigh": 34.65,
+          "direction": "crosses_zero"
+        }
+      ]
+    },
+    {
+      "id": "aiConcernModel",
+      "label": "AI concern associations",
+      "description": "Exploratory additive model relating ethical concern about AI to the same contextual predictors.",
+      "outcomeMetricId": "aiConcern",
+      "formula": "aiConcern ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus",
+      "sampleSize": 139,
+      "rSquared": 0.106,
+      "predictorCount": 14,
+      "omittedLevels": [
+        {
+          "predictorId": "schoolType",
+          "level": "Charter",
+          "count": 4,
+          "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "schoolType",
+          "level": "Other",
+          "count": 3,
+          "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "mediaArtsBackground",
+          "level": "Unspecified",
+          "count": 1,
+          "reason": "Below model minimum of n=5"
+        }
+      ],
+      "coefficients": [
+        {
+          "id": "intercept",
+          "label": "Intercept",
+          "predictorId": "intercept",
+          "level": null,
+          "baseline": null,
+          "beta": 100.46,
+          "ciLow": 82.94,
+          "ciHigh": 116.79,
+          "direction": "positive"
+        },
+        {
+          "id": "schoolType:Private",
+          "label": "School type: Private vs Public",
+          "predictorId": "schoolType",
+          "level": "Private",
+          "baseline": "Public",
+          "beta": 3.58,
+          "ciLow": -11.24,
+          "ciHigh": 16.95,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Middle",
+          "label": "Teaching band: Middle vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Middle",
+          "baseline": "Elementary",
+          "beta": -8.06,
+          "ciLow": -21.02,
+          "ciHigh": 5.38,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:High School",
+          "label": "Teaching band: High School vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "High School",
+          "baseline": "Elementary",
+          "beta": -2.15,
+          "ciLow": -10.53,
+          "ciHigh": 7.09,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Multi-level",
+          "label": "Teaching band: Multi-level vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Multi-level",
+          "baseline": "Elementary",
+          "beta": -10.31,
+          "ciLow": -27.91,
+          "ciHigh": 4.76,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Other",
+          "label": "Teaching band: Other vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Other",
+          "baseline": "Elementary",
+          "beta": -8.86,
+          "ciLow": -35.36,
+          "ciHigh": 21.31,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:4-6 years",
+          "label": "Teaching experience: 4-6 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "4-6 years",
+          "baseline": "0-3 years",
+          "beta": -3.71,
+          "ciLow": -17.15,
+          "ciHigh": 11.15,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:7-10 years",
+          "label": "Teaching experience: 7-10 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "7-10 years",
+          "baseline": "0-3 years",
+          "beta": -16.58,
+          "ciLow": -36.71,
+          "ciHigh": 1.2,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:11-15 years",
+          "label": "Teaching experience: 11-15 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "11-15 years",
+          "baseline": "0-3 years",
+          "beta": -14.08,
+          "ciLow": -31.96,
+          "ciHigh": 5.94,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:16-20 years",
+          "label": "Teaching experience: 16-20 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "16-20 years",
+          "baseline": "0-3 years",
+          "beta": -8.34,
+          "ciLow": -22.4,
+          "ciHigh": 9.54,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:20 + years",
+          "label": "Teaching experience: 20 + years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "20 + years",
+          "baseline": "0-3 years",
+          "beta": -9.93,
+          "ciLow": -27.61,
+          "ciHigh": 7.64,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "mediaArtsBackground:Yes",
+          "label": "Formal media arts background: Yes vs No",
+          "predictorId": "mediaArtsBackground",
+          "level": "Yes",
+          "baseline": "No",
+          "beta": 0.04,
+          "ciLow": -9.8,
+          "ciHigh": 11.32,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "aiUsageStatus:Active classroom AI use",
+          "label": "AI usage status: Active classroom AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Active classroom AI use",
+          "baseline": "Interested, not yet using",
+          "beta": -5.1,
+          "ciLow": -15.37,
+          "ciHigh": 5.04,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "aiUsageStatus:Personal AI use",
+          "label": "AI usage status: Personal AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Personal AI use",
+          "baseline": "Interested, not yet using",
+          "beta": -14.52,
+          "ciLow": -25.72,
+          "ciHigh": -0.04,
+          "direction": "negative"
+        },
+        {
+          "id": "aiUsageStatus:Other",
+          "label": "AI usage status: Other vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Other",
+          "baseline": "Interested, not yet using",
+          "beta": 5.3,
+          "ciLow": -8.37,
+          "ciHigh": 20.47,
+          "direction": "crosses_zero"
+        }
+      ],
+      "strongestTerms": [
+        {
+          "id": "experienceBand:7-10 years",
+          "label": "Teaching experience: 7-10 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "7-10 years",
+          "baseline": "0-3 years",
+          "beta": -16.58,
+          "ciLow": -36.71,
+          "ciHigh": 1.2,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "aiUsageStatus:Personal AI use",
+          "label": "AI usage status: Personal AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Personal AI use",
+          "baseline": "Interested, not yet using",
+          "beta": -14.52,
+          "ciLow": -25.72,
+          "ciHigh": -0.04,
+          "direction": "negative"
+        },
+        {
+          "id": "experienceBand:11-15 years",
+          "label": "Teaching experience: 11-15 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "11-15 years",
+          "baseline": "0-3 years",
+          "beta": -14.08,
+          "ciLow": -31.96,
+          "ciHigh": 5.94,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Multi-level",
+          "label": "Teaching band: Multi-level vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Multi-level",
+          "baseline": "Elementary",
+          "beta": -10.31,
+          "ciLow": -27.91,
+          "ciHigh": 4.76,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:20 + years",
+          "label": "Teaching experience: 20 + years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "20 + years",
+          "baseline": "0-3 years",
+          "beta": -9.93,
+          "ciLow": -27.61,
+          "ciHigh": 7.64,
+          "direction": "crosses_zero"
+        }
+      ]
+    },
+    {
+      "id": "digitalReadinessModel",
+      "label": "Digital readiness associations",
+      "description": "Exploratory additive model relating digital readiness to respondent context and AI/media-arts positioning.",
+      "outcomeMetricId": "digitalReadiness",
+      "formula": "digitalReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus",
+      "sampleSize": 148,
+      "rSquared": 0.253,
+      "predictorCount": 14,
+      "omittedLevels": [
+        {
+          "predictorId": "schoolType",
+          "level": "Charter",
+          "count": 4,
+          "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "schoolType",
+          "level": "Other",
+          "count": 3,
+          "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "mediaArtsBackground",
+          "level": "Unspecified",
+          "count": 1,
+          "reason": "Below model minimum of n=5"
+        }
+      ],
+      "coefficients": [
+        {
+          "id": "intercept",
+          "label": "Intercept",
+          "predictorId": "intercept",
+          "level": null,
+          "baseline": null,
+          "beta": 57.09,
+          "ciLow": 43.71,
+          "ciHigh": 70.94,
+          "direction": "positive"
+        },
+        {
+          "id": "schoolType:Private",
+          "label": "School type: Private vs Public",
+          "predictorId": "schoolType",
+          "level": "Private",
+          "baseline": "Public",
+          "beta": 1.56,
+          "ciLow": -5.99,
+          "ciHigh": 8.5,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Middle",
+          "label": "Teaching band: Middle vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Middle",
+          "baseline": "Elementary",
+          "beta": -9.73,
+          "ciLow": -18.44,
+          "ciHigh": -1.33,
+          "direction": "negative"
+        },
+        {
+          "id": "teachingBand:High School",
+          "label": "Teaching band: High School vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "High School",
+          "baseline": "Elementary",
+          "beta": -1.97,
+          "ciLow": -8.76,
+          "ciHigh": 5.7,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Multi-level",
+          "label": "Teaching band: Multi-level vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Multi-level",
+          "baseline": "Elementary",
+          "beta": -3.02,
+          "ciLow": -12.29,
+          "ciHigh": 5.89,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:Other",
+          "label": "Teaching band: Other vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Other",
+          "baseline": "Elementary",
+          "beta": 0.29,
+          "ciLow": -13.27,
+          "ciHigh": 15.01,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:4-6 years",
+          "label": "Teaching experience: 4-6 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "4-6 years",
+          "baseline": "0-3 years",
+          "beta": 13.9,
+          "ciLow": 3.21,
+          "ciHigh": 26.99,
+          "direction": "positive"
+        },
+        {
+          "id": "experienceBand:7-10 years",
+          "label": "Teaching experience: 7-10 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "7-10 years",
+          "baseline": "0-3 years",
+          "beta": 14.69,
+          "ciLow": 1.44,
+          "ciHigh": 29.71,
+          "direction": "positive"
+        },
+        {
+          "id": "experienceBand:11-15 years",
+          "label": "Teaching experience: 11-15 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "11-15 years",
+          "baseline": "0-3 years",
+          "beta": 18.33,
+          "ciLow": 6.54,
+          "ciHigh": 32.7,
+          "direction": "positive"
+        },
+        {
+          "id": "experienceBand:16-20 years",
+          "label": "Teaching experience: 16-20 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "16-20 years",
+          "baseline": "0-3 years",
+          "beta": 10.07,
+          "ciLow": -3.71,
+          "ciHigh": 26.94,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:20 + years",
+          "label": "Teaching experience: 20 + years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "20 + years",
+          "baseline": "0-3 years",
+          "beta": 16.12,
+          "ciLow": 4.01,
+          "ciHigh": 29.94,
+          "direction": "positive"
+        },
+        {
+          "id": "mediaArtsBackground:Yes",
+          "label": "Formal media arts background: Yes vs No",
+          "predictorId": "mediaArtsBackground",
+          "level": "Yes",
+          "baseline": "No",
+          "beta": 9.76,
+          "ciLow": 2.12,
+          "ciHigh": 16.3,
+          "direction": "positive"
+        },
+        {
+          "id": "aiUsageStatus:Active classroom AI use",
+          "label": "AI usage status: Active classroom AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Active classroom AI use",
+          "baseline": "Interested, not yet using",
+          "beta": 10.33,
+          "ciLow": 3.43,
+          "ciHigh": 16.19,
+          "direction": "positive"
+        },
+        {
+          "id": "aiUsageStatus:Personal AI use",
+          "label": "AI usage status: Personal AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Personal AI use",
+          "baseline": "Interested, not yet using",
+          "beta": 5.7,
+          "ciLow": -1.73,
+          "ciHigh": 15.79,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "aiUsageStatus:Other",
+          "label": "AI usage status: Other vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Other",
+          "baseline": "Interested, not yet using",
+          "beta": -7.34,
+          "ciLow": -20.01,
+          "ciHigh": 5.3,
+          "direction": "crosses_zero"
+        }
+      ],
+      "strongestTerms": [
+        {
+          "id": "experienceBand:11-15 years",
+          "label": "Teaching experience: 11-15 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "11-15 years",
+          "baseline": "0-3 years",
+          "beta": 18.33,
+          "ciLow": 6.54,
+          "ciHigh": 32.7,
+          "direction": "positive"
+        },
+        {
+          "id": "experienceBand:20 + years",
+          "label": "Teaching experience: 20 + years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "20 + years",
+          "baseline": "0-3 years",
+          "beta": 16.12,
+          "ciLow": 4.01,
+          "ciHigh": 29.94,
+          "direction": "positive"
+        },
+        {
+          "id": "experienceBand:7-10 years",
+          "label": "Teaching experience: 7-10 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "7-10 years",
+          "baseline": "0-3 years",
+          "beta": 14.69,
+          "ciLow": 1.44,
+          "ciHigh": 29.71,
+          "direction": "positive"
+        },
+        {
+          "id": "experienceBand:4-6 years",
+          "label": "Teaching experience: 4-6 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "4-6 years",
+          "baseline": "0-3 years",
+          "beta": 13.9,
+          "ciLow": 3.21,
+          "ciHigh": 26.99,
+          "direction": "positive"
+        },
+        {
+          "id": "aiUsageStatus:Active classroom AI use",
+          "label": "AI usage status: Active classroom AI use vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Active classroom AI use",
+          "baseline": "Interested, not yet using",
+          "beta": 10.33,
+          "ciLow": 3.43,
+          "ciHigh": 16.19,
+          "direction": "positive"
+        }
+      ]
+    }
+  ],
+  "quantitativeMethodology": {
+    "approach": "Derived scores are normalized to 0-100, then summarized with descriptive comparisons and exploratory additive models.",
+    "modelingNote": "Model coefficients are ordinary least-squares estimates with bootstrap percentile intervals, intended for pattern finding rather than confirmatory inference.",
+    "limitations": [
+      "This is a cross-sectional survey, so models show association rather than causation.",
+      "The sample is modest and uneven across states and subgroups.",
+      "Estimates should be read as directional and exploratory, especially when intervals are wide."
+    ]
+  },
+  "qualitativeMethodology": {
+    "approach": "Open-ended responses are coded with a transparent theme codebook and lightweight stance rules where AI attitude language is explicit.",
+    "codingUnit": "Each response to each open-ended survey question is treated as its own coded unit.",
+    "limitations": [
+      "Theme coding is interpretive and may miss nuance or multi-layered meanings.",
+      "The current build uses reproducible rule-guided coding rather than double-coded human annotation.",
+      "Theme frequency indicates recurrence, not importance or causal force."
+    ]
+  },
   "themeCatalog": [
     {
       "id": "creativity",
       "label": "Creativity & ideation",
-      "description": "AI or digital tools are framed as a spark for new ideas, references, iteration, or possibility."
+      "description": "AI or digital tools are framed as a spark for new ideas, references, iteration, or possibility.",
+      "inclusionCues": [
+        "idea generation",
+        "brainstorming",
+        "reference seeking",
+        "iterative experimentation"
+      ],
+      "boundaryNote": "Use when respondents describe expansion of possibility or ideation, not simply general enthusiasm about technology.",
+      "analyticUse": "Helps separate opportunity-oriented narratives from workflow or policy talk."
     },
     {
       "id": "efficiency",
       "label": "Planning & workflow",
-      "description": "The response emphasizes planning, workflow efficiency, administrative help, or faster production."
+      "description": "The response emphasizes planning, workflow efficiency, administrative help, or faster production.",
+      "inclusionCues": [
+        "lesson planning",
+        "faster preparation",
+        "assessment support",
+        "workflow streamlining"
+      ],
+      "boundaryNote": "Use when time-saving or production support is central, rather than broader institutional barriers.",
+      "analyticUse": "Surfaces practical adoption rationales in classroom planning and administration."
     },
     {
       "id": "ethics",
       "label": "Ethics & authorship",
-      "description": "The response raises originality, copyright, authorship, ownership, bias, or misinformation concerns."
+      "description": "The response raises originality, copyright, authorship, ownership, bias, or misinformation concerns.",
+      "inclusionCues": [
+        "copyright",
+        "ownership",
+        "authorship",
+        "bias or misinformation"
+      ],
+      "boundaryNote": "Use when normative or legal concerns are explicit, not when respondents simply express discomfort.",
+      "analyticUse": "Captures value conflict and legitimacy concerns around AI-mediated making."
     },
     {
       "id": "skillLoss",
       "label": "Skill loss & over-reliance",
-      "description": "The response worries that AI shortcuts or over-reliance could weaken skill-building or creative struggle."
+      "description": "The response worries that AI shortcuts or over-reliance could weaken skill-building or creative struggle.",
+      "inclusionCues": [
+        "shortcut worries",
+        "over-reliance",
+        "loss of fundamentals",
+        "reduced struggle or practice"
+      ],
+      "boundaryNote": "Use when respondents focus on weakened skill-building, not when they only mention ethics or policy.",
+      "analyticUse": "Separates pedagogical concern about learning processes from governance concerns."
     },
     {
       "id": "access",
       "label": "Access & inclusion",
-      "description": "The response points to accessibility, support for varied learners, differentiation, or lowering barriers to participation."
+      "description": "The response points to accessibility, support for varied learners, differentiation, or lowering barriers to participation.",
+      "inclusionCues": [
+        "support for varied learners",
+        "differentiation",
+        "accessibility",
+        "lowering participation barriers"
+      ],
+      "boundaryNote": "Use when inclusion or learner access is foregrounded, not merely when support in general is mentioned.",
+      "analyticUse": "Highlights equity-oriented rationales for digital and AI integration."
     },
     {
       "id": "engagement",
       "label": "Student engagement",
-      "description": "The response centers on student interest, motivation, reflection, parent visibility, or stronger participation."
+      "description": "The response centers on student interest, motivation, reflection, parent visibility, or stronger participation.",
+      "inclusionCues": [
+        "motivation",
+        "interest",
+        "participation",
+        "reflection or portfolio sharing"
+      ],
+      "boundaryNote": "Use when student attention or participation is the main emphasis, rather than tool use alone.",
+      "analyticUse": "Captures how respondents describe classroom energy and audience connection."
     },
     {
       "id": "training",
       "label": "Training & teacher growth",
-      "description": "The response references coursework, workshops, comfort-building, research, or professional development."
+      "description": "The response references coursework, workshops, comfort-building, research, or professional development.",
+      "inclusionCues": [
+        "professional development",
+        "workshops",
+        "coursework",
+        "comfort-building or self-learning"
+      ],
+      "boundaryNote": "Use when teacher learning or credentialing is explicit, rather than a general request for resources.",
+      "analyticUse": "Makes capacity-building needs visible across subgroups."
     },
     {
       "id": "barriers",
       "label": "Barriers & policy limits",
-      "description": "The response describes blocking policies, district hesitation, budget limits, or tool constraints."
+      "description": "The response describes blocking policies, district hesitation, budget limits, or tool constraints.",
+      "inclusionCues": [
+        "district limits",
+        "policy blocks",
+        "budget constraints",
+        "hardware or software access issues"
+      ],
+      "boundaryNote": "Use when structural or institutional constraint is central, not merely when teachers describe workload.",
+      "analyticUse": "Tracks implementation friction and organizational constraint."
     },
     {
       "id": "making",
       "label": "Media-making workflows",
-      "description": "The response describes concrete creative workflows, projects, or production tools used in classrooms."
+      "description": "The response describes concrete creative workflows, projects, or production tools used in classrooms.",
+      "inclusionCues": [
+        "production workflows",
+        "named creative tools",
+        "animation or video making",
+        "classroom project techniques"
+      ],
+      "boundaryNote": "Use when respondents describe concrete making practices, not when they only discuss attitudes toward technology.",
+      "analyticUse": "Connects abstract views to actual classroom media-making practice."
     }
   ],
   "textQuestionCatalog": [
@@ -553,6 +1559,128 @@ window.SURVEY_DASHBOARD_DATA = {
       "supportsStance": true
     }
   ],
+  "textQuestionCoverage": [
+    {
+      "id": "priorInfluence",
+      "label": "Professional experiences shaping practice",
+      "responseCount": 128,
+      "codedCount": 78,
+      "topThemes": [
+        {
+          "themeId": "training",
+          "count": 30
+        },
+        {
+          "themeId": "access",
+          "count": 26
+        },
+        {
+          "themeId": "making",
+          "count": 19
+        }
+      ]
+    },
+    {
+      "id": "mediaDefinition",
+      "label": "How teachers define media arts",
+      "responseCount": 107,
+      "codedCount": 53,
+      "topThemes": [
+        {
+          "themeId": "making",
+          "count": 30
+        },
+        {
+          "themeId": "skillLoss",
+          "count": 22
+        },
+        {
+          "themeId": "creativity",
+          "count": 13
+        }
+      ]
+    },
+    {
+      "id": "techEnhanced",
+      "label": "Technology that boosted teaching or engagement",
+      "responseCount": 129,
+      "codedCount": 107,
+      "topThemes": [
+        {
+          "themeId": "engagement",
+          "count": 50
+        },
+        {
+          "themeId": "making",
+          "count": 47
+        },
+        {
+          "themeId": "creativity",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "id": "mediaProject",
+      "label": "Media arts projects with strong student impact",
+      "responseCount": 115,
+      "codedCount": 77,
+      "topThemes": [
+        {
+          "themeId": "making",
+          "count": 53
+        },
+        {
+          "themeId": "skillLoss",
+          "count": 20
+        },
+        {
+          "themeId": "creativity",
+          "count": 19
+        }
+      ]
+    },
+    {
+      "id": "aiFuture",
+      "label": "How AI could change the future of art education",
+      "responseCount": 128,
+      "codedCount": 93,
+      "topThemes": [
+        {
+          "themeId": "skillLoss",
+          "count": 39
+        },
+        {
+          "themeId": "creativity",
+          "count": 36
+        },
+        {
+          "themeId": "ethics",
+          "count": 29
+        }
+      ]
+    },
+    {
+      "id": "aiUseful",
+      "label": "When AI was especially useful in teaching",
+      "responseCount": 106,
+      "codedCount": 71,
+      "topThemes": [
+        {
+          "themeId": "creativity",
+          "count": 30
+        },
+        {
+          "themeId": "making",
+          "count": 26
+        },
+        {
+          "themeId": "barriers",
+          "count": 16
+        }
+      ]
+    }
+  ],
   "respondents": [
     {
       "id": "R_2v3ctfaS07x10oL",
@@ -575,6 +1703,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 83.3
@@ -648,6 +1777,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 83.3
@@ -749,6 +1879,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 25.0
@@ -853,6 +1984,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": null,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 50.0,
         "digitalReadiness": 64.0,
         "mediaArtsReadiness": 50.0
@@ -962,6 +2094,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 8.3
@@ -1061,6 +2194,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 91.7,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 100.0
@@ -1145,6 +2279,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 66.7
@@ -1238,6 +2373,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": null,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 58.3,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 100.0
@@ -1301,6 +2437,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": null,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 100.0
@@ -1409,6 +2546,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 91.7,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -1518,6 +2656,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 0.0,
         "digitalReadiness": 37.5,
         "mediaArtsReadiness": 100.0
@@ -1604,6 +2743,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 75.0,
         "mediaArtsReadiness": 0.0
@@ -1691,6 +2831,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 62.5,
         "mediaArtsReadiness": 0.0
@@ -1787,6 +2928,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 58.3,
         "mediaArtsReadiness": 0.0
@@ -1885,6 +3027,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 50.0,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 33.3
@@ -1940,6 +3083,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 50.0
@@ -2047,6 +3191,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 0.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 41.7
@@ -2132,6 +3277,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 41.7,
         "digitalReadiness": 27.7,
         "mediaArtsReadiness": 0.0
@@ -2230,6 +3376,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 16.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 25.0
@@ -2343,6 +3490,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": null,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 58.3
@@ -2410,6 +3558,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 0,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 33.3,
         "digitalReadiness": 50.0,
         "mediaArtsReadiness": 66.7
@@ -2494,6 +3643,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 91.7,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 0.0
@@ -2588,6 +3738,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 41.7,
         "digitalReadiness": 61.0,
         "mediaArtsReadiness": 25.0
@@ -2691,6 +3842,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": null,
         "aiReadiness": 58.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 50.0
@@ -2798,6 +3950,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 55.7,
         "mediaArtsReadiness": 25.0
@@ -2895,6 +4048,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 33.3,
         "digitalReadiness": 44.3,
         "mediaArtsReadiness": 16.7
@@ -3000,6 +4154,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 58.3,
         "digitalReadiness": 52.7,
         "mediaArtsReadiness": 66.7
@@ -3111,6 +4266,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 50.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 16.7
@@ -3210,6 +4366,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 25.0
@@ -3325,6 +4482,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 33.3
@@ -3425,6 +4583,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 0.0,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 16.7
@@ -3508,6 +4667,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 65,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 41.7,
         "digitalReadiness": 52.7,
         "mediaArtsReadiness": 16.7
@@ -3598,6 +4758,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 83.3
@@ -3709,6 +4870,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 41.7,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 0.0
@@ -3802,6 +4964,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 77.7,
         "mediaArtsReadiness": 83.3
@@ -3903,6 +5066,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 41.7,
         "digitalReadiness": 64.0,
         "mediaArtsReadiness": 33.3
@@ -4005,6 +5169,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 91.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 100.0
@@ -4119,6 +5284,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": null,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -4222,6 +5388,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 0,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 66.7,
         "mediaArtsReadiness": 66.7
@@ -4330,6 +5497,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 91.7,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 16.7
@@ -4435,6 +5603,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 25,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 47.3,
         "mediaArtsReadiness": 33.3
@@ -4535,6 +5704,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 66.7,
         "digitalReadiness": 69.3,
         "mediaArtsReadiness": 33.3
@@ -4642,6 +5812,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 77.7,
         "mediaArtsReadiness": 91.7
@@ -4744,6 +5915,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 58.3,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 91.7
@@ -4812,6 +5984,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 50.0,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 41.7
@@ -4919,6 +6092,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 75.0
@@ -5022,6 +6196,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": null,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 0.0,
         "digitalReadiness": 77.7,
         "mediaArtsReadiness": 33.3
@@ -5119,6 +6294,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 0.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 100.0
@@ -5226,6 +6402,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 0.0,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 75.0
@@ -5332,6 +6509,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 16.7,
         "digitalReadiness": 39.0,
         "mediaArtsReadiness": 25.0
@@ -5437,6 +6615,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 83.3
@@ -5546,6 +6725,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 33.3,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 50.0
@@ -5654,6 +6834,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 8.3,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -5745,6 +6926,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": null,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 58.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 75.0
@@ -5852,6 +7034,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 25,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 41.7,
         "digitalReadiness": 22.3,
         "mediaArtsReadiness": 0.0
@@ -5930,6 +7113,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 41.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 75.0
@@ -6023,6 +7207,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 50.0,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 16.7
@@ -6113,6 +7298,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 33.3,
         "digitalReadiness": 61.0,
         "mediaArtsReadiness": 25.0
@@ -6222,6 +7408,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 65,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 41.7,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 33.3
@@ -6313,6 +7500,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 91.7,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 25.0
@@ -6433,6 +7621,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 25,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 61.0,
         "mediaArtsReadiness": 0.0
@@ -6509,6 +7698,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 25.0,
         "digitalReadiness": 83.5,
         "mediaArtsReadiness": 25.0
@@ -6602,6 +7792,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 41.7,
         "digitalReadiness": 75.0,
         "mediaArtsReadiness": 100.0
@@ -6692,6 +7883,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 16.7,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 50.0
@@ -6806,6 +7998,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 50.0,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 66.7
@@ -6903,6 +8096,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 8.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 41.7
@@ -6984,6 +8178,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 33.3,
         "digitalReadiness": 64.0,
         "mediaArtsReadiness": 58.3
@@ -7093,6 +8288,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 91.7
@@ -7188,6 +8384,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 100.0
@@ -7252,6 +8449,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 100.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 50.0
@@ -7315,6 +8513,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 91.7,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 66.7
@@ -7404,6 +8603,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 64.0,
         "mediaArtsReadiness": 66.7
@@ -7498,6 +8698,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 66.7
@@ -7559,6 +8760,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 91.7
@@ -7687,6 +8889,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 91.7
@@ -7778,6 +8981,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 83.3
@@ -7848,6 +9052,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 75.0
@@ -7945,6 +9150,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -8053,6 +9259,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 100.0
@@ -8142,6 +9349,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 100.0
@@ -8263,6 +9471,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 91.7,
         "digitalReadiness": 75.0,
         "mediaArtsReadiness": 91.7
@@ -8353,6 +9562,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 100.0
@@ -8454,6 +9664,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 100.0
@@ -8572,6 +9783,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -8680,6 +9892,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -8756,6 +9969,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -8849,6 +10063,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -8941,6 +10156,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -9056,6 +10272,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 64.0,
         "mediaArtsReadiness": 91.7
@@ -9167,6 +10384,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -9232,6 +10450,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 83.3
@@ -9340,6 +10559,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 75.0
@@ -9459,6 +10679,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -9556,6 +10777,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 91.7
@@ -9669,6 +10891,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 75.0,
         "mediaArtsReadiness": 100.0
@@ -9740,6 +10963,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 0,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 91.7,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 100.0
@@ -9852,6 +11076,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 25,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 25.0,
         "digitalReadiness": 50.0,
         "mediaArtsReadiness": 0.0
@@ -9948,6 +11173,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 100.0
@@ -10062,6 +11288,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 16.7,
         "digitalReadiness": 44.3,
         "mediaArtsReadiness": 0.0
@@ -10143,6 +11370,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 16.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 100.0
@@ -10247,6 +11475,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": null,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 100.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 58.3
@@ -10351,6 +11580,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 0,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 41.7
@@ -10456,6 +11686,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 61.0,
         "mediaArtsReadiness": 50.0
@@ -10546,6 +11777,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 0.0,
         "digitalReadiness": 64.0,
         "mediaArtsReadiness": 25.0
@@ -10618,6 +11850,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 0,
         "supportReadiness": 0,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 41.7,
         "mediaArtsReadiness": 100.0
@@ -10698,6 +11931,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 41.7,
         "digitalReadiness": 36.0,
         "mediaArtsReadiness": 100.0
@@ -10756,6 +11990,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 33.3
@@ -10818,6 +12053,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 91.7,
         "digitalReadiness": 77.7,
         "mediaArtsReadiness": 58.3
@@ -10927,6 +12163,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 8.3,
         "digitalReadiness": 47.3,
         "mediaArtsReadiness": 0.0
@@ -11020,6 +12257,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 66.7,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 33.3
@@ -11118,6 +12356,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 16.7,
         "digitalReadiness": 30.7,
         "mediaArtsReadiness": 0.0
@@ -11201,6 +12440,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 0.0,
         "digitalReadiness": 61.0,
         "mediaArtsReadiness": 75.0
@@ -11304,6 +12544,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 91.7
@@ -11429,6 +12670,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 100.0
@@ -11537,6 +12779,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 0,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 8.3,
         "digitalReadiness": 33.3,
         "mediaArtsReadiness": 16.7
@@ -11636,6 +12879,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 25.0
@@ -11740,6 +12984,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 25.0
@@ -11842,6 +13087,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 75.0
@@ -11946,6 +13192,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 33.3
@@ -12044,6 +13291,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 25,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 66.7
@@ -12146,6 +13394,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 66.7
@@ -12249,6 +13498,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 66.7
@@ -12341,6 +13591,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 58.3,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 8.3
@@ -12400,6 +13651,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 0,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 50.0,
         "digitalReadiness": 61.0,
         "mediaArtsReadiness": 100.0
@@ -12484,6 +13736,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 83.3,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 50.0
@@ -12594,6 +13847,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 58.3,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 75.0
@@ -12697,6 +13951,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 50.0,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 100.0
@@ -12780,6 +14035,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 91.7,
         "mediaArtsReadiness": 83.3
@@ -12883,6 +14139,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 83.3,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 16.7
@@ -12988,6 +14245,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 25.0,
         "digitalReadiness": 36.0,
         "mediaArtsReadiness": 0.0
@@ -13069,6 +14327,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": null,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 83.3,
         "digitalReadiness": 87.5,
         "mediaArtsReadiness": 0.0
@@ -13169,6 +14428,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 100.0
@@ -13274,6 +14534,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 91.7
@@ -13387,6 +14648,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 75.0,
         "mediaArtsReadiness": 66.7
@@ -13448,6 +14710,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 100.0,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 100.0
@@ -13553,6 +14816,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 89.0,
         "mediaArtsReadiness": 91.7
@@ -13623,6 +14887,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 50.0,
         "digitalReadiness": 80.7,
         "mediaArtsReadiness": 0.0
@@ -13701,6 +14966,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 50.0,
         "digitalReadiness": 47.3,
         "mediaArtsReadiness": 33.3
@@ -13767,6 +15033,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 66.7,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 50.0
@@ -13877,6 +15144,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 25,
         "aiConcern": 65,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 58.3,
         "digitalReadiness": 64.0,
         "mediaArtsReadiness": 91.7
@@ -13930,6 +15198,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": null,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 75.0,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 33.3
@@ -14020,6 +15289,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 8.3,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 0.0
@@ -14100,6 +15370,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 100,
         "supportReadiness": 67,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 72.3,
         "mediaArtsReadiness": 83.3
@@ -14196,6 +15467,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 0,
         "aiConcern": 100,
         "supportReadiness": 33,
+        "mediaArtsBackgroundBinary": 0,
         "aiReadiness": 0.0,
         "digitalReadiness": 77.7,
         "mediaArtsReadiness": 16.7
@@ -14283,6 +15555,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 41.7,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 58.3
@@ -14390,6 +15663,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 100,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 83.3,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 66.7
@@ -14510,6 +15784,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 50,
         "aiConcern": 100,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 66.7,
         "digitalReadiness": 100.0,
         "mediaArtsReadiness": 83.3
@@ -14617,6 +15892,7 @@ window.SURVEY_DASHBOARD_DATA = {
         "aiComfort": 75,
         "aiConcern": 65,
         "supportReadiness": 100,
+        "mediaArtsBackgroundBinary": 100,
         "aiReadiness": 75.0,
         "digitalReadiness": 83.3,
         "mediaArtsReadiness": 83.3
@@ -14720,6 +15996,8 @@ window.SURVEY_DASHBOARD_DATA = {
     "compareGroup": "teachingBand",
     "mapMetric": "aiReadiness",
     "textQuestion": "aiFuture",
-    "theme": "creativity"
+    "theme": "creativity",
+    "researchModel": "aiReadinessModel",
+    "researchGroup": "teachingBand"
   }
 };
