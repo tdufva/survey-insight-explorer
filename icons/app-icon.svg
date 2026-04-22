@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7E4CF"/>
+      <stop offset="0.55" stop-color="#D07A4F"/>
+      <stop offset="1" stop-color="#7E3620"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="126" y1="132" x2="388" y2="386" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#132028"/>
+      <stop offset="1" stop-color="#263A43"/>
+    </linearGradient>
+    <linearGradient id="towerA" x1="0" y1="186" x2="0" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE8CB"/>
+      <stop offset="1" stop-color="#E89C63"/>
+    </linearGradient>
+    <linearGradient id="towerB" x1="0" y1="170" x2="0" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4E7"/>
+      <stop offset="1" stop-color="#F0B17E"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="104" fill="url(#bg)"/>
+  <path d="M84 394C133 336 190 308 258 308C332 308 389 336 428 394" stroke="#FFF5EA" stroke-opacity=".38" stroke-width="16" stroke-linecap="round"/>
+  <path d="M94 140C138 104 193 86 257 86C325 86 378 103 420 136" stroke="#F9EBD9" stroke-opacity=".52" stroke-width="10" stroke-linecap="round"/>
+  <rect x="102" y="118" width="308" height="280" rx="42" fill="url(#panel)"/>
+  <path d="M136 204H376" stroke="#E9D5BE" stroke-opacity=".16" stroke-width="4"/>
+  <path d="M136 264H376" stroke="#E9D5BE" stroke-opacity=".16" stroke-width="4"/>
+  <path d="M136 324H376" stroke="#E9D5BE" stroke-opacity=".16" stroke-width="4"/>
+  <path d="M184 154V362" stroke="#E9D5BE" stroke-opacity=".1" stroke-width="4"/>
+  <path d="M256 154V362" stroke="#E9D5BE" stroke-opacity=".1" stroke-width="4"/>
+  <path d="M328 154V362" stroke="#E9D5BE" stroke-opacity=".1" stroke-width="4"/>
+  <path d="M150 300C175 274 210 256 256 256C302 256 338 274 362 300" stroke="#F7DFBF" stroke-opacity=".9" stroke-width="9" stroke-linecap="round"/>
+  <path d="M170 286C192 258 220 240 257 240C292 240 321 257 341 284" stroke="#F7DFBF" stroke-opacity=".35" stroke-width="7" stroke-linecap="round"/>
+  <rect x="166" y="250" width="42" height="104" rx="12" fill="url(#towerA)"/>
+  <rect x="236" y="214" width="42" height="140" rx="12" fill="url(#towerB)"/>
+  <rect x="306" y="234" width="42" height="120" rx="12" fill="url(#towerA)"/>
+  <path d="M166 250L178 238H220L208 250H166Z" fill="#FFEBD2"/>
+  <path d="M236 214L248 202H290L278 214H236Z" fill="#FFF5E6"/>
+  <path d="M306 234L318 222H360L348 234H306Z" fill="#FFEBD2"/>
+  <path d="M208 250L220 238V342L208 354V250Z" fill="#C86C42"/>
+  <path d="M278 214L290 202V322L278 334V214Z" fill="#D58B58"/>
+  <path d="M348 234L360 222V334L348 346V234Z" fill="#C86C42"/>
+  <circle cx="382" cy="168" r="12" fill="#FFE5C8" fill-opacity=".84"/>
+</svg>

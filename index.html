@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Interactive survey insight explorer for digital technology, AI, and media arts responses across U.S. states."
+    />
+    <meta name="theme-color" content="#f4efe7" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Survey Insights" />
+    <title>Survey Insight Explorer</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml" />
+    <link rel="mask-icon" href="icons/app-icon.svg" color="#c7683d" />
+    <link rel="apple-touch-icon" href="icons/app-icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-grid"></div>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Guided Survey Analysis</p>
+          <h1 id="app-title">Digital Technology, AI, and Media Arts Insight Explorer</h1>
+          <p class="hero-note" id="app-subtitle">
+            Start with the strongest patterns, compare groups side by side, then inspect the themes and quotes behind them.
+          </p>
+        </div>
+        <div class="hero-side">
+          <div class="hero-summary">
+            <div class="hero-stat">
+              <span class="hero-value" id="hero-respondents">0</span>
+              <span class="hero-label">Mapped respondents</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-value" id="hero-states">0</span>
+              <span class="hero-label">States represented</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-value" id="hero-window">-</span>
+              <span class="hero-label">Survey window</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <div class="button-row">
+              <button class="action-button" id="share-view-button" type="button">Share this view</button>
+              <button class="ghost-button" id="install-app-button" type="button" hidden>Install app</button>
+            </div>
+            <p class="hero-share-note" id="share-status">
+              Share links reopen the same tab, filters, and selected state so collaborators see the same evidence.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <aside class="panel rail">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Filters</p>
+              <h2>Build a cohort</h2>
+            </div>
+          </div>
+
+          <label class="field">
+            <span class="field-label">State focus</span>
+            <select id="focus-state-select"></select>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Teaching band</span>
+            <select id="teaching-band-select"></select>
+          </label>
+
+          <label class="field">
+            <span class="field-label">School type</span>
+            <select id="school-type-select"></select>
+          </label>
+
+          <details class="more-filters">
+            <summary>More filters</summary>
+
+            <label class="field compact-field">
+              <span class="field-label">Teaching experience</span>
+              <select id="experience-select"></select>
+            </label>
+
+            <label class="field compact-field">
+              <span class="field-label">Media arts background</span>
+              <select id="background-select"></select>
+            </label>
+          </details>
+
+          <div class="rail-actions">
+            <button class="action-button" id="clear-filters-button" type="button">Clear filters</button>
+          </div>
+
+          <p class="rail-summary" id="filter-summary"></p>
+          <div class="rail-note">
+            <p class="rail-note-copy" id="method-note"></p>
+          </div>
+        </aside>
+
+        <main class="content">
+          <section class="panel cohort-bar">
+            <div class="cohort-header">
+              <div class="cohort-copy">
+                <p class="eyebrow">Current cohort</p>
+                <h2 id="cohort-title">All mapped U.S. responses</h2>
+                <p class="panel-copy" id="cohort-description"></p>
+              </div>
+              <div class="cohort-stats">
+                <div class="cohort-stat">
+                  <span class="cohort-value" id="cohort-respondents">0</span>
+                  <span class="cohort-label">Respondents</span>
+                </div>
+                <div class="cohort-stat">
+                  <span class="cohort-value" id="cohort-states">0</span>
+                  <span class="cohort-label">States</span>
+                </div>
+                <div class="cohort-stat">
+                  <span class="cohort-value" id="cohort-text">0</span>
+                  <span class="cohort-label">Coded text responses</span>
+                </div>
+              </div>
+            </div>
+            <div class="chip-list" id="active-filter-chips"></div>
+          </section>
+
+          <section class="panel story-lens-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Story lens</p>
+                <h2>Choose the question and theme that lead the opening analysis</h2>
+              </div>
+            </div>
+            <p class="panel-copy" id="story-lens-summary"></p>
+            <div class="control-strip">
+              <label class="field compact-field">
+                <span class="field-label">Story question</span>
+                <select id="text-question-select"></select>
+              </label>
+              <label class="field compact-field">
+                <span class="field-label">Theme focus</span>
+                <select id="theme-select"></select>
+              </label>
+            </div>
+          </section>
+
+          <section class="panel transparency-panel">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Context and Transparency</p>
+                <h2>What this analysis shows, what it infers, and what remains outside view</h2>
+              </div>
+            </div>
+            <p class="panel-copy" id="transparency-summary"></p>
+            <div class="methodology-grid" id="transparency-list"></div>
+          </section>
+
+          <nav class="tab-nav" aria-label="Views">
+            <button class="tab-button active" data-tab="highlights" type="button">Highlights</button>
+            <button class="tab-button" data-tab="compare" type="button">Compare</button>
+            <button class="tab-button" data-tab="evidence" type="button">Evidence</button>
+            <button class="tab-button" data-tab="map" type="button">Map</button>
+          </nav>
+
+          <section class="tab-panel" id="tab-highlights">
+            <div class="highlights-grid">
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Start here</p>
+                    <h2>Featured finding</h2>
+                  </div>
+                </div>
+                <p class="panel-copy">
+                  The app surfaces the strongest current pattern first, then lets you jump straight to the evidence behind it.
+                </p>
+                <div class="feature-finding-wrap" id="featured-finding"></div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Quick scan</p>
+                    <h2>Cohort pulse</h2>
+                  </div>
+                </div>
+                <p class="panel-copy">
+                  A fast read on the current cohort before you dive into specific findings.
+                </p>
+                <div class="card-grid pulse-grid" id="highlights-cards"></div>
+                <div class="bar-list" id="highlights-metric-bars"></div>
+              </section>
+            </div>
+
+            <div class="discover-grid">
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Interesting findings</p>
+                    <h2>What looks most worth investigating</h2>
+                  </div>
+                </div>
+                <p class="panel-copy" id="highlights-summary"></p>
+                <div class="finding-list" id="finding-list"></div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Next steps</p>
+                    <h2>Follow these routes</h2>
+                  </div>
+                </div>
+                <p class="panel-copy" id="route-summary"></p>
+                <div class="route-list" id="route-list"></div>
+              </section>
+            </div>
+
+            <section class="panel methodology-panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Interpret Carefully</p>
+                  <h2>Confidence and score method</h2>
+                </div>
+              </div>
+              <p class="panel-copy" id="quality-summary"></p>
+              <div class="methodology-grid" id="methodology-list"></div>
+            </section>
+          </section>
+
+          <section class="tab-panel" id="tab-compare" hidden>
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Compare groups</p>
+                  <h2>Test how the story changes by segment</h2>
+                </div>
+              </div>
+              <div class="control-strip">
+                <label class="field compact-field">
+                  <span class="field-label">Metric</span>
+                  <select id="compare-metric-select"></select>
+                </label>
+                <label class="field compact-field">
+                  <span class="field-label">Group by</span>
+                  <select id="compare-group-select"></select>
+                </label>
+              </div>
+              <p class="panel-copy" id="compare-summary"></p>
+              <div class="compare-banner" id="compare-takeaway"></div>
+            </div>
+
+            <div class="compare-grid">
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Difference</p>
+                    <h2>Difference from cohort</h2>
+                  </div>
+                </div>
+                <p class="panel-copy" id="compare-delta-summary"></p>
+                <div class="bar-list" id="compare-bar-list"></div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Absolute level</p>
+                    <h2>Metric position by group</h2>
+                  </div>
+                </div>
+                <p class="panel-copy" id="compare-score-summary"></p>
+                <div class="bar-list" id="compare-score-chart"></div>
+              </section>
+            </div>
+
+            <section class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Readout</p>
+                  <h2>How to interpret the gap</h2>
+                </div>
+              </div>
+                <div class="insight-card-list" id="compare-highlight-list"></div>
+            </section>
+          </section>
+
+          <section class="tab-panel" id="tab-evidence" hidden>
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Evidence explorer</p>
+                  <h2>Read the themes, attitudes, and support needs</h2>
+                </div>
+              </div>
+              <p class="panel-copy" id="evidence-summary"></p>
+            </div>
+
+            <div class="evidence-grid">
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Theme distribution</p>
+                    <h2>What respondents keep returning to</h2>
+                  </div>
+                </div>
+                <div class="card-grid compact-card-grid" id="theme-cards"></div>
+                <div class="stance-list" id="stance-list"></div>
+                <div class="bar-list" id="theme-bar-list"></div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Representative voices</p>
+                    <h2>Quotes behind the pattern</h2>
+                  </div>
+                </div>
+                <div class="quote-list" id="quote-list"></div>
+              </section>
+            </div>
+
+            <div class="discover-grid">
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Operational needs</p>
+                    <h2>What gets in the way, and what people want next</h2>
+                  </div>
+                </div>
+                <p class="panel-copy">
+                  These ranked lists make the practical constraints more visible alongside the open-response themes.
+                </p>
+                <div class="support-columns">
+                  <div class="support-column">
+                    <h3>Most reported barriers</h3>
+                    <div class="simple-list" id="challenge-list"></div>
+                  </div>
+                  <div class="support-column">
+                    <h3>Most requested supports</h3>
+                    <div class="simple-list" id="resource-list"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">Read this next</p>
+                    <h2>Evidence-led findings</h2>
+                  </div>
+                </div>
+                <p class="panel-copy" id="evidence-finding-summary"></p>
+                <div class="finding-list compact" id="evidence-finding-list"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="tab-map" hidden>
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <p class="eyebrow">Map lens</p>
+                  <h2>Inspect geography after the main findings</h2>
+                </div>
+              </div>
+              <div class="control-strip">
+                <label class="field compact-field">
+                  <span class="field-label">State map metric</span>
+                  <select id="map-metric-select"></select>
+                </label>
+                <label class="field compact-field">
+                  <span class="field-label">Map style</span>
+                  <select id="map-style-select"></select>
+                </label>
+                <div class="map-state-action">
+                  <button class="ghost-button" id="clear-state-focus-button" type="button">Clear state focus</button>
+                </div>
+              </div>
+              <p class="panel-copy" id="map-summary"></p>
+            </div>
+
+            <div class="map-grid">
+              <section class="panel map-panel">
+                <div class="map-stage" id="map-stage">
+                  <div class="map-root" id="map-root"></div>
+                  <div class="map-tooltip" id="map-tooltip" hidden></div>
+                </div>
+                <div class="legend-block">
+                  <div class="legend-swatch"></div>
+                  <div class="legend-scale">
+                    <span id="legend-min">0</span>
+                    <span id="legend-max">0</span>
+                  </div>
+                  <p class="legend-copy" id="legend-caption"></p>
+                </div>
+              </section>
+
+              <section class="panel">
+                <div class="panel-head">
+                  <div>
+                    <p class="eyebrow">State detail</p>
+                    <h2 id="map-focus-title">No state selected</h2>
+                  </div>
+                </div>
+                <p class="panel-copy" id="map-focus-copy"></p>
+                <div class="card-grid compact-card-grid" id="map-focus-cards"></div>
+                <div class="map-analysis-block">
+                  <div class="panel-head compact-head">
+                    <div>
+                      <p class="eyebrow">State skyline</p>
+                      <h2>Difference from cohort</h2>
+                    </div>
+                  </div>
+                  <p class="panel-copy" id="map-delta-summary"></p>
+                  <div class="bar-list" id="map-delta-chart"></div>
+                </div>
+                <div class="bar-list scrollable" id="map-ranking-list"></div>
+              </section>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="footer-note" id="footer-note"></footer>
+    </div>
+
+    <script src="us-map.js"></script>
+    <script src="survey-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

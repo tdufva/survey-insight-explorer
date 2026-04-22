@@ -1,0 +1,19 @@
+{
+  "name": "Survey Insight Explorer",
+  "short_name": "Survey Insights",
+  "description": "Interactive survey insight explorer for digital technology, AI, and media arts responses across U.S. states.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4efe7",
+  "theme_color": "#f4efe7",
+  "categories": ["education", "productivity", "graphics"],
+  "icons": [
+    {
+      "src": "./icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
