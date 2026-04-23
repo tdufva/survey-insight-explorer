@@ -1,0 +1,144 @@
+metricId,metricLabel,overallMean,withinVariance,betweenVariance,state,stateName,sampleSize,rawMean,pooledMean,shrinkage,ciLow,ciHigh
+aiReadiness,AI readiness,62.67,669.035,218.825,FL,Florida,9,86.11,80.17,0.746,65.57,94.77
+aiReadiness,AI readiness,62.67,669.035,218.825,CA,California,18,81.48,78.75,0.855,67.7,89.8
+aiReadiness,AI readiness,62.67,669.035,218.825,IL,Illinois,6,77.77,72.67,0.662,55.83,89.52
+aiReadiness,AI readiness,62.67,669.035,218.825,NY,New York,9,75.01,71.88,0.746,57.28,86.48
+aiReadiness,AI readiness,62.67,669.035,218.825,HI,Hawaii,1,100.0,71.87,0.246,46.7,97.04
+aiReadiness,AI readiness,62.67,669.035,218.825,NV,Nevada,1,91.7,69.82,0.246,44.66,94.99
+aiReadiness,AI readiness,62.67,669.035,218.825,AK,Alaska,2,79.15,69.19,0.395,46.64,91.73
+aiReadiness,AI readiness,62.67,669.035,218.825,PA,Pennsylvania,6,72.22,69.0,0.662,52.15,85.84
+aiReadiness,AI readiness,62.67,669.035,218.825,OK,Oklahoma,3,75.0,68.78,0.495,48.18,89.37
+aiReadiness,AI readiness,62.67,669.035,218.825,DE,Delaware,3,75.0,68.78,0.495,48.18,89.37
+aiReadiness,AI readiness,62.67,669.035,218.825,OH,Ohio,7,70.21,67.92,0.696,51.93,83.9
+aiReadiness,AI readiness,62.67,669.035,218.825,VA,Virginia,2,70.85,65.9,0.395,43.36,88.45
+aiReadiness,AI readiness,62.67,669.035,218.825,AZ,Arizona,1,75.0,65.71,0.246,40.54,90.88
+aiReadiness,AI readiness,62.67,669.035,218.825,MA,Massachusetts,4,66.65,64.93,0.567,45.84,84.01
+aiReadiness,AI readiness,62.67,669.035,218.825,WI,Wisconsin,2,66.7,64.26,0.395,41.72,86.81
+aiReadiness,AI readiness,62.67,669.035,218.825,NE,Nebraska,2,66.7,64.26,0.395,41.72,86.81
+aiReadiness,AI readiness,62.67,669.035,218.825,MO,Missouri,4,64.6,63.76,0.567,44.68,82.85
+aiReadiness,AI readiness,62.67,669.035,218.825,WV,West Virginia,1,66.7,63.66,0.246,38.49,88.83
+aiReadiness,AI readiness,62.67,669.035,218.825,CT,Connecticut,3,61.1,61.89,0.495,41.29,82.49
+aiReadiness,AI readiness,62.67,669.035,218.825,CO,Colorado,1,58.3,61.59,0.246,36.42,86.76
+aiReadiness,AI readiness,62.67,669.035,218.825,KY,Kentucky,2,58.35,60.96,0.395,38.42,83.5
+aiReadiness,AI readiness,62.67,669.035,218.825,MD,Maryland,6,59.72,60.72,0.662,43.87,77.56
+aiReadiness,AI readiness,62.67,669.035,218.825,SC,South Carolina,5,58.34,59.98,0.621,42.12,77.84
+aiReadiness,AI readiness,62.67,669.035,218.825,MN,Minnesota,1,50.0,59.55,0.246,34.38,84.71
+aiReadiness,AI readiness,62.67,669.035,218.825,GA,Georgia,8,57.29,58.78,0.723,43.53,74.02
+aiReadiness,AI readiness,62.67,669.035,218.825,AL,Alabama,3,52.77,57.77,0.495,37.17,78.36
+aiReadiness,AI readiness,62.67,669.035,218.825,NJ,New Jersey,1,41.7,57.5,0.246,32.33,82.67
+aiReadiness,AI readiness,62.67,669.035,218.825,TX,Texas,14,51.79,53.74,0.821,41.46,66.01
+aiReadiness,AI readiness,62.67,669.035,218.825,NH,New Hampshire,3,44.43,53.64,0.495,33.04,74.23
+aiReadiness,AI readiness,62.67,669.035,218.825,VT,Vermont,1,16.7,51.34,0.246,26.17,76.51
+aiReadiness,AI readiness,62.67,669.035,218.825,NM,New Mexico,5,38.34,47.57,0.621,29.71,65.43
+aiReadiness,AI readiness,62.67,669.035,218.825,KS,Kansas,1,0.0,47.22,0.246,22.05,72.39
+aiReadiness,AI readiness,62.67,669.035,218.825,NC,North Carolina,6,37.5,46.0,0.662,29.15,62.84
+aiReadiness,AI readiness,62.67,669.035,218.825,OR,Oregon,2,12.5,42.83,0.395,20.29,65.37
+aiReadiness,AI readiness,62.67,669.035,218.825,WA,Washington,3,16.67,39.89,0.495,19.29,60.49
+aiReadiness,AI readiness,62.67,669.035,218.825,IN,Indiana,2,4.15,39.53,0.395,16.98,62.07
+digitalReadiness,Digital readiness,78.1,349.064,0.0,FL,Florida,9,85.84,78.1,0.0,65.9,90.31
+digitalReadiness,Digital readiness,78.1,349.064,0.0,MD,Maryland,6,76.83,78.1,0.0,63.15,93.05
+digitalReadiness,Digital readiness,78.1,349.064,0.0,MO,Missouri,4,87.5,78.1,0.0,59.79,96.41
+digitalReadiness,Digital readiness,78.1,349.064,0.0,CA,California,18,80.0,78.1,0.0,69.47,86.73
+digitalReadiness,Digital readiness,78.1,349.064,0.0,CO,Colorado,1,72.3,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,NY,New York,9,81.84,78.1,0.0,65.9,90.31
+digitalReadiness,Digital readiness,78.1,349.064,0.0,OK,Oklahoma,3,70.43,78.1,0.0,56.96,99.24
+digitalReadiness,Digital readiness,78.1,349.064,0.0,OH,Ohio,7,89.34,78.1,0.0,64.26,91.94
+digitalReadiness,Digital readiness,78.1,349.064,0.0,TX,Texas,14,75.54,78.1,0.0,68.32,87.89
+digitalReadiness,Digital readiness,78.1,349.064,0.0,NV,Nevada,1,100.0,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,PA,Pennsylvania,6,73.15,78.1,0.0,63.15,93.05
+digitalReadiness,Digital readiness,78.1,349.064,0.0,NH,New Hampshire,3,74.5,78.1,0.0,56.96,99.24
+digitalReadiness,Digital readiness,78.1,349.064,0.0,KY,Kentucky,2,77.8,78.1,0.0,52.21,104.0
+digitalReadiness,Digital readiness,78.1,349.064,0.0,NM,New Mexico,5,68.32,78.1,0.0,61.73,94.48
+digitalReadiness,Digital readiness,78.1,349.064,0.0,SC,South Carolina,5,64.48,78.1,0.0,61.73,94.48
+digitalReadiness,Digital readiness,78.1,349.064,0.0,GA,Georgia,8,77.12,78.1,0.0,65.16,91.05
+digitalReadiness,Digital readiness,78.1,349.064,0.0,WI,Wisconsin,2,72.2,78.1,0.0,52.21,104.0
+digitalReadiness,Digital readiness,78.1,349.064,0.0,NC,North Carolina,6,64.35,78.1,0.0,63.15,93.05
+digitalReadiness,Digital readiness,78.1,349.064,0.0,AL,Alabama,3,77.9,78.1,0.0,56.96,99.24
+digitalReadiness,Digital readiness,78.1,349.064,0.0,CT,Connecticut,3,74.1,78.1,0.0,56.96,99.24
+digitalReadiness,Digital readiness,78.1,349.064,0.0,IL,Illinois,6,77.83,78.1,0.0,63.15,93.05
+digitalReadiness,Digital readiness,78.1,349.064,0.0,VA,Virginia,2,82.0,78.1,0.0,52.21,104.0
+digitalReadiness,Digital readiness,78.1,349.064,0.0,NE,Nebraska,2,79.15,78.1,0.0,52.21,104.0
+digitalReadiness,Digital readiness,78.1,349.064,0.0,WV,West Virginia,1,77.7,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,MA,Massachusetts,4,86.17,78.1,0.0,59.79,96.41
+digitalReadiness,Digital readiness,78.1,349.064,0.0,MN,Minnesota,1,91.7,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,KS,Kansas,1,77.7,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,IN,Indiana,2,94.5,78.1,0.0,52.21,104.0
+digitalReadiness,Digital readiness,78.1,349.064,0.0,WA,Washington,3,75.0,78.1,0.0,56.96,99.24
+digitalReadiness,Digital readiness,78.1,349.064,0.0,OR,Oregon,2,55.65,78.1,0.0,52.21,104.0
+digitalReadiness,Digital readiness,78.1,349.064,0.0,NJ,New Jersey,1,75.0,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,AK,Alaska,2,82.0,78.1,0.0,52.21,104.0
+digitalReadiness,Digital readiness,78.1,349.064,0.0,AZ,Arizona,1,100.0,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,DE,Delaware,3,90.27,78.1,0.0,56.96,99.24
+digitalReadiness,Digital readiness,78.1,349.064,0.0,VT,Vermont,1,89.0,78.1,0.0,41.48,114.72
+digitalReadiness,Digital readiness,78.1,349.064,0.0,HI,Hawaii,1,41.7,78.1,0.0,41.48,114.72
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,FL,Florida,9,84.26,70.93,0.472,55.91,85.95
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,CA,California,18,70.84,66.6,0.641,54.22,78.98
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,IN,Indiana,2,100.0,65.8,0.166,46.92,84.68
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,AK,Alaska,2,95.85,65.12,0.166,46.24,84.0
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,NY,New York,9,69.46,63.94,0.472,48.92,78.96
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,OH,Ohio,7,69.04,63.12,0.41,47.25,79.0
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,NV,Nevada,1,100.0,62.71,0.09,43.0,82.43
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,NJ,New Jersey,1,100.0,62.71,0.09,43.0,82.43
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,VT,Vermont,1,100.0,62.71,0.09,43.0,82.43
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,HI,Hawaii,1,100.0,62.71,0.09,43.0,82.43
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,IL,Illinois,6,68.05,62.39,0.373,46.02,78.75
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,WV,West Virginia,1,91.7,61.96,0.09,42.25,81.68
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,MA,Massachusetts,4,66.67,61.19,0.284,43.7,78.68
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,CT,Connecticut,3,66.7,60.78,0.23,42.63,78.92
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,OK,Oklahoma,3,66.67,60.77,0.23,42.63,78.91
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,AZ,Arizona,1,75.0,60.46,0.09,40.74,80.17
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,TX,Texas,14,59.53,59.31,0.582,45.94,72.68
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,MD,Maryland,6,59.72,59.28,0.373,42.91,75.64
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,AL,Alabama,3,58.33,58.85,0.23,40.71,77.0
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,NM,New Mexico,5,55.0,57.68,0.332,40.78,74.58
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,DE,Delaware,3,52.77,57.58,0.23,39.43,75.72
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,NE,Nebraska,2,50.0,57.52,0.166,38.64,76.4
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,MN,Minnesota,1,41.7,57.45,0.09,37.73,77.16
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,KS,Kansas,1,33.3,56.69,0.09,36.97,76.4
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,VA,Virginia,2,41.7,56.14,0.166,37.26,75.02
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,WA,Washington,3,41.67,55.03,0.23,36.89,73.17
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,KY,Kentucky,2,33.3,54.75,0.166,35.87,73.63
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,MO,Missouri,4,43.75,54.67,0.284,37.19,72.16
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,NC,North Carolina,6,47.23,54.61,0.373,38.25,70.97
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,CO,Colorado,1,8.3,54.43,0.09,34.71,74.14
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,NH,New Hampshire,3,36.1,53.75,0.23,35.61,71.89
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,GA,Georgia,8,41.67,51.33,0.443,35.9,66.76
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,OR,Oregon,2,12.5,51.3,0.166,32.42,70.18
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,SC,South Carolina,5,34.98,51.04,0.332,34.14,67.93
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,WI,Wisconsin,2,8.35,50.61,0.166,31.73,69.49
+mediaArtsReadiness,Media arts readiness,59.01,1119.741,111.221,PA,Pennsylvania,6,30.55,48.38,0.373,32.02,64.75
+aiConcern,AI concern,83.35,545.882,61.627,CA,California,16,93.44,89.84,0.644,80.66,99.03
+aiConcern,AI concern,83.35,545.882,61.627,GA,Georgia,8,95.62,89.17,0.475,78.02,100.32
+aiConcern,AI concern,83.35,545.882,61.627,OK,Oklahoma,3,100.0,87.56,0.253,74.26,100.86
+aiConcern,AI concern,83.35,545.882,61.627,IN,Indiana,2,100.0,86.41,0.184,72.52,100.31
+aiConcern,AI concern,83.35,545.882,61.627,OR,Oregon,2,100.0,86.41,0.184,72.52,100.31
+aiConcern,AI concern,83.35,545.882,61.627,DE,Delaware,2,100.0,86.41,0.184,72.52,100.31
+aiConcern,AI concern,83.35,545.882,61.627,FL,Florida,9,88.33,85.86,0.504,75.02,96.69
+aiConcern,AI concern,83.35,545.882,61.627,NY,New York,9,88.33,85.86,0.504,75.02,96.69
+aiConcern,AI concern,83.35,545.882,61.627,MD,Maryland,6,88.33,85.36,0.404,73.48,97.24
+aiConcern,AI concern,83.35,545.882,61.627,CO,Colorado,1,100.0,85.03,0.101,70.45,99.62
+aiConcern,AI concern,83.35,545.882,61.627,WV,West Virginia,1,100.0,85.03,0.101,70.45,99.62
+aiConcern,AI concern,83.35,545.882,61.627,MN,Minnesota,1,100.0,85.03,0.101,70.45,99.62
+aiConcern,AI concern,83.35,545.882,61.627,NJ,New Jersey,1,100.0,85.03,0.101,70.45,99.62
+aiConcern,AI concern,83.35,545.882,61.627,AZ,Arizona,1,100.0,85.03,0.101,70.45,99.62
+aiConcern,AI concern,83.35,545.882,61.627,VT,Vermont,1,100.0,85.03,0.101,70.45,99.62
+aiConcern,AI concern,83.35,545.882,61.627,NC,North Carolina,6,87.5,85.02,0.404,73.14,96.9
+aiConcern,AI concern,83.35,545.882,61.627,CT,Connecticut,3,88.33,84.61,0.253,71.31,97.9
+aiConcern,AI concern,83.35,545.882,61.627,MA,Massachusetts,3,88.33,84.61,0.253,71.31,97.9
+aiConcern,AI concern,83.35,545.882,61.627,WA,Washington,3,88.33,84.61,0.253,71.31,97.9
+aiConcern,AI concern,83.35,545.882,61.627,SC,South Carolina,5,86.0,84.3,0.361,72.0,96.6
+aiConcern,AI concern,83.35,545.882,61.627,KY,Kentucky,2,82.5,83.19,0.184,69.29,97.09
+aiConcern,AI concern,83.35,545.882,61.627,MO,Missouri,4,82.5,83.08,0.311,70.31,95.85
+aiConcern,AI concern,83.35,545.882,61.627,PA,Pennsylvania,6,81.67,82.67,0.404,70.79,94.55
+aiConcern,AI concern,83.35,545.882,61.627,NH,New Hampshire,3,76.67,81.66,0.253,68.36,94.95
+aiConcern,AI concern,83.35,545.882,61.627,AL,Alabama,3,76.67,81.66,0.253,68.36,94.95
+aiConcern,AI concern,83.35,545.882,61.627,NV,Nevada,1,65.0,81.48,0.101,66.9,96.07
+aiConcern,AI concern,83.35,545.882,61.627,TX,Texas,13,78.85,80.67,0.595,70.88,90.47
+aiConcern,AI concern,83.35,545.882,61.627,WI,Wisconsin,2,65.0,79.97,0.184,66.07,93.86
+aiConcern,AI concern,83.35,545.882,61.627,VA,Virginia,2,65.0,79.97,0.184,66.07,93.86
+aiConcern,AI concern,83.35,545.882,61.627,AK,Alaska,2,65.0,79.97,0.184,66.07,93.86
+aiConcern,AI concern,83.35,545.882,61.627,NE,Nebraska,2,62.5,79.51,0.184,65.61,93.4
+aiConcern,AI concern,83.35,545.882,61.627,IL,Illinois,4,63.75,77.25,0.311,64.48,90.02
+aiConcern,AI concern,83.35,545.882,61.627,HI,Hawaii,1,0.0,74.89,0.101,60.31,89.48
+aiConcern,AI concern,83.35,545.882,61.627,NM,New Mexico,5,58.0,74.2,0.361,61.9,86.5
+aiConcern,AI concern,83.35,545.882,61.627,OH,Ohio,6,60.0,73.92,0.404,62.04,85.8

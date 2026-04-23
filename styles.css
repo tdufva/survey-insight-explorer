@@ -510,6 +510,7 @@ select {
 .bar-list,
 .insight-card-list,
 .joint-display-list,
+.download-list,
 .quote-list,
 .stance-list,
 .finding-list,
@@ -734,6 +735,7 @@ select {
 .route-list,
 .insight-card-list,
 .joint-display-list,
+.download-list,
 .quote-list {
   display: grid;
   gap: 0.9rem;

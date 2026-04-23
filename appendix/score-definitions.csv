@@ -1,0 +1,11 @@
+metricId,metricLabel,kind,scaleNote,componentId,componentLabel
+aiReadiness,AI readiness,Composite average,Average of available 0-100 normalized components.,aiOpenness,Overall AI attitude
+aiReadiness,AI readiness,Composite average,Average of available 0-100 normalized components.,aiComfort,Comfort integrating AI
+aiReadiness,AI readiness,Composite average,Average of available 0-100 normalized components.,aiRelevance,Perceived relevance of AI image generators
+digitalReadiness,Digital readiness,Composite average,Average of available 0-100 normalized components.,digitalIntegration,Current digital integration
+digitalReadiness,Digital readiness,Composite average,Average of available 0-100 normalized components.,digitalConfidence,Confidence using digital tools
+digitalReadiness,Digital readiness,Composite average,Average of available 0-100 normalized components.,supportReadiness,School or district support
+mediaArtsReadiness,Media arts readiness,Composite average,"Average of available 0-100 normalized components, including a binary background indicator.",mediaArtsAdoption,Current media arts adoption
+mediaArtsReadiness,Media arts readiness,Composite average,"Average of available 0-100 normalized components, including a binary background indicator.",standardsFamiliarity,Media arts standards familiarity
+mediaArtsReadiness,Media arts readiness,Composite average,"Average of available 0-100 normalized components, including a binary background indicator.",mediaArtsBackgroundBinary,"Formal media arts background (Yes=100, No=0)"
+aiConcern,AI concern,Single normalized item,A single survey item mapped to a 0-100 scale from no concern to significant concern.,aiConcern,Reported ethical concern about AI

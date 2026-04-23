@@ -1,0 +1,84 @@
+modelId,modelLabel,outcomeMetricId,termId,termLabel,predictorId,termFamily,level,baseline,beta,ciLow,ciHigh,direction
+aiReadinessModel,AI readiness associations,aiReadiness,intercept,Intercept,intercept,predictor,,,38.91,30.17,50.71,positive
+aiReadinessModel,AI readiness associations,aiReadiness,schoolType:Private,School type: Private vs Public,schoolType,predictor,Private,Public,3.28,-3.54,11.67,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,teachingBand:Middle,Teaching band: Middle vs Elementary,teachingBand,predictor,Middle,Elementary,-7.42,-16.24,2.9,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,teachingBand:High School,Teaching band: High School vs Elementary,teachingBand,predictor,High School,Elementary,-8.95,-16.84,-1.41,negative
+aiReadinessModel,AI readiness associations,aiReadiness,teachingBand:Multi-level,Teaching band: Multi-level vs Elementary,teachingBand,predictor,Multi-level,Elementary,-7.42,-17.22,1.69,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,teachingBand:Other,Teaching band: Other vs Elementary,teachingBand,predictor,Other,Elementary,1.16,-15.65,18.1,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,experienceBand:4-6 years,Teaching experience: 4-6 years vs 0-3 years,experienceBand,predictor,4-6 years,0-3 years,8.82,-0.91,18.56,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,experienceBand:7-10 years,Teaching experience: 7-10 years vs 0-3 years,experienceBand,predictor,7-10 years,0-3 years,8.13,-0.4,17.34,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,experienceBand:11-15 years,Teaching experience: 11-15 years vs 0-3 years,experienceBand,predictor,11-15 years,0-3 years,0.78,-9.54,9.31,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,experienceBand:16-20 years,Teaching experience: 16-20 years vs 0-3 years,experienceBand,predictor,16-20 years,0-3 years,4.31,-5.85,14.56,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,experienceBand:20 + years,Teaching experience: 20 + years vs 0-3 years,experienceBand,predictor,20 + years,0-3 years,2.71,-7.19,12.13,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,mediaArtsBackground:Yes,Formal media arts background: Yes vs No,mediaArtsBackground,predictor,Yes,No,10.07,2.49,16.33,positive
+aiReadinessModel,AI readiness associations,aiReadiness,aiUsageStatus:Active classroom AI use,"AI usage status: Active classroom AI use vs Interested, not yet using",aiUsageStatus,predictor,Active classroom AI use,"Interested, not yet using",35.38,26.57,42.74,positive
+aiReadinessModel,AI readiness associations,aiReadiness,aiUsageStatus:Personal AI use,"AI usage status: Personal AI use vs Interested, not yet using",aiUsageStatus,predictor,Personal AI use,"Interested, not yet using",28.57,18.44,36.58,positive
+aiReadinessModel,AI readiness associations,aiReadiness,aiUsageStatus:Other,"AI usage status: Other vs Interested, not yet using",aiUsageStatus,predictor,Other,"Interested, not yet using",3.45,-12.54,16.48,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:TX,State: Texas vs California,state,state,TX,CA,-2.42,-13.63,8.68,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:FL,State: Florida vs California,state,state,FL,CA,6.92,-1.8,14.1,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:NY,State: New York vs California,state,state,NY,CA,10.94,0.42,19.91,positive
+aiReadinessModel,AI readiness associations,aiReadiness,state:GA,State: Georgia vs California,state,state,GA,CA,3.27,-12.05,17.26,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:OH,State: Ohio vs California,state,state,OH,CA,8.21,-0.56,16.05,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:IL,State: Illinois vs California,state,state,IL,CA,10.58,-1.77,19.1,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:MD,State: Maryland vs California,state,state,MD,CA,2.25,-8.86,10.93,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:NC,State: North Carolina vs California,state,state,NC,CA,-10.13,-20.33,2.0,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:PA,State: Pennsylvania vs California,state,state,PA,CA,10.13,-4.51,21.84,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:NM,State: New Mexico vs California,state,state,NM,CA,-13.84,-24.75,-1.13,negative
+aiReadinessModel,AI readiness associations,aiReadiness,state:SC,State: South Carolina vs California,state,state,SC,CA,10.72,-0.85,19.52,crosses_zero
+aiReadinessModel,AI readiness associations,aiReadiness,state:MA,State: Massachusetts vs California,state,state,MA,CA,10.58,0.45,16.03,positive
+aiReadinessModel,AI readiness associations,aiReadiness,state:MO,State: Missouri vs California,state,state,MO,CA,-0.11,-6.55,6.14,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,intercept,Intercept,intercept,predictor,,,84.63,80.57,89.53,positive
+aiConcernModel,AI concern associations,aiConcern,schoolType:Private,School type: Private vs Public,schoolType,predictor,Private,Public,0.19,-3.35,3.04,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,teachingBand:Middle,Teaching band: Middle vs Elementary,teachingBand,predictor,Middle,Elementary,-1.43,-4.3,1.62,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,teachingBand:High School,Teaching band: High School vs Elementary,teachingBand,predictor,High School,Elementary,1.74,-1.33,4.45,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,teachingBand:Multi-level,Teaching band: Multi-level vs Elementary,teachingBand,predictor,Multi-level,Elementary,-2.5,-5.94,0.62,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,teachingBand:Other,Teaching band: Other vs Elementary,teachingBand,predictor,Other,Elementary,-0.68,-3.65,1.99,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,experienceBand:4-6 years,Teaching experience: 4-6 years vs 0-3 years,experienceBand,predictor,4-6 years,0-3 years,1.99,-0.76,4.63,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,experienceBand:7-10 years,Teaching experience: 7-10 years vs 0-3 years,experienceBand,predictor,7-10 years,0-3 years,-2.24,-6.31,1.08,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,experienceBand:11-15 years,Teaching experience: 11-15 years vs 0-3 years,experienceBand,predictor,11-15 years,0-3 years,-1.64,-5.29,1.5,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,experienceBand:16-20 years,Teaching experience: 16-20 years vs 0-3 years,experienceBand,predictor,16-20 years,0-3 years,0.76,-1.65,3.21,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,experienceBand:20 + years,Teaching experience: 20 + years vs 0-3 years,experienceBand,predictor,20 + years,0-3 years,-0.05,-3.58,3.01,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,mediaArtsBackground:Yes,Formal media arts background: Yes vs No,mediaArtsBackground,predictor,Yes,No,-0.77,-4.21,2.36,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,aiUsageStatus:Active classroom AI use,"AI usage status: Active classroom AI use vs Interested, not yet using",aiUsageStatus,predictor,Active classroom AI use,"Interested, not yet using",-1.05,-4.6,2.2,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,aiUsageStatus:Personal AI use,"AI usage status: Personal AI use vs Interested, not yet using",aiUsageStatus,predictor,Personal AI use,"Interested, not yet using",-3.54,-6.71,0.11,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,aiUsageStatus:Other,"AI usage status: Other vs Interested, not yet using",aiUsageStatus,predictor,Other,"Interested, not yet using",1.55,-0.22,3.32,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:TX,State: Texas vs California,state,state,TX,CA,-1.03,-4.3,2.44,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:FL,State: Florida vs California,state,state,FL,CA,1.2,-0.5,3.04,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:NY,State: New York vs California,state,state,NY,CA,0.71,-1.26,2.29,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:GA,State: Georgia vs California,state,state,GA,CA,1.72,0.06,3.3,positive
+aiConcernModel,AI concern associations,aiConcern,state:MD,State: Maryland vs California,state,state,MD,CA,0.58,-1.01,2.28,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:NC,State: North Carolina vs California,state,state,NC,CA,0.66,-2.1,2.83,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:OH,State: Ohio vs California,state,state,OH,CA,-3.27,-6.7,-0.02,negative
+aiConcernModel,AI concern associations,aiConcern,state:PA,State: Pennsylvania vs California,state,state,PA,CA,-0.31,-2.97,2.02,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:NM,State: New Mexico vs California,state,state,NM,CA,-2.54,-5.74,1.35,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:SC,State: South Carolina vs California,state,state,SC,CA,0.22,-1.48,1.81,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:IL,State: Illinois vs California,state,state,IL,CA,-1.88,-4.58,0.21,crosses_zero
+aiConcernModel,AI concern associations,aiConcern,state:MO,State: Missouri vs California,state,state,MO,CA,-0.26,-2.07,1.21,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,intercept,Intercept,intercept,predictor,,,72.26,68.79,77.31,positive
+digitalReadinessModel,Digital readiness associations,digitalReadiness,schoolType:Private,School type: Private vs Public,schoolType,predictor,Private,Public,1.23,-2.04,3.77,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,teachingBand:Middle,Teaching band: Middle vs Elementary,teachingBand,predictor,Middle,Elementary,-3.79,-6.58,-0.83,negative
+digitalReadinessModel,Digital readiness associations,digitalReadiness,teachingBand:High School,Teaching band: High School vs Elementary,teachingBand,predictor,High School,Elementary,0.19,-2.92,3.53,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,teachingBand:Multi-level,Teaching band: Multi-level vs Elementary,teachingBand,predictor,Multi-level,Elementary,0.46,-2.93,3.78,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,teachingBand:Other,Teaching band: Other vs Elementary,teachingBand,predictor,Other,Elementary,0.61,-2.87,3.56,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,experienceBand:4-6 years,Teaching experience: 4-6 years vs 0-3 years,experienceBand,predictor,4-6 years,0-3 years,1.9,-0.42,4.27,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,experienceBand:7-10 years,Teaching experience: 7-10 years vs 0-3 years,experienceBand,predictor,7-10 years,0-3 years,1.0,-2.34,3.93,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,experienceBand:11-15 years,Teaching experience: 11-15 years vs 0-3 years,experienceBand,predictor,11-15 years,0-3 years,2.77,-0.62,6.03,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,experienceBand:16-20 years,Teaching experience: 16-20 years vs 0-3 years,experienceBand,predictor,16-20 years,0-3 years,-2.56,-5.39,0.81,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,experienceBand:20 + years,Teaching experience: 20 + years vs 0-3 years,experienceBand,predictor,20 + years,0-3 years,0.72,-2.49,3.64,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,mediaArtsBackground:Yes,Formal media arts background: Yes vs No,mediaArtsBackground,predictor,Yes,No,5.34,1.72,8.42,positive
+digitalReadinessModel,Digital readiness associations,digitalReadiness,aiUsageStatus:Active classroom AI use,"AI usage status: Active classroom AI use vs Interested, not yet using",aiUsageStatus,predictor,Active classroom AI use,"Interested, not yet using",6.14,2.6,8.91,positive
+digitalReadinessModel,Digital readiness associations,digitalReadiness,aiUsageStatus:Personal AI use,"AI usage status: Personal AI use vs Interested, not yet using",aiUsageStatus,predictor,Personal AI use,"Interested, not yet using",1.93,-0.92,4.91,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,aiUsageStatus:Other,"AI usage status: Other vs Interested, not yet using",aiUsageStatus,predictor,Other,"Interested, not yet using",-3.7,-7.21,0.03,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:TX,State: Texas vs California,state,state,TX,CA,-0.66,-4.58,3.1,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:FL,State: Florida vs California,state,state,FL,CA,1.41,-0.73,3.49,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:NY,State: New York vs California,state,state,NY,CA,1.42,-0.66,3.44,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:GA,State: Georgia vs California,state,state,GA,CA,-0.22,-3.04,1.93,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:OH,State: Ohio vs California,state,state,OH,CA,2.37,0.49,4.17,positive
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:IL,State: Illinois vs California,state,state,IL,CA,-0.09,-2.59,2.28,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:MD,State: Maryland vs California,state,state,MD,CA,0.06,-3.0,2.57,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:NC,State: North Carolina vs California,state,state,NC,CA,-2.84,-5.48,0.52,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:PA,State: Pennsylvania vs California,state,state,PA,CA,-1.19,-4.78,2.05,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:NM,State: New Mexico vs California,state,state,NM,CA,-1.45,-4.34,1.67,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:SC,State: South Carolina vs California,state,state,SC,CA,-2.12,-5.64,0.82,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:MA,State: Massachusetts vs California,state,state,MA,CA,1.87,-0.11,3.9,crosses_zero
+digitalReadinessModel,Digital readiness associations,digitalReadiness,state:MO,State: Missouri vs California,state,state,MO,CA,1.68,-0.19,3.37,crosses_zero

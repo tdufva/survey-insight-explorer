@@ -1,0 +1,37 @@
+sampleId,questionId,questionLabel,primaryThemes,primaryStance
+Q01-01,priorInfluence,Professional experiences shaping practice,training,not_scored
+Q01-02,priorInfluence,Professional experiences shaping practice,training|making,not_scored
+Q01-03,priorInfluence,Professional experiences shaping practice,training,not_scored
+Q01-04,priorInfluence,Professional experiences shaping practice,skillLoss,not_scored
+Q01-05,priorInfluence,Professional experiences shaping practice,,not_scored
+Q01-06,priorInfluence,Professional experiences shaping practice,,not_scored
+Q02-01,mediaDefinition,How teachers define media arts,making,not_scored
+Q02-02,mediaDefinition,How teachers define media arts,making,not_scored
+Q02-03,mediaDefinition,How teachers define media arts,efficiency,not_scored
+Q02-04,mediaDefinition,How teachers define media arts,barriers,not_scored
+Q02-05,mediaDefinition,How teachers define media arts,,not_scored
+Q02-06,mediaDefinition,How teachers define media arts,,not_scored
+Q03-01,techEnhanced,Technology that boosted teaching or engagement,making,not_scored
+Q03-02,techEnhanced,Technology that boosted teaching or engagement,creativity|skillLoss,not_scored
+Q03-03,techEnhanced,Technology that boosted teaching or engagement,training|making,not_scored
+Q03-04,techEnhanced,Technology that boosted teaching or engagement,efficiency|access|engagement,not_scored
+Q03-05,techEnhanced,Technology that boosted teaching or engagement,,not_scored
+Q03-06,techEnhanced,Technology that boosted teaching or engagement,,not_scored
+Q04-01,mediaProject,Media arts projects with strong student impact,creativity|engagement,not_scored
+Q04-02,mediaProject,Media arts projects with strong student impact,barriers|making,not_scored
+Q04-03,mediaProject,Media arts projects with strong student impact,creativity|skillLoss,not_scored
+Q04-04,mediaProject,Media arts projects with strong student impact,making,not_scored
+Q04-05,mediaProject,Media arts projects with strong student impact,,not_scored
+Q04-06,mediaProject,Media arts projects with strong student impact,,not_scored
+Q05-01,aiFuture,How AI could change the future of art education,ethics|skillLoss,negative
+Q05-02,aiFuture,How AI could change the future of art education,creativity|skillLoss|access|engagement|making,positive
+Q05-03,aiFuture,How AI could change the future of art education,creativity|access,neutral
+Q05-04,aiFuture,How AI could change the future of art education,access|barriers,positive
+Q05-05,aiFuture,How AI could change the future of art education,,positive
+Q05-06,aiFuture,How AI could change the future of art education,,neutral
+Q06-01,aiUseful,When AI was especially useful in teaching,engagement,positive
+Q06-02,aiUseful,When AI was especially useful in teaching,making,neutral
+Q06-03,aiUseful,When AI was especially useful in teaching,skillLoss,positive
+Q06-04,aiUseful,When AI was especially useful in teaching,barriers,neutral
+Q06-05,aiUseful,When AI was especially useful in teaching,,positive
+Q06-06,aiUseful,When AI was especially useful in teaching,,neutral

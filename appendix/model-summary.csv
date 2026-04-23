@@ -1,0 +1,4 @@
+modelId,label,modelType,outcomeMetricId,sampleSize,rSquared,ridgeLambda,includesStateEffects,stateTermCount,formula
+aiReadinessModel,AI readiness associations,stateAwareRidge,aiReadiness,148,0.596,2.0,True,13,aiReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus + state
+aiConcernModel,AI concern associations,stateAwareRidge,aiConcern,139,0.079,40.0,True,12,aiConcern ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus + state
+digitalReadinessModel,Digital readiness associations,stateAwareRidge,digitalReadiness,148,0.221,20.0,True,13,digitalReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus + state

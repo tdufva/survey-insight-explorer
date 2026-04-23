@@ -14,6 +14,7 @@
   const compareGroupById = new Map(data.compareGroups.map((group) => [group.id, group]));
   const modelById = new Map((data.analyticModels || []).map((model) => [model.id, model]));
   const measurementByMetricId = new Map((data.measurementAudit || []).map((item) => [item.metricId, item]));
+  const pooledStateByMetricId = new Map((data.statePooledEstimates || []).map((item) => [item.metricId, item]));
   const validTabs = new Set(["highlights", "compare", "evidence", "research", "map"]);
   const validMapStyles = new Set(["towers", "filled"]);
   const qualityGuidance = data.qualityGuidance || {
@@ -126,6 +127,10 @@
     researchJointList: document.getElementById("research-joint-list"),
     researchCodebookSummary: document.getElementById("research-codebook-summary"),
     researchCodebookCards: document.getElementById("research-codebook-cards"),
+    researchStateSummary: document.getElementById("research-state-summary"),
+    researchStateList: document.getElementById("research-state-list"),
+    researchAppendixSummary: document.getElementById("research-appendix-summary"),
+    researchAppendixList: document.getElementById("research-appendix-list"),
     mapMetricSelect: document.getElementById("map-metric-select"),
     mapStyleSelect: document.getElementById("map-style-select"),
     mapSummary: document.getElementById("map-summary"),
@@ -930,6 +935,14 @@
         ],
       ),
       makeMethodCard(
+        "Privacy safeguards",
+        "Anonymous",
+        data.privacySummary
+          ? `${data.privacySummary.summary} ${data.privacySummary.sanitizedResponseCount ? `${formatInteger(data.privacySummary.sanitizedResponseCount)} public text excerpts required redaction.` : ""}`
+          : "Privacy safeguards are not documented in this build.",
+        data.privacySummary ? data.privacySummary.safeguards || [] : [],
+      ),
+      makeMethodCard(
         "Labor behind the view",
         "Labor",
         "Survey respondents, report authors, spreadsheet preparation, state cleaning, score construction, theme coding, and interface design all shape what is visible here. The analysis is made, not merely found.",
@@ -1225,7 +1238,7 @@
         : focusedDistribution.items.find((item) => item.themeId === state.selectedTheme);
 
     dom.evidenceSummary.textContent =
-      `${question.label} in the current cohort. Theme counts help you scan recurring ideas, while quotes keep more context and language visible so smaller or less dominant voices are not flattened into a single summary. Theme labels are interpretive coding rather than exact respondent wording. Current coded-text basis: ${sampleLabel(distribution.responseCount, `theme:${state.selectedTheme}`)} • ${describeSignalStrength(distribution.responseCount, `theme:${state.selectedTheme}`, "text")}${state.focusState === "all" ? "." : `, with ${data.stateNames[state.focusState]} prioritized when relevant.`}`;
+      `${question.label} in the current cohort. Theme counts help you scan recurring ideas, while anonymized quotes keep more context and language visible so smaller or less dominant voices are not flattened into a single summary. Theme labels are interpretive coding rather than exact respondent wording. Current coded-text basis: ${sampleLabel(distribution.responseCount, `theme:${state.selectedTheme}`)} • ${describeSignalStrength(distribution.responseCount, `theme:${state.selectedTheme}`, "text")}${state.focusState === "all" ? "." : `, with ${data.stateNames[state.focusState]} prioritized when relevant.`}`;
 
     dom.themeCards.innerHTML = [
       makeMiniCard(
@@ -1339,11 +1352,13 @@
     const selectedTheme = themeById.get(state.selectedTheme);
     const audit = model ? measurementByMetricId.get(model.outcomeMetricId) : null;
     const metric = model ? metricById.get(model.outcomeMetricId) : null;
-    const cohortMetric = model ? computeMetric(cohort, model.outcomeMetricId) : null;
     const jointEntries = model
       ? buildJointDisplayEntries(cohort, state.researchGroup, model.outcomeMetricId, state.textQuestion)
       : [];
     const cooccurrence = getThemeCooccurrence(cohort, state.textQuestion, state.selectedTheme);
+    const pooledStates = model ? pooledStateByMetricId.get(model.outcomeMetricId) : null;
+    const validation = data.qualitativeValidation || {};
+    const appendixCatalog = data.appendixCatalog || [];
 
     if (!model) {
       dom.researchSummary.textContent =
@@ -1359,11 +1374,15 @@
       dom.researchJointList.innerHTML = '<p class="empty-state">No mixed-methods display is available in this build.</p>';
       dom.researchCodebookSummary.textContent = "No qualitative codebook metadata is available in this build.";
       dom.researchCodebookCards.innerHTML = "";
+      dom.researchStateSummary.textContent = "No state-aware pooled estimates are available in this build.";
+      dom.researchStateList.innerHTML = '<p class="empty-state">No partial-pooled state estimates are available in this build.</p>';
+      dom.researchAppendixSummary.textContent = "No appendix exports are available in this build.";
+      dom.researchAppendixList.innerHTML = '<p class="empty-state">No appendix downloads are available in this build.</p>';
       return;
     }
 
     dom.researchSummary.textContent =
-      `${model.label} is the active exploratory model for this cohort. It uses ${sampleLabel(model.sampleSize, model.outcomeMetricId)} and pairs additive subgroup associations with the current story lens on ${lowercaseFirst(question ? question.label : "the selected text question")}. Read this tab as a research appendix: it makes the assumptions, omissions, and interpretive choices inspectable rather than implicit.`;
+      `${model.label} is the active state-aware model from the full anonymized mapped dataset. It uses ${sampleLabel(model.sampleSize, model.outcomeMetricId)}, regularizes the coefficient set with ridge shrinkage, and adds state controls so subgroup patterns are less distorted by uneven geography. The joint display below still follows your current filters, but the fitted model itself is a build-level estimate.`;
 
     dom.researchMethodNoteGrid.innerHTML = [
       makeMethodCard(
@@ -1382,10 +1401,18 @@
           : "Qualitative method notes are not available in this build.",
         data.qualitativeMethodology ? data.qualitativeMethodology.limitations : [],
       ),
+      makeMethodCard(
+        "Privacy and anonymity",
+        "Public data",
+        data.privacySummary
+          ? `${data.privacySummary.summary}`
+          : "Privacy safeguards are not available in this build.",
+        data.privacySummary ? data.privacySummary.publicFieldsRemoved || [] : [],
+      ),
     ].join("");
 
     dom.researchAuditSummary.textContent = audit
-      ? `${audit.label} is the selected model outcome. Complete-case reliability is summarized here so readers can see whether the derived score is acting like a coherent measure before interpreting subgroup differences or model coefficients.`
+      ? `${audit.label} is the selected model outcome. Complete-case reliability is summarized from the full anonymized mapped dataset so readers can see whether the derived score is acting like a coherent measure before interpreting subgroup differences or model coefficients.`
       : `No measurement audit is available for ${metric ? metric.label : "the selected outcome"}.`;
 
     dom.researchAuditCards.innerHTML = (data.measurementAudit || []).length
@@ -1417,16 +1444,11 @@
       : '<p class="empty-state">No component-level measurement detail is available for this outcome.</p>';
 
     const strongestStable = model.strongestTerms.find((term) => term.direction === "positive" || term.direction === "negative");
-    const calloutTone = strongestStable
-      ? strongestStable.direction === "negative"
-        ? "caution"
-        : "positive"
-      : "neutral";
     const omittedNote = model.omittedLevels && model.omittedLevels.length
       ? `Sparse levels below n=5 were omitted (${model.omittedLevels.map((item) => `${item.level} in ${predictorFieldLabel(item.predictorId)}`).join(", ")}).`
       : "No subgroup levels were omitted for sparsity.";
     dom.researchModelSummary.textContent =
-      `${metric.label} is modeled across ${sampleLabel(model.sampleSize, model.outcomeMetricId)} with an exploratory R² of ${model.rSquared === null ? "-" : Number(model.rSquared).toFixed(3)}. Coefficients compare each level to a reference category, and the interval notes below come from bootstrap percentile bands rather than a causal design. ${omittedNote}`;
+      `${metric.label} is modeled across ${sampleLabel(model.sampleSize, model.outcomeMetricId)} with an exploratory R² of ${model.rSquared === null ? "-" : Number(model.rSquared).toFixed(3)} and a ridge penalty of ${model.ridgeLambda}. Coefficients compare each level to a reference category while controlling for state. The interval notes below come from bootstrap percentile bands rather than a causal design. ${omittedNote}`;
     dom.researchModelCallout.innerHTML = strongestStable
       ? makeResearchModelCallout(model, strongestStable)
       : `
@@ -1436,11 +1458,11 @@
             <span class="signal-pill">Wide intervals</span>
           </div>
           <h3>No single subgroup coefficient clearly dominates this model.</h3>
-          <p>The additive model still helps by showing where intervals remain wide or cross zero, which is useful for keeping claims modest.</p>
+          <p>The state-aware ridge model still helps by showing where intervals remain wide or cross zero, which is useful for keeping claims modest.</p>
         </div>
       `;
 
-    const coefficientEntries = model.coefficients.filter((term) => term.predictorId !== "intercept");
+    const coefficientEntries = model.coefficients.filter((term) => term.predictorId !== "intercept" && term.predictorId !== "state");
     const maxCoefficient = Math.max(
       ...coefficientEntries.flatMap((term) => [Math.abs(term.beta || 0), Math.abs(term.ciLow || 0), Math.abs(term.ciHigh || 0)]),
       1,
@@ -1476,7 +1498,7 @@
           .map((item) => `${themeById.get(item.themeId) ? themeById.get(item.themeId).label : item.themeId} (${formatInteger(item.count)})`)
       : [];
     dom.researchCodebookSummary.textContent =
-      `${selectedTheme ? selectedTheme.label : "The selected theme"} is documented here as a coding construct rather than a natural fact. These cards show how the code is defined, where it appears on the current question, and which other ideas most often travel with it in this cohort.`;
+      `${selectedTheme ? selectedTheme.label : "The selected theme"} is documented here as a coding construct rather than a natural fact. These cards show how the code is defined, where it appears on the current question, and which other ideas most often travel with it in this cohort. The double-coding workflow is currently ${validation.status === "completed" ? "completed" : "prepared but waiting on a human second coder"}.`;
     dom.researchCodebookCards.innerHTML = [
       selectedTheme
         ? makeMethodCard(
@@ -1503,6 +1525,21 @@
           )
         : "",
       makeMethodCard(
+        "Validation status",
+        validation.status === "completed" ? "Agreement" : "Workflow",
+        validation.report
+          ? `Exact theme-match share is ${formatPercent(validation.report.exactThemeMatchShare)} with a mean theme Jaccard of ${formatNumber(validation.report.meanThemeJaccard)}. ${validation.note}`
+          : validation.note || "No validation status is available in this build.",
+        validation.report
+          ? [
+              `Matched sample: ${formatInteger(validation.report.matchedSampleSize)}`,
+              validation.report.stanceKappa === null || validation.report.stanceKappa === undefined
+                ? "No stance kappa available"
+                : `Stance kappa ${formatNumber(validation.report.stanceKappa)}`,
+            ]
+          : [`Validation sample: ${formatInteger(validation.sampleSize || 0)}`],
+      ),
+      makeMethodCard(
         "Co-occurring ideas",
         "Theme pattern",
         cooccurrence.length
@@ -1515,6 +1552,40 @@
     ]
       .filter(Boolean)
       .join("");
+
+    const pooledEntries = pooledStates ? pooledStates.states.slice(0, 8) : [];
+    dom.researchStateSummary.textContent = pooledStates
+      ? `${pooledStates.label} has partial-pooled state estimates available from the full anonymized mapped dataset. These values shrink noisy small-state averages back toward the overall mean of ${formatMetricValue(pooledStates.metricId, pooledStates.overallMean)}, so the geography read is more conservative than a raw ranking.`
+      : "No partial-pooled state estimates are available for this outcome.";
+    dom.researchStateList.innerHTML = pooledEntries.length
+      ? pooledEntries
+          .map((entry) =>
+            makeDeltaRow({
+              label: entry.stateName,
+              sublabel: `${sampleLabel(entry.sampleSize, pooledStates.metricId)} • shrinkage ${entry.shrinkage === null ? "-" : formatNumber(entry.shrinkage)}`,
+              valueLabel: formatMetricValue(pooledStates.metricId, entry.pooledMean),
+              deltaValue:
+                entry.pooledMean !== null && pooledStates.overallMean !== null
+                  ? entry.pooledMean - pooledStates.overallMean
+                  : null,
+              maxDelta: Math.max(
+                ...pooledEntries.map((item) => Math.abs((item.pooledMean || 0) - (pooledStates.overallMean || 0))),
+                1,
+              ),
+              deltaLabel: `Raw ${formatMetricValue(pooledStates.metricId, entry.rawMean)} • 95% interval ${formatMetricValue(pooledStates.metricId, entry.ciLow)} to ${formatMetricValue(pooledStates.metricId, entry.ciHigh)}`,
+              badgeLabel: "Partial pooled",
+              badgeTone: "directional",
+            }),
+          )
+          .join("")
+      : '<p class="empty-state">No pooled state estimates are available for this metric.</p>';
+
+    dom.researchAppendixSummary.textContent = appendixCatalog.length
+      ? `These downloads are generated from the same build as the app. They give you citation-ready methods tables, anonymous coding materials, and model outputs without exposing respondent identities.`
+      : "No appendix exports are available in this build.";
+    dom.researchAppendixList.innerHTML = appendixCatalog.length
+      ? appendixCatalog.map((item) => makeDownloadCard(item)).join("")
+      : '<p class="empty-state">No appendix downloads are available in this build.</p>';
   }
 
   function renderMap(cohort, focused) {
@@ -2799,6 +2870,19 @@
         <h3>${escapeHtml(finding.title)}</h3>
         <p>${escapeHtml(finding.why)}</p>
         ${makeActionButton(finding)}
+      </article>
+    `;
+  }
+
+  function makeDownloadCard(item) {
+    return `
+      <article class="route-card download-card">
+        <span class="route-step">${escapeHtml(String(item.format || "file").toUpperCase())}</span>
+        <h3>${escapeHtml(item.label)}</h3>
+        <p>${escapeHtml(item.description)}</p>
+        <a class="ghost-button finding-action" href="${escapeAttribute(item.href)}" download>
+          Download file
+        </a>
       </article>
     `;
   }

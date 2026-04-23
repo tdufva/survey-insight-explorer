@@ -1,0 +1,2 @@
+status,matchedSampleSize,exactThemeMatchShare,meanThemeJaccard,stanceExactAgreement,stanceKappa,note
+awaiting_human_second_coder,0,,,,,A blinded sample and coding key have been exported. Agreement becomes active when a completed human second-coder file is placed in scripts/human_double_coding_completed.csv.

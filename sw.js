@@ -1,4 +1,4 @@
-const CACHE_NAME = "survey-insight-explorer-v1";
+const CACHE_NAME = "survey-insight-explorer-v2";
 const APP_SHELL = [
   "./",
   "./index.html",

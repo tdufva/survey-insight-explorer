@@ -1,0 +1,11 @@
+metricId,metricLabel,reliabilityLabel,cronbachAlpha,averageInterItemCorrelation,sampleSize,componentId,componentLabel,componentCoverage,componentCoverageShare,componentMean,componentStd,itemTotalCorrelation
+aiReadiness,AI readiness,Stronger internal consistency,0.89,0.732,148,aiOpenness,Overall AI attitude,148,100.0,70.1,30.81,0.768
+aiReadiness,AI readiness,Stronger internal consistency,0.89,0.732,148,aiComfort,Comfort integrating AI,148,100.0,65.7,32.51,0.824
+aiReadiness,AI readiness,Stronger internal consistency,0.89,0.732,148,aiRelevance,Perceived relevance of AI image generators,148,100.0,52.2,34.74,0.77
+digitalReadiness,Digital readiness,Moderate internal consistency,0.618,0.358,137,digitalIntegration,Current digital integration,147,99.3,78.7,24.01,0.5
+digitalReadiness,Digital readiness,Moderate internal consistency,0.618,0.358,137,digitalConfidence,Confidence using digital tools,146,98.6,82.9,22.51,0.534
+digitalReadiness,Digital readiness,Moderate internal consistency,0.618,0.358,137,supportReadiness,School or district support,139,93.9,72.5,25.71,0.273
+mediaArtsReadiness,Media arts readiness,Moderate internal consistency,0.657,0.43,117,mediaArtsAdoption,Current media arts adoption,119,80.4,71.6,23.45,0.481
+mediaArtsReadiness,Media arts readiness,Moderate internal consistency,0.657,0.43,117,standardsFamiliarity,Media arts standards familiarity,122,82.4,58.6,38.4,0.521
+mediaArtsReadiness,Media arts readiness,Moderate internal consistency,0.657,0.43,117,mediaArtsBackgroundBinary,"Formal media arts background (Yes=100, No=0)",147,99.3,56.5,49.75,0.522
+aiConcern,AI concern,Single-item measure,,,139,aiConcern,Reported ethical concern about AI,139,93.9,83.3,24.59,

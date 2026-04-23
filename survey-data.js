@@ -3,7 +3,7 @@ window.SURVEY_DASHBOARD_DATA = {
   "subtitle": "Analyst dashboard, theme explorer, and insight finder for mapped U.S. survey responses.",
   "sourceWorkbook": "Survey data-0204 (for interview selection-updated)(automatiskt återställd).xlsx",
   "sourceReport": "NAEF Report.pdf",
-  "generatedAt": "2026-04-22 13:21 UTC",
+  "generatedAt": "2026-04-23 04:20 UTC",
   "surveyWindow": {
     "start": "2024-11-21",
     "end": "2025-02-02"
@@ -626,10 +626,14 @@ window.SURVEY_DASHBOARD_DATA = {
       "label": "AI readiness associations",
       "description": "Exploratory additive model relating AI readiness to school context, teaching band, experience, media arts background, and AI usage status.",
       "outcomeMetricId": "aiReadiness",
-      "formula": "aiReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus",
+      "formula": "aiReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus + state",
       "sampleSize": 148,
-      "rSquared": 0.539,
+      "rSquared": 0.596,
       "predictorCount": 14,
+      "modelType": "stateAwareRidge",
+      "ridgeLambda": 2.0,
+      "includesStateEffects": true,
+      "stateTermCount": 13,
       "omittedLevels": [
         {
           "predictorId": "schoolType",
@@ -648,6 +652,138 @@ window.SURVEY_DASHBOARD_DATA = {
           "level": "Unspecified",
           "count": 1,
           "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "state",
+          "level": "Alabama",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Connecticut",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Delaware",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "New Hampshire",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Oklahoma",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Washington",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Alaska",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Indiana",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Kentucky",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Nebraska",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Oregon",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Virginia",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Wisconsin",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Arizona",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Colorado",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Hawaii",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Kansas",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Minnesota",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "New Jersey",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Nevada",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Vermont",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "West Virginia",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
         }
       ],
       "coefficients": [
@@ -657,10 +793,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "intercept",
           "level": null,
           "baseline": null,
-          "beta": 30.97,
-          "ciLow": 11.42,
-          "ciHigh": 54.13,
-          "direction": "positive"
+          "beta": 38.91,
+          "ciLow": 30.17,
+          "ciHigh": 50.71,
+          "direction": "positive",
+          "termFamily": "predictor"
         },
         {
           "id": "schoolType:Private",
@@ -668,9 +805,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "schoolType",
           "level": "Private",
           "baseline": "Public",
-          "beta": 3.48,
-          "ciLow": -4.69,
-          "ciHigh": 13.4,
+          "termFamily": "predictor",
+          "beta": 3.28,
+          "ciLow": -3.54,
+          "ciHigh": 11.67,
           "direction": "crosses_zero"
         },
         {
@@ -679,9 +817,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Middle",
           "baseline": "Elementary",
-          "beta": -11.34,
-          "ciLow": -23.59,
-          "ciHigh": 1.11,
+          "termFamily": "predictor",
+          "beta": -7.42,
+          "ciLow": -16.24,
+          "ciHigh": 2.9,
           "direction": "crosses_zero"
         },
         {
@@ -690,9 +829,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "High School",
           "baseline": "Elementary",
-          "beta": -11.83,
-          "ciLow": -23.07,
-          "ciHigh": -1.79,
+          "termFamily": "predictor",
+          "beta": -8.95,
+          "ciLow": -16.84,
+          "ciHigh": -1.41,
           "direction": "negative"
         },
         {
@@ -701,10 +841,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Multi-level",
           "baseline": "Elementary",
-          "beta": -13.99,
-          "ciLow": -26.22,
-          "ciHigh": -2.24,
-          "direction": "negative"
+          "termFamily": "predictor",
+          "beta": -7.42,
+          "ciLow": -17.22,
+          "ciHigh": 1.69,
+          "direction": "crosses_zero"
         },
         {
           "id": "teachingBand:Other",
@@ -712,9 +853,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Other",
           "baseline": "Elementary",
-          "beta": -2.07,
-          "ciLow": -21.44,
-          "ciHigh": 20.33,
+          "termFamily": "predictor",
+          "beta": 1.16,
+          "ciLow": -15.65,
+          "ciHigh": 18.1,
           "direction": "crosses_zero"
         },
         {
@@ -723,9 +865,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "4-6 years",
           "baseline": "0-3 years",
-          "beta": 16.33,
-          "ciLow": -5.26,
-          "ciHigh": 36.83,
+          "termFamily": "predictor",
+          "beta": 8.82,
+          "ciLow": -0.91,
+          "ciHigh": 18.56,
           "direction": "crosses_zero"
         },
         {
@@ -734,9 +877,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "7-10 years",
           "baseline": "0-3 years",
-          "beta": 16.17,
-          "ciLow": -3.68,
-          "ciHigh": 37.81,
+          "termFamily": "predictor",
+          "beta": 8.13,
+          "ciLow": -0.4,
+          "ciHigh": 17.34,
           "direction": "crosses_zero"
         },
         {
@@ -745,9 +889,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "11-15 years",
           "baseline": "0-3 years",
-          "beta": 9.34,
-          "ciLow": -11.95,
-          "ciHigh": 28.56,
+          "termFamily": "predictor",
+          "beta": 0.78,
+          "ciLow": -9.54,
+          "ciHigh": 9.31,
           "direction": "crosses_zero"
         },
         {
@@ -756,9 +901,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "16-20 years",
           "baseline": "0-3 years",
-          "beta": 13.29,
-          "ciLow": -8.44,
-          "ciHigh": 36.81,
+          "termFamily": "predictor",
+          "beta": 4.31,
+          "ciLow": -5.85,
+          "ciHigh": 14.56,
           "direction": "crosses_zero"
         },
         {
@@ -767,9 +913,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "20 + years",
           "baseline": "0-3 years",
-          "beta": 14.59,
-          "ciLow": -3.62,
-          "ciHigh": 34.65,
+          "termFamily": "predictor",
+          "beta": 2.71,
+          "ciLow": -7.19,
+          "ciHigh": 12.13,
           "direction": "crosses_zero"
         },
         {
@@ -778,9 +925,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "mediaArtsBackground",
           "level": "Yes",
           "baseline": "No",
-          "beta": 12.97,
-          "ciLow": 4.0,
-          "ciHigh": 20.74,
+          "termFamily": "predictor",
+          "beta": 10.07,
+          "ciLow": 2.49,
+          "ciHigh": 16.33,
           "direction": "positive"
         },
         {
@@ -789,9 +937,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Active classroom AI use",
           "baseline": "Interested, not yet using",
-          "beta": 40.28,
-          "ciLow": 29.8,
-          "ciHigh": 48.86,
+          "termFamily": "predictor",
+          "beta": 35.38,
+          "ciLow": 26.57,
+          "ciHigh": 42.74,
           "direction": "positive"
         },
         {
@@ -800,9 +949,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Personal AI use",
           "baseline": "Interested, not yet using",
-          "beta": 32.17,
-          "ciLow": 20.27,
-          "ciHigh": 42.05,
+          "termFamily": "predictor",
+          "beta": 28.57,
+          "ciLow": 18.44,
+          "ciHigh": 36.58,
           "direction": "positive"
         },
         {
@@ -811,9 +961,166 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Other",
           "baseline": "Interested, not yet using",
-          "beta": 7.93,
-          "ciLow": -12.1,
-          "ciHigh": 26.59,
+          "termFamily": "predictor",
+          "beta": 3.45,
+          "ciLow": -12.54,
+          "ciHigh": 16.48,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:TX",
+          "label": "State: Texas vs California",
+          "predictorId": "state",
+          "level": "TX",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -2.42,
+          "ciLow": -13.63,
+          "ciHigh": 8.68,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:FL",
+          "label": "State: Florida vs California",
+          "predictorId": "state",
+          "level": "FL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 6.92,
+          "ciLow": -1.8,
+          "ciHigh": 14.1,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NY",
+          "label": "State: New York vs California",
+          "predictorId": "state",
+          "level": "NY",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.94,
+          "ciLow": 0.42,
+          "ciHigh": 19.91,
+          "direction": "positive"
+        },
+        {
+          "id": "state:GA",
+          "label": "State: Georgia vs California",
+          "predictorId": "state",
+          "level": "GA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 3.27,
+          "ciLow": -12.05,
+          "ciHigh": 17.26,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:OH",
+          "label": "State: Ohio vs California",
+          "predictorId": "state",
+          "level": "OH",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 8.21,
+          "ciLow": -0.56,
+          "ciHigh": 16.05,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:IL",
+          "label": "State: Illinois vs California",
+          "predictorId": "state",
+          "level": "IL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.58,
+          "ciLow": -1.77,
+          "ciHigh": 19.1,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MD",
+          "label": "State: Maryland vs California",
+          "predictorId": "state",
+          "level": "MD",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 2.25,
+          "ciLow": -8.86,
+          "ciHigh": 10.93,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NC",
+          "label": "State: North Carolina vs California",
+          "predictorId": "state",
+          "level": "NC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -10.13,
+          "ciLow": -20.33,
+          "ciHigh": 2.0,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:PA",
+          "label": "State: Pennsylvania vs California",
+          "predictorId": "state",
+          "level": "PA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.13,
+          "ciLow": -4.51,
+          "ciHigh": 21.84,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NM",
+          "label": "State: New Mexico vs California",
+          "predictorId": "state",
+          "level": "NM",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -13.84,
+          "ciLow": -24.75,
+          "ciHigh": -1.13,
+          "direction": "negative"
+        },
+        {
+          "id": "state:SC",
+          "label": "State: South Carolina vs California",
+          "predictorId": "state",
+          "level": "SC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.72,
+          "ciLow": -0.85,
+          "ciHigh": 19.52,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MA",
+          "label": "State: Massachusetts vs California",
+          "predictorId": "state",
+          "level": "MA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.58,
+          "ciLow": 0.45,
+          "ciHigh": 16.03,
+          "direction": "positive"
+        },
+        {
+          "id": "state:MO",
+          "label": "State: Missouri vs California",
+          "predictorId": "state",
+          "level": "MO",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -0.11,
+          "ciLow": -6.55,
+          "ciHigh": 6.14,
           "direction": "crosses_zero"
         }
       ],
@@ -824,9 +1131,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Active classroom AI use",
           "baseline": "Interested, not yet using",
-          "beta": 40.28,
-          "ciLow": 29.8,
-          "ciHigh": 48.86,
+          "termFamily": "predictor",
+          "beta": 35.38,
+          "ciLow": 26.57,
+          "ciHigh": 42.74,
           "direction": "positive"
         },
         {
@@ -835,10 +1143,35 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Personal AI use",
           "baseline": "Interested, not yet using",
-          "beta": 32.17,
-          "ciLow": 20.27,
-          "ciHigh": 42.05,
+          "termFamily": "predictor",
+          "beta": 28.57,
+          "ciLow": 18.44,
+          "ciHigh": 36.58,
           "direction": "positive"
+        },
+        {
+          "id": "mediaArtsBackground:Yes",
+          "label": "Formal media arts background: Yes vs No",
+          "predictorId": "mediaArtsBackground",
+          "level": "Yes",
+          "baseline": "No",
+          "termFamily": "predictor",
+          "beta": 10.07,
+          "ciLow": 2.49,
+          "ciHigh": 16.33,
+          "direction": "positive"
+        },
+        {
+          "id": "teachingBand:High School",
+          "label": "Teaching band: High School vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "High School",
+          "baseline": "Elementary",
+          "termFamily": "predictor",
+          "beta": -8.95,
+          "ciLow": -16.84,
+          "ciHigh": -1.41,
+          "direction": "negative"
         },
         {
           "id": "experienceBand:4-6 years",
@@ -846,32 +1179,73 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "4-6 years",
           "baseline": "0-3 years",
-          "beta": 16.33,
-          "ciLow": -5.26,
-          "ciHigh": 36.83,
+          "termFamily": "predictor",
+          "beta": 8.82,
+          "ciLow": -0.91,
+          "ciHigh": 18.56,
+          "direction": "crosses_zero"
+        }
+      ],
+      "topStateTerms": [
+        {
+          "id": "state:NM",
+          "label": "State: New Mexico vs California",
+          "predictorId": "state",
+          "level": "NM",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -13.84,
+          "ciLow": -24.75,
+          "ciHigh": -1.13,
+          "direction": "negative"
+        },
+        {
+          "id": "state:NY",
+          "label": "State: New York vs California",
+          "predictorId": "state",
+          "level": "NY",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.94,
+          "ciLow": 0.42,
+          "ciHigh": 19.91,
+          "direction": "positive"
+        },
+        {
+          "id": "state:SC",
+          "label": "State: South Carolina vs California",
+          "predictorId": "state",
+          "level": "SC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.72,
+          "ciLow": -0.85,
+          "ciHigh": 19.52,
           "direction": "crosses_zero"
         },
         {
-          "id": "experienceBand:7-10 years",
-          "label": "Teaching experience: 7-10 years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "7-10 years",
-          "baseline": "0-3 years",
-          "beta": 16.17,
-          "ciLow": -3.68,
-          "ciHigh": 37.81,
+          "id": "state:IL",
+          "label": "State: Illinois vs California",
+          "predictorId": "state",
+          "level": "IL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.58,
+          "ciLow": -1.77,
+          "ciHigh": 19.1,
           "direction": "crosses_zero"
         },
         {
-          "id": "experienceBand:20 + years",
-          "label": "Teaching experience: 20 + years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "20 + years",
-          "baseline": "0-3 years",
-          "beta": 14.59,
-          "ciLow": -3.62,
-          "ciHigh": 34.65,
-          "direction": "crosses_zero"
+          "id": "state:MA",
+          "label": "State: Massachusetts vs California",
+          "predictorId": "state",
+          "level": "MA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 10.58,
+          "ciLow": 0.45,
+          "ciHigh": 16.03,
+          "direction": "positive"
         }
       ]
     },
@@ -880,10 +1254,14 @@ window.SURVEY_DASHBOARD_DATA = {
       "label": "AI concern associations",
       "description": "Exploratory additive model relating ethical concern about AI to the same contextual predictors.",
       "outcomeMetricId": "aiConcern",
-      "formula": "aiConcern ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus",
+      "formula": "aiConcern ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus + state",
       "sampleSize": 139,
-      "rSquared": 0.106,
+      "rSquared": 0.079,
       "predictorCount": 14,
+      "modelType": "stateAwareRidge",
+      "ridgeLambda": 40.0,
+      "includesStateEffects": true,
+      "stateTermCount": 12,
       "omittedLevels": [
         {
           "predictorId": "schoolType",
@@ -902,6 +1280,138 @@ window.SURVEY_DASHBOARD_DATA = {
           "level": "Unspecified",
           "count": 1,
           "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "state",
+          "level": "Alabama",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Connecticut",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Massachusetts",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "New Hampshire",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Oklahoma",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Washington",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Alaska",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Delaware",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Indiana",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Kentucky",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Nebraska",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Oregon",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Virginia",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Wisconsin",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Arizona",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Colorado",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Hawaii",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Minnesota",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "New Jersey",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Nevada",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Vermont",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "West Virginia",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
         }
       ],
       "coefficients": [
@@ -911,10 +1421,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "intercept",
           "level": null,
           "baseline": null,
-          "beta": 100.46,
-          "ciLow": 82.94,
-          "ciHigh": 116.79,
-          "direction": "positive"
+          "beta": 84.63,
+          "ciLow": 80.57,
+          "ciHigh": 89.53,
+          "direction": "positive",
+          "termFamily": "predictor"
         },
         {
           "id": "schoolType:Private",
@@ -922,9 +1433,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "schoolType",
           "level": "Private",
           "baseline": "Public",
-          "beta": 3.58,
-          "ciLow": -11.24,
-          "ciHigh": 16.95,
+          "termFamily": "predictor",
+          "beta": 0.19,
+          "ciLow": -3.35,
+          "ciHigh": 3.04,
           "direction": "crosses_zero"
         },
         {
@@ -933,9 +1445,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Middle",
           "baseline": "Elementary",
-          "beta": -8.06,
-          "ciLow": -21.02,
-          "ciHigh": 5.38,
+          "termFamily": "predictor",
+          "beta": -1.43,
+          "ciLow": -4.3,
+          "ciHigh": 1.62,
           "direction": "crosses_zero"
         },
         {
@@ -944,9 +1457,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "High School",
           "baseline": "Elementary",
-          "beta": -2.15,
-          "ciLow": -10.53,
-          "ciHigh": 7.09,
+          "termFamily": "predictor",
+          "beta": 1.74,
+          "ciLow": -1.33,
+          "ciHigh": 4.45,
           "direction": "crosses_zero"
         },
         {
@@ -955,9 +1469,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Multi-level",
           "baseline": "Elementary",
-          "beta": -10.31,
-          "ciLow": -27.91,
-          "ciHigh": 4.76,
+          "termFamily": "predictor",
+          "beta": -2.5,
+          "ciLow": -5.94,
+          "ciHigh": 0.62,
           "direction": "crosses_zero"
         },
         {
@@ -966,9 +1481,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Other",
           "baseline": "Elementary",
-          "beta": -8.86,
-          "ciLow": -35.36,
-          "ciHigh": 21.31,
+          "termFamily": "predictor",
+          "beta": -0.68,
+          "ciLow": -3.65,
+          "ciHigh": 1.99,
           "direction": "crosses_zero"
         },
         {
@@ -977,9 +1493,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "4-6 years",
           "baseline": "0-3 years",
-          "beta": -3.71,
-          "ciLow": -17.15,
-          "ciHigh": 11.15,
+          "termFamily": "predictor",
+          "beta": 1.99,
+          "ciLow": -0.76,
+          "ciHigh": 4.63,
           "direction": "crosses_zero"
         },
         {
@@ -988,9 +1505,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "7-10 years",
           "baseline": "0-3 years",
-          "beta": -16.58,
-          "ciLow": -36.71,
-          "ciHigh": 1.2,
+          "termFamily": "predictor",
+          "beta": -2.24,
+          "ciLow": -6.31,
+          "ciHigh": 1.08,
           "direction": "crosses_zero"
         },
         {
@@ -999,9 +1517,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "11-15 years",
           "baseline": "0-3 years",
-          "beta": -14.08,
-          "ciLow": -31.96,
-          "ciHigh": 5.94,
+          "termFamily": "predictor",
+          "beta": -1.64,
+          "ciLow": -5.29,
+          "ciHigh": 1.5,
           "direction": "crosses_zero"
         },
         {
@@ -1010,9 +1529,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "16-20 years",
           "baseline": "0-3 years",
-          "beta": -8.34,
-          "ciLow": -22.4,
-          "ciHigh": 9.54,
+          "termFamily": "predictor",
+          "beta": 0.76,
+          "ciLow": -1.65,
+          "ciHigh": 3.21,
           "direction": "crosses_zero"
         },
         {
@@ -1021,9 +1541,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "20 + years",
           "baseline": "0-3 years",
-          "beta": -9.93,
-          "ciLow": -27.61,
-          "ciHigh": 7.64,
+          "termFamily": "predictor",
+          "beta": -0.05,
+          "ciLow": -3.58,
+          "ciHigh": 3.01,
           "direction": "crosses_zero"
         },
         {
@@ -1032,9 +1553,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "mediaArtsBackground",
           "level": "Yes",
           "baseline": "No",
-          "beta": 0.04,
-          "ciLow": -9.8,
-          "ciHigh": 11.32,
+          "termFamily": "predictor",
+          "beta": -0.77,
+          "ciLow": -4.21,
+          "ciHigh": 2.36,
           "direction": "crosses_zero"
         },
         {
@@ -1043,9 +1565,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Active classroom AI use",
           "baseline": "Interested, not yet using",
-          "beta": -5.1,
-          "ciLow": -15.37,
-          "ciHigh": 5.04,
+          "termFamily": "predictor",
+          "beta": -1.05,
+          "ciLow": -4.6,
+          "ciHigh": 2.2,
           "direction": "crosses_zero"
         },
         {
@@ -1054,10 +1577,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Personal AI use",
           "baseline": "Interested, not yet using",
-          "beta": -14.52,
-          "ciLow": -25.72,
-          "ciHigh": -0.04,
-          "direction": "negative"
+          "termFamily": "predictor",
+          "beta": -3.54,
+          "ciLow": -6.71,
+          "ciHigh": 0.11,
+          "direction": "crosses_zero"
         },
         {
           "id": "aiUsageStatus:Other",
@@ -1065,44 +1589,168 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Other",
           "baseline": "Interested, not yet using",
-          "beta": 5.3,
-          "ciLow": -8.37,
-          "ciHigh": 20.47,
+          "termFamily": "predictor",
+          "beta": 1.55,
+          "ciLow": -0.22,
+          "ciHigh": 3.32,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:TX",
+          "label": "State: Texas vs California",
+          "predictorId": "state",
+          "level": "TX",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -1.03,
+          "ciLow": -4.3,
+          "ciHigh": 2.44,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:FL",
+          "label": "State: Florida vs California",
+          "predictorId": "state",
+          "level": "FL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.2,
+          "ciLow": -0.5,
+          "ciHigh": 3.04,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NY",
+          "label": "State: New York vs California",
+          "predictorId": "state",
+          "level": "NY",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 0.71,
+          "ciLow": -1.26,
+          "ciHigh": 2.29,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:GA",
+          "label": "State: Georgia vs California",
+          "predictorId": "state",
+          "level": "GA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.72,
+          "ciLow": 0.06,
+          "ciHigh": 3.3,
+          "direction": "positive"
+        },
+        {
+          "id": "state:MD",
+          "label": "State: Maryland vs California",
+          "predictorId": "state",
+          "level": "MD",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 0.58,
+          "ciLow": -1.01,
+          "ciHigh": 2.28,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NC",
+          "label": "State: North Carolina vs California",
+          "predictorId": "state",
+          "level": "NC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 0.66,
+          "ciLow": -2.1,
+          "ciHigh": 2.83,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:OH",
+          "label": "State: Ohio vs California",
+          "predictorId": "state",
+          "level": "OH",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -3.27,
+          "ciLow": -6.7,
+          "ciHigh": -0.02,
+          "direction": "negative"
+        },
+        {
+          "id": "state:PA",
+          "label": "State: Pennsylvania vs California",
+          "predictorId": "state",
+          "level": "PA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -0.31,
+          "ciLow": -2.97,
+          "ciHigh": 2.02,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NM",
+          "label": "State: New Mexico vs California",
+          "predictorId": "state",
+          "level": "NM",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -2.54,
+          "ciLow": -5.74,
+          "ciHigh": 1.35,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:SC",
+          "label": "State: South Carolina vs California",
+          "predictorId": "state",
+          "level": "SC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 0.22,
+          "ciLow": -1.48,
+          "ciHigh": 1.81,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:IL",
+          "label": "State: Illinois vs California",
+          "predictorId": "state",
+          "level": "IL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -1.88,
+          "ciLow": -4.58,
+          "ciHigh": 0.21,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MO",
+          "label": "State: Missouri vs California",
+          "predictorId": "state",
+          "level": "MO",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -0.26,
+          "ciLow": -2.07,
+          "ciHigh": 1.21,
           "direction": "crosses_zero"
         }
       ],
       "strongestTerms": [
-        {
-          "id": "experienceBand:7-10 years",
-          "label": "Teaching experience: 7-10 years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "7-10 years",
-          "baseline": "0-3 years",
-          "beta": -16.58,
-          "ciLow": -36.71,
-          "ciHigh": 1.2,
-          "direction": "crosses_zero"
-        },
         {
           "id": "aiUsageStatus:Personal AI use",
           "label": "AI usage status: Personal AI use vs Interested, not yet using",
           "predictorId": "aiUsageStatus",
           "level": "Personal AI use",
           "baseline": "Interested, not yet using",
-          "beta": -14.52,
-          "ciLow": -25.72,
-          "ciHigh": -0.04,
-          "direction": "negative"
-        },
-        {
-          "id": "experienceBand:11-15 years",
-          "label": "Teaching experience: 11-15 years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "11-15 years",
-          "baseline": "0-3 years",
-          "beta": -14.08,
-          "ciLow": -31.96,
-          "ciHigh": 5.94,
+          "termFamily": "predictor",
+          "beta": -3.54,
+          "ciLow": -6.71,
+          "ciHigh": 0.11,
           "direction": "crosses_zero"
         },
         {
@@ -1111,20 +1759,108 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Multi-level",
           "baseline": "Elementary",
-          "beta": -10.31,
-          "ciLow": -27.91,
-          "ciHigh": 4.76,
+          "termFamily": "predictor",
+          "beta": -2.5,
+          "ciLow": -5.94,
+          "ciHigh": 0.62,
           "direction": "crosses_zero"
         },
         {
-          "id": "experienceBand:20 + years",
-          "label": "Teaching experience: 20 + years vs 0-3 years",
+          "id": "experienceBand:7-10 years",
+          "label": "Teaching experience: 7-10 years vs 0-3 years",
           "predictorId": "experienceBand",
-          "level": "20 + years",
+          "level": "7-10 years",
           "baseline": "0-3 years",
-          "beta": -9.93,
-          "ciLow": -27.61,
-          "ciHigh": 7.64,
+          "termFamily": "predictor",
+          "beta": -2.24,
+          "ciLow": -6.31,
+          "ciHigh": 1.08,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:4-6 years",
+          "label": "Teaching experience: 4-6 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "4-6 years",
+          "baseline": "0-3 years",
+          "termFamily": "predictor",
+          "beta": 1.99,
+          "ciLow": -0.76,
+          "ciHigh": 4.63,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "teachingBand:High School",
+          "label": "Teaching band: High School vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "High School",
+          "baseline": "Elementary",
+          "termFamily": "predictor",
+          "beta": 1.74,
+          "ciLow": -1.33,
+          "ciHigh": 4.45,
+          "direction": "crosses_zero"
+        }
+      ],
+      "topStateTerms": [
+        {
+          "id": "state:OH",
+          "label": "State: Ohio vs California",
+          "predictorId": "state",
+          "level": "OH",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -3.27,
+          "ciLow": -6.7,
+          "ciHigh": -0.02,
+          "direction": "negative"
+        },
+        {
+          "id": "state:NM",
+          "label": "State: New Mexico vs California",
+          "predictorId": "state",
+          "level": "NM",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -2.54,
+          "ciLow": -5.74,
+          "ciHigh": 1.35,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:IL",
+          "label": "State: Illinois vs California",
+          "predictorId": "state",
+          "level": "IL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -1.88,
+          "ciLow": -4.58,
+          "ciHigh": 0.21,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:GA",
+          "label": "State: Georgia vs California",
+          "predictorId": "state",
+          "level": "GA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.72,
+          "ciLow": 0.06,
+          "ciHigh": 3.3,
+          "direction": "positive"
+        },
+        {
+          "id": "state:FL",
+          "label": "State: Florida vs California",
+          "predictorId": "state",
+          "level": "FL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.2,
+          "ciLow": -0.5,
+          "ciHigh": 3.04,
           "direction": "crosses_zero"
         }
       ]
@@ -1134,10 +1870,14 @@ window.SURVEY_DASHBOARD_DATA = {
       "label": "Digital readiness associations",
       "description": "Exploratory additive model relating digital readiness to respondent context and AI/media-arts positioning.",
       "outcomeMetricId": "digitalReadiness",
-      "formula": "digitalReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus",
+      "formula": "digitalReadiness ~ schoolType + teachingBand + experienceBand + mediaArtsBackground + aiUsageStatus + state",
       "sampleSize": 148,
-      "rSquared": 0.253,
+      "rSquared": 0.221,
       "predictorCount": 14,
+      "modelType": "stateAwareRidge",
+      "ridgeLambda": 20.0,
+      "includesStateEffects": true,
+      "stateTermCount": 13,
       "omittedLevels": [
         {
           "predictorId": "schoolType",
@@ -1156,6 +1896,138 @@ window.SURVEY_DASHBOARD_DATA = {
           "level": "Unspecified",
           "count": 1,
           "reason": "Below model minimum of n=5"
+        },
+        {
+          "predictorId": "state",
+          "level": "Alabama",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Connecticut",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Delaware",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "New Hampshire",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Oklahoma",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Washington",
+          "count": 3,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Alaska",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Indiana",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Kentucky",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Nebraska",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Oregon",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Virginia",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Wisconsin",
+          "count": 2,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Arizona",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Colorado",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Hawaii",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Kansas",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Minnesota",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "New Jersey",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Nevada",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "Vermont",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
+        },
+        {
+          "predictorId": "state",
+          "level": "West Virginia",
+          "count": 1,
+          "reason": "Below state-term minimum of n=4"
         }
       ],
       "coefficients": [
@@ -1165,10 +2037,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "intercept",
           "level": null,
           "baseline": null,
-          "beta": 57.09,
-          "ciLow": 43.71,
-          "ciHigh": 70.94,
-          "direction": "positive"
+          "beta": 72.26,
+          "ciLow": 68.79,
+          "ciHigh": 77.31,
+          "direction": "positive",
+          "termFamily": "predictor"
         },
         {
           "id": "schoolType:Private",
@@ -1176,9 +2049,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "schoolType",
           "level": "Private",
           "baseline": "Public",
-          "beta": 1.56,
-          "ciLow": -5.99,
-          "ciHigh": 8.5,
+          "termFamily": "predictor",
+          "beta": 1.23,
+          "ciLow": -2.04,
+          "ciHigh": 3.77,
           "direction": "crosses_zero"
         },
         {
@@ -1187,9 +2061,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Middle",
           "baseline": "Elementary",
-          "beta": -9.73,
-          "ciLow": -18.44,
-          "ciHigh": -1.33,
+          "termFamily": "predictor",
+          "beta": -3.79,
+          "ciLow": -6.58,
+          "ciHigh": -0.83,
           "direction": "negative"
         },
         {
@@ -1198,9 +2073,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "High School",
           "baseline": "Elementary",
-          "beta": -1.97,
-          "ciLow": -8.76,
-          "ciHigh": 5.7,
+          "termFamily": "predictor",
+          "beta": 0.19,
+          "ciLow": -2.92,
+          "ciHigh": 3.53,
           "direction": "crosses_zero"
         },
         {
@@ -1209,9 +2085,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Multi-level",
           "baseline": "Elementary",
-          "beta": -3.02,
-          "ciLow": -12.29,
-          "ciHigh": 5.89,
+          "termFamily": "predictor",
+          "beta": 0.46,
+          "ciLow": -2.93,
+          "ciHigh": 3.78,
           "direction": "crosses_zero"
         },
         {
@@ -1220,9 +2097,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "teachingBand",
           "level": "Other",
           "baseline": "Elementary",
-          "beta": 0.29,
-          "ciLow": -13.27,
-          "ciHigh": 15.01,
+          "termFamily": "predictor",
+          "beta": 0.61,
+          "ciLow": -2.87,
+          "ciHigh": 3.56,
           "direction": "crosses_zero"
         },
         {
@@ -1231,10 +2109,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "4-6 years",
           "baseline": "0-3 years",
-          "beta": 13.9,
-          "ciLow": 3.21,
-          "ciHigh": 26.99,
-          "direction": "positive"
+          "termFamily": "predictor",
+          "beta": 1.9,
+          "ciLow": -0.42,
+          "ciHigh": 4.27,
+          "direction": "crosses_zero"
         },
         {
           "id": "experienceBand:7-10 years",
@@ -1242,10 +2121,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "7-10 years",
           "baseline": "0-3 years",
-          "beta": 14.69,
-          "ciLow": 1.44,
-          "ciHigh": 29.71,
-          "direction": "positive"
+          "termFamily": "predictor",
+          "beta": 1.0,
+          "ciLow": -2.34,
+          "ciHigh": 3.93,
+          "direction": "crosses_zero"
         },
         {
           "id": "experienceBand:11-15 years",
@@ -1253,10 +2133,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "11-15 years",
           "baseline": "0-3 years",
-          "beta": 18.33,
-          "ciLow": 6.54,
-          "ciHigh": 32.7,
-          "direction": "positive"
+          "termFamily": "predictor",
+          "beta": 2.77,
+          "ciLow": -0.62,
+          "ciHigh": 6.03,
+          "direction": "crosses_zero"
         },
         {
           "id": "experienceBand:16-20 years",
@@ -1264,9 +2145,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "16-20 years",
           "baseline": "0-3 years",
-          "beta": 10.07,
-          "ciLow": -3.71,
-          "ciHigh": 26.94,
+          "termFamily": "predictor",
+          "beta": -2.56,
+          "ciLow": -5.39,
+          "ciHigh": 0.81,
           "direction": "crosses_zero"
         },
         {
@@ -1275,10 +2157,11 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "experienceBand",
           "level": "20 + years",
           "baseline": "0-3 years",
-          "beta": 16.12,
-          "ciLow": 4.01,
-          "ciHigh": 29.94,
-          "direction": "positive"
+          "termFamily": "predictor",
+          "beta": 0.72,
+          "ciLow": -2.49,
+          "ciHigh": 3.64,
+          "direction": "crosses_zero"
         },
         {
           "id": "mediaArtsBackground:Yes",
@@ -1286,9 +2169,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "mediaArtsBackground",
           "level": "Yes",
           "baseline": "No",
-          "beta": 9.76,
-          "ciLow": 2.12,
-          "ciHigh": 16.3,
+          "termFamily": "predictor",
+          "beta": 5.34,
+          "ciLow": 1.72,
+          "ciHigh": 8.42,
           "direction": "positive"
         },
         {
@@ -1297,9 +2181,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Active classroom AI use",
           "baseline": "Interested, not yet using",
-          "beta": 10.33,
-          "ciLow": 3.43,
-          "ciHigh": 16.19,
+          "termFamily": "predictor",
+          "beta": 6.14,
+          "ciLow": 2.6,
+          "ciHigh": 8.91,
           "direction": "positive"
         },
         {
@@ -1308,9 +2193,10 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Personal AI use",
           "baseline": "Interested, not yet using",
-          "beta": 5.7,
-          "ciLow": -1.73,
-          "ciHigh": 15.79,
+          "termFamily": "predictor",
+          "beta": 1.93,
+          "ciLow": -0.92,
+          "ciHigh": 4.91,
           "direction": "crosses_zero"
         },
         {
@@ -1319,74 +2205,1766 @@ window.SURVEY_DASHBOARD_DATA = {
           "predictorId": "aiUsageStatus",
           "level": "Other",
           "baseline": "Interested, not yet using",
-          "beta": -7.34,
-          "ciLow": -20.01,
-          "ciHigh": 5.3,
+          "termFamily": "predictor",
+          "beta": -3.7,
+          "ciLow": -7.21,
+          "ciHigh": 0.03,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:TX",
+          "label": "State: Texas vs California",
+          "predictorId": "state",
+          "level": "TX",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -0.66,
+          "ciLow": -4.58,
+          "ciHigh": 3.1,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:FL",
+          "label": "State: Florida vs California",
+          "predictorId": "state",
+          "level": "FL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.41,
+          "ciLow": -0.73,
+          "ciHigh": 3.49,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NY",
+          "label": "State: New York vs California",
+          "predictorId": "state",
+          "level": "NY",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.42,
+          "ciLow": -0.66,
+          "ciHigh": 3.44,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:GA",
+          "label": "State: Georgia vs California",
+          "predictorId": "state",
+          "level": "GA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -0.22,
+          "ciLow": -3.04,
+          "ciHigh": 1.93,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:OH",
+          "label": "State: Ohio vs California",
+          "predictorId": "state",
+          "level": "OH",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 2.37,
+          "ciLow": 0.49,
+          "ciHigh": 4.17,
+          "direction": "positive"
+        },
+        {
+          "id": "state:IL",
+          "label": "State: Illinois vs California",
+          "predictorId": "state",
+          "level": "IL",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -0.09,
+          "ciLow": -2.59,
+          "ciHigh": 2.28,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MD",
+          "label": "State: Maryland vs California",
+          "predictorId": "state",
+          "level": "MD",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 0.06,
+          "ciLow": -3.0,
+          "ciHigh": 2.57,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NC",
+          "label": "State: North Carolina vs California",
+          "predictorId": "state",
+          "level": "NC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -2.84,
+          "ciLow": -5.48,
+          "ciHigh": 0.52,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:PA",
+          "label": "State: Pennsylvania vs California",
+          "predictorId": "state",
+          "level": "PA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -1.19,
+          "ciLow": -4.78,
+          "ciHigh": 2.05,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:NM",
+          "label": "State: New Mexico vs California",
+          "predictorId": "state",
+          "level": "NM",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -1.45,
+          "ciLow": -4.34,
+          "ciHigh": 1.67,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:SC",
+          "label": "State: South Carolina vs California",
+          "predictorId": "state",
+          "level": "SC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -2.12,
+          "ciLow": -5.64,
+          "ciHigh": 0.82,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MA",
+          "label": "State: Massachusetts vs California",
+          "predictorId": "state",
+          "level": "MA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.87,
+          "ciLow": -0.11,
+          "ciHigh": 3.9,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MO",
+          "label": "State: Missouri vs California",
+          "predictorId": "state",
+          "level": "MO",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.68,
+          "ciLow": -0.19,
+          "ciHigh": 3.37,
           "direction": "crosses_zero"
         }
       ],
       "strongestTerms": [
-        {
-          "id": "experienceBand:11-15 years",
-          "label": "Teaching experience: 11-15 years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "11-15 years",
-          "baseline": "0-3 years",
-          "beta": 18.33,
-          "ciLow": 6.54,
-          "ciHigh": 32.7,
-          "direction": "positive"
-        },
-        {
-          "id": "experienceBand:20 + years",
-          "label": "Teaching experience: 20 + years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "20 + years",
-          "baseline": "0-3 years",
-          "beta": 16.12,
-          "ciLow": 4.01,
-          "ciHigh": 29.94,
-          "direction": "positive"
-        },
-        {
-          "id": "experienceBand:7-10 years",
-          "label": "Teaching experience: 7-10 years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "7-10 years",
-          "baseline": "0-3 years",
-          "beta": 14.69,
-          "ciLow": 1.44,
-          "ciHigh": 29.71,
-          "direction": "positive"
-        },
-        {
-          "id": "experienceBand:4-6 years",
-          "label": "Teaching experience: 4-6 years vs 0-3 years",
-          "predictorId": "experienceBand",
-          "level": "4-6 years",
-          "baseline": "0-3 years",
-          "beta": 13.9,
-          "ciLow": 3.21,
-          "ciHigh": 26.99,
-          "direction": "positive"
-        },
         {
           "id": "aiUsageStatus:Active classroom AI use",
           "label": "AI usage status: Active classroom AI use vs Interested, not yet using",
           "predictorId": "aiUsageStatus",
           "level": "Active classroom AI use",
           "baseline": "Interested, not yet using",
-          "beta": 10.33,
-          "ciLow": 3.43,
-          "ciHigh": 16.19,
+          "termFamily": "predictor",
+          "beta": 6.14,
+          "ciLow": 2.6,
+          "ciHigh": 8.91,
           "direction": "positive"
+        },
+        {
+          "id": "mediaArtsBackground:Yes",
+          "label": "Formal media arts background: Yes vs No",
+          "predictorId": "mediaArtsBackground",
+          "level": "Yes",
+          "baseline": "No",
+          "termFamily": "predictor",
+          "beta": 5.34,
+          "ciLow": 1.72,
+          "ciHigh": 8.42,
+          "direction": "positive"
+        },
+        {
+          "id": "teachingBand:Middle",
+          "label": "Teaching band: Middle vs Elementary",
+          "predictorId": "teachingBand",
+          "level": "Middle",
+          "baseline": "Elementary",
+          "termFamily": "predictor",
+          "beta": -3.79,
+          "ciLow": -6.58,
+          "ciHigh": -0.83,
+          "direction": "negative"
+        },
+        {
+          "id": "aiUsageStatus:Other",
+          "label": "AI usage status: Other vs Interested, not yet using",
+          "predictorId": "aiUsageStatus",
+          "level": "Other",
+          "baseline": "Interested, not yet using",
+          "termFamily": "predictor",
+          "beta": -3.7,
+          "ciLow": -7.21,
+          "ciHigh": 0.03,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "experienceBand:11-15 years",
+          "label": "Teaching experience: 11-15 years vs 0-3 years",
+          "predictorId": "experienceBand",
+          "level": "11-15 years",
+          "baseline": "0-3 years",
+          "termFamily": "predictor",
+          "beta": 2.77,
+          "ciLow": -0.62,
+          "ciHigh": 6.03,
+          "direction": "crosses_zero"
+        }
+      ],
+      "topStateTerms": [
+        {
+          "id": "state:NC",
+          "label": "State: North Carolina vs California",
+          "predictorId": "state",
+          "level": "NC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -2.84,
+          "ciLow": -5.48,
+          "ciHigh": 0.52,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:OH",
+          "label": "State: Ohio vs California",
+          "predictorId": "state",
+          "level": "OH",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 2.37,
+          "ciLow": 0.49,
+          "ciHigh": 4.17,
+          "direction": "positive"
+        },
+        {
+          "id": "state:SC",
+          "label": "State: South Carolina vs California",
+          "predictorId": "state",
+          "level": "SC",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": -2.12,
+          "ciLow": -5.64,
+          "ciHigh": 0.82,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MA",
+          "label": "State: Massachusetts vs California",
+          "predictorId": "state",
+          "level": "MA",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.87,
+          "ciLow": -0.11,
+          "ciHigh": 3.9,
+          "direction": "crosses_zero"
+        },
+        {
+          "id": "state:MO",
+          "label": "State: Missouri vs California",
+          "predictorId": "state",
+          "level": "MO",
+          "baseline": "CA",
+          "termFamily": "state",
+          "beta": 1.68,
+          "ciLow": -0.19,
+          "ciHigh": 3.37,
+          "direction": "crosses_zero"
+        }
+      ]
+    }
+  ],
+  "statePooledEstimates": [
+    {
+      "metricId": "aiReadiness",
+      "label": "AI readiness",
+      "overallMean": 62.67,
+      "withinVariance": 669.035,
+      "betweenVariance": 218.825,
+      "states": [
+        {
+          "state": "FL",
+          "stateName": "Florida",
+          "sampleSize": 9,
+          "rawMean": 86.11,
+          "pooledMean": 80.17,
+          "shrinkage": 0.746,
+          "ciLow": 65.57,
+          "ciHigh": 94.77
+        },
+        {
+          "state": "CA",
+          "stateName": "California",
+          "sampleSize": 18,
+          "rawMean": 81.48,
+          "pooledMean": 78.75,
+          "shrinkage": 0.855,
+          "ciLow": 67.7,
+          "ciHigh": 89.8
+        },
+        {
+          "state": "IL",
+          "stateName": "Illinois",
+          "sampleSize": 6,
+          "rawMean": 77.77,
+          "pooledMean": 72.67,
+          "shrinkage": 0.662,
+          "ciLow": 55.83,
+          "ciHigh": 89.52
+        },
+        {
+          "state": "NY",
+          "stateName": "New York",
+          "sampleSize": 9,
+          "rawMean": 75.01,
+          "pooledMean": 71.88,
+          "shrinkage": 0.746,
+          "ciLow": 57.28,
+          "ciHigh": 86.48
+        },
+        {
+          "state": "HI",
+          "stateName": "Hawaii",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 71.87,
+          "shrinkage": 0.246,
+          "ciLow": 46.7,
+          "ciHigh": 97.04
+        },
+        {
+          "state": "NV",
+          "stateName": "Nevada",
+          "sampleSize": 1,
+          "rawMean": 91.7,
+          "pooledMean": 69.82,
+          "shrinkage": 0.246,
+          "ciLow": 44.66,
+          "ciHigh": 94.99
+        },
+        {
+          "state": "AK",
+          "stateName": "Alaska",
+          "sampleSize": 2,
+          "rawMean": 79.15,
+          "pooledMean": 69.19,
+          "shrinkage": 0.395,
+          "ciLow": 46.64,
+          "ciHigh": 91.73
+        },
+        {
+          "state": "PA",
+          "stateName": "Pennsylvania",
+          "sampleSize": 6,
+          "rawMean": 72.22,
+          "pooledMean": 69.0,
+          "shrinkage": 0.662,
+          "ciLow": 52.15,
+          "ciHigh": 85.84
+        },
+        {
+          "state": "OK",
+          "stateName": "Oklahoma",
+          "sampleSize": 3,
+          "rawMean": 75.0,
+          "pooledMean": 68.78,
+          "shrinkage": 0.495,
+          "ciLow": 48.18,
+          "ciHigh": 89.37
+        },
+        {
+          "state": "DE",
+          "stateName": "Delaware",
+          "sampleSize": 3,
+          "rawMean": 75.0,
+          "pooledMean": 68.78,
+          "shrinkage": 0.495,
+          "ciLow": 48.18,
+          "ciHigh": 89.37
+        },
+        {
+          "state": "OH",
+          "stateName": "Ohio",
+          "sampleSize": 7,
+          "rawMean": 70.21,
+          "pooledMean": 67.92,
+          "shrinkage": 0.696,
+          "ciLow": 51.93,
+          "ciHigh": 83.9
+        },
+        {
+          "state": "VA",
+          "stateName": "Virginia",
+          "sampleSize": 2,
+          "rawMean": 70.85,
+          "pooledMean": 65.9,
+          "shrinkage": 0.395,
+          "ciLow": 43.36,
+          "ciHigh": 88.45
+        },
+        {
+          "state": "AZ",
+          "stateName": "Arizona",
+          "sampleSize": 1,
+          "rawMean": 75.0,
+          "pooledMean": 65.71,
+          "shrinkage": 0.246,
+          "ciLow": 40.54,
+          "ciHigh": 90.88
+        },
+        {
+          "state": "MA",
+          "stateName": "Massachusetts",
+          "sampleSize": 4,
+          "rawMean": 66.65,
+          "pooledMean": 64.93,
+          "shrinkage": 0.567,
+          "ciLow": 45.84,
+          "ciHigh": 84.01
+        },
+        {
+          "state": "WI",
+          "stateName": "Wisconsin",
+          "sampleSize": 2,
+          "rawMean": 66.7,
+          "pooledMean": 64.26,
+          "shrinkage": 0.395,
+          "ciLow": 41.72,
+          "ciHigh": 86.81
+        },
+        {
+          "state": "NE",
+          "stateName": "Nebraska",
+          "sampleSize": 2,
+          "rawMean": 66.7,
+          "pooledMean": 64.26,
+          "shrinkage": 0.395,
+          "ciLow": 41.72,
+          "ciHigh": 86.81
+        },
+        {
+          "state": "MO",
+          "stateName": "Missouri",
+          "sampleSize": 4,
+          "rawMean": 64.6,
+          "pooledMean": 63.76,
+          "shrinkage": 0.567,
+          "ciLow": 44.68,
+          "ciHigh": 82.85
+        },
+        {
+          "state": "WV",
+          "stateName": "West Virginia",
+          "sampleSize": 1,
+          "rawMean": 66.7,
+          "pooledMean": 63.66,
+          "shrinkage": 0.246,
+          "ciLow": 38.49,
+          "ciHigh": 88.83
+        },
+        {
+          "state": "CT",
+          "stateName": "Connecticut",
+          "sampleSize": 3,
+          "rawMean": 61.1,
+          "pooledMean": 61.89,
+          "shrinkage": 0.495,
+          "ciLow": 41.29,
+          "ciHigh": 82.49
+        },
+        {
+          "state": "CO",
+          "stateName": "Colorado",
+          "sampleSize": 1,
+          "rawMean": 58.3,
+          "pooledMean": 61.59,
+          "shrinkage": 0.246,
+          "ciLow": 36.42,
+          "ciHigh": 86.76
+        },
+        {
+          "state": "KY",
+          "stateName": "Kentucky",
+          "sampleSize": 2,
+          "rawMean": 58.35,
+          "pooledMean": 60.96,
+          "shrinkage": 0.395,
+          "ciLow": 38.42,
+          "ciHigh": 83.5
+        },
+        {
+          "state": "MD",
+          "stateName": "Maryland",
+          "sampleSize": 6,
+          "rawMean": 59.72,
+          "pooledMean": 60.72,
+          "shrinkage": 0.662,
+          "ciLow": 43.87,
+          "ciHigh": 77.56
+        },
+        {
+          "state": "SC",
+          "stateName": "South Carolina",
+          "sampleSize": 5,
+          "rawMean": 58.34,
+          "pooledMean": 59.98,
+          "shrinkage": 0.621,
+          "ciLow": 42.12,
+          "ciHigh": 77.84
+        },
+        {
+          "state": "MN",
+          "stateName": "Minnesota",
+          "sampleSize": 1,
+          "rawMean": 50.0,
+          "pooledMean": 59.55,
+          "shrinkage": 0.246,
+          "ciLow": 34.38,
+          "ciHigh": 84.71
+        },
+        {
+          "state": "GA",
+          "stateName": "Georgia",
+          "sampleSize": 8,
+          "rawMean": 57.29,
+          "pooledMean": 58.78,
+          "shrinkage": 0.723,
+          "ciLow": 43.53,
+          "ciHigh": 74.02
+        },
+        {
+          "state": "AL",
+          "stateName": "Alabama",
+          "sampleSize": 3,
+          "rawMean": 52.77,
+          "pooledMean": 57.77,
+          "shrinkage": 0.495,
+          "ciLow": 37.17,
+          "ciHigh": 78.36
+        },
+        {
+          "state": "NJ",
+          "stateName": "New Jersey",
+          "sampleSize": 1,
+          "rawMean": 41.7,
+          "pooledMean": 57.5,
+          "shrinkage": 0.246,
+          "ciLow": 32.33,
+          "ciHigh": 82.67
+        },
+        {
+          "state": "TX",
+          "stateName": "Texas",
+          "sampleSize": 14,
+          "rawMean": 51.79,
+          "pooledMean": 53.74,
+          "shrinkage": 0.821,
+          "ciLow": 41.46,
+          "ciHigh": 66.01
+        },
+        {
+          "state": "NH",
+          "stateName": "New Hampshire",
+          "sampleSize": 3,
+          "rawMean": 44.43,
+          "pooledMean": 53.64,
+          "shrinkage": 0.495,
+          "ciLow": 33.04,
+          "ciHigh": 74.23
+        },
+        {
+          "state": "VT",
+          "stateName": "Vermont",
+          "sampleSize": 1,
+          "rawMean": 16.7,
+          "pooledMean": 51.34,
+          "shrinkage": 0.246,
+          "ciLow": 26.17,
+          "ciHigh": 76.51
+        },
+        {
+          "state": "NM",
+          "stateName": "New Mexico",
+          "sampleSize": 5,
+          "rawMean": 38.34,
+          "pooledMean": 47.57,
+          "shrinkage": 0.621,
+          "ciLow": 29.71,
+          "ciHigh": 65.43
+        },
+        {
+          "state": "KS",
+          "stateName": "Kansas",
+          "sampleSize": 1,
+          "rawMean": 0.0,
+          "pooledMean": 47.22,
+          "shrinkage": 0.246,
+          "ciLow": 22.05,
+          "ciHigh": 72.39
+        },
+        {
+          "state": "NC",
+          "stateName": "North Carolina",
+          "sampleSize": 6,
+          "rawMean": 37.5,
+          "pooledMean": 46.0,
+          "shrinkage": 0.662,
+          "ciLow": 29.15,
+          "ciHigh": 62.84
+        },
+        {
+          "state": "OR",
+          "stateName": "Oregon",
+          "sampleSize": 2,
+          "rawMean": 12.5,
+          "pooledMean": 42.83,
+          "shrinkage": 0.395,
+          "ciLow": 20.29,
+          "ciHigh": 65.37
+        },
+        {
+          "state": "WA",
+          "stateName": "Washington",
+          "sampleSize": 3,
+          "rawMean": 16.67,
+          "pooledMean": 39.89,
+          "shrinkage": 0.495,
+          "ciLow": 19.29,
+          "ciHigh": 60.49
+        },
+        {
+          "state": "IN",
+          "stateName": "Indiana",
+          "sampleSize": 2,
+          "rawMean": 4.15,
+          "pooledMean": 39.53,
+          "shrinkage": 0.395,
+          "ciLow": 16.98,
+          "ciHigh": 62.07
+        }
+      ]
+    },
+    {
+      "metricId": "digitalReadiness",
+      "label": "Digital readiness",
+      "overallMean": 78.1,
+      "withinVariance": 349.064,
+      "betweenVariance": 0.0,
+      "states": [
+        {
+          "state": "FL",
+          "stateName": "Florida",
+          "sampleSize": 9,
+          "rawMean": 85.84,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 65.9,
+          "ciHigh": 90.31
+        },
+        {
+          "state": "MD",
+          "stateName": "Maryland",
+          "sampleSize": 6,
+          "rawMean": 76.83,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 63.15,
+          "ciHigh": 93.05
+        },
+        {
+          "state": "MO",
+          "stateName": "Missouri",
+          "sampleSize": 4,
+          "rawMean": 87.5,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 59.79,
+          "ciHigh": 96.41
+        },
+        {
+          "state": "CA",
+          "stateName": "California",
+          "sampleSize": 18,
+          "rawMean": 80.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 69.47,
+          "ciHigh": 86.73
+        },
+        {
+          "state": "CO",
+          "stateName": "Colorado",
+          "sampleSize": 1,
+          "rawMean": 72.3,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "NY",
+          "stateName": "New York",
+          "sampleSize": 9,
+          "rawMean": 81.84,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 65.9,
+          "ciHigh": 90.31
+        },
+        {
+          "state": "OK",
+          "stateName": "Oklahoma",
+          "sampleSize": 3,
+          "rawMean": 70.43,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 56.96,
+          "ciHigh": 99.24
+        },
+        {
+          "state": "OH",
+          "stateName": "Ohio",
+          "sampleSize": 7,
+          "rawMean": 89.34,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 64.26,
+          "ciHigh": 91.94
+        },
+        {
+          "state": "TX",
+          "stateName": "Texas",
+          "sampleSize": 14,
+          "rawMean": 75.54,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 68.32,
+          "ciHigh": 87.89
+        },
+        {
+          "state": "NV",
+          "stateName": "Nevada",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "PA",
+          "stateName": "Pennsylvania",
+          "sampleSize": 6,
+          "rawMean": 73.15,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 63.15,
+          "ciHigh": 93.05
+        },
+        {
+          "state": "NH",
+          "stateName": "New Hampshire",
+          "sampleSize": 3,
+          "rawMean": 74.5,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 56.96,
+          "ciHigh": 99.24
+        },
+        {
+          "state": "KY",
+          "stateName": "Kentucky",
+          "sampleSize": 2,
+          "rawMean": 77.8,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 52.21,
+          "ciHigh": 104.0
+        },
+        {
+          "state": "NM",
+          "stateName": "New Mexico",
+          "sampleSize": 5,
+          "rawMean": 68.32,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 61.73,
+          "ciHigh": 94.48
+        },
+        {
+          "state": "SC",
+          "stateName": "South Carolina",
+          "sampleSize": 5,
+          "rawMean": 64.48,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 61.73,
+          "ciHigh": 94.48
+        },
+        {
+          "state": "GA",
+          "stateName": "Georgia",
+          "sampleSize": 8,
+          "rawMean": 77.12,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 65.16,
+          "ciHigh": 91.05
+        },
+        {
+          "state": "WI",
+          "stateName": "Wisconsin",
+          "sampleSize": 2,
+          "rawMean": 72.2,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 52.21,
+          "ciHigh": 104.0
+        },
+        {
+          "state": "NC",
+          "stateName": "North Carolina",
+          "sampleSize": 6,
+          "rawMean": 64.35,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 63.15,
+          "ciHigh": 93.05
+        },
+        {
+          "state": "AL",
+          "stateName": "Alabama",
+          "sampleSize": 3,
+          "rawMean": 77.9,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 56.96,
+          "ciHigh": 99.24
+        },
+        {
+          "state": "CT",
+          "stateName": "Connecticut",
+          "sampleSize": 3,
+          "rawMean": 74.1,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 56.96,
+          "ciHigh": 99.24
+        },
+        {
+          "state": "IL",
+          "stateName": "Illinois",
+          "sampleSize": 6,
+          "rawMean": 77.83,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 63.15,
+          "ciHigh": 93.05
+        },
+        {
+          "state": "VA",
+          "stateName": "Virginia",
+          "sampleSize": 2,
+          "rawMean": 82.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 52.21,
+          "ciHigh": 104.0
+        },
+        {
+          "state": "NE",
+          "stateName": "Nebraska",
+          "sampleSize": 2,
+          "rawMean": 79.15,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 52.21,
+          "ciHigh": 104.0
+        },
+        {
+          "state": "WV",
+          "stateName": "West Virginia",
+          "sampleSize": 1,
+          "rawMean": 77.7,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "MA",
+          "stateName": "Massachusetts",
+          "sampleSize": 4,
+          "rawMean": 86.17,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 59.79,
+          "ciHigh": 96.41
+        },
+        {
+          "state": "MN",
+          "stateName": "Minnesota",
+          "sampleSize": 1,
+          "rawMean": 91.7,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "KS",
+          "stateName": "Kansas",
+          "sampleSize": 1,
+          "rawMean": 77.7,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "IN",
+          "stateName": "Indiana",
+          "sampleSize": 2,
+          "rawMean": 94.5,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 52.21,
+          "ciHigh": 104.0
+        },
+        {
+          "state": "WA",
+          "stateName": "Washington",
+          "sampleSize": 3,
+          "rawMean": 75.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 56.96,
+          "ciHigh": 99.24
+        },
+        {
+          "state": "OR",
+          "stateName": "Oregon",
+          "sampleSize": 2,
+          "rawMean": 55.65,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 52.21,
+          "ciHigh": 104.0
+        },
+        {
+          "state": "NJ",
+          "stateName": "New Jersey",
+          "sampleSize": 1,
+          "rawMean": 75.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "AK",
+          "stateName": "Alaska",
+          "sampleSize": 2,
+          "rawMean": 82.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 52.21,
+          "ciHigh": 104.0
+        },
+        {
+          "state": "AZ",
+          "stateName": "Arizona",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "DE",
+          "stateName": "Delaware",
+          "sampleSize": 3,
+          "rawMean": 90.27,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 56.96,
+          "ciHigh": 99.24
+        },
+        {
+          "state": "VT",
+          "stateName": "Vermont",
+          "sampleSize": 1,
+          "rawMean": 89.0,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        },
+        {
+          "state": "HI",
+          "stateName": "Hawaii",
+          "sampleSize": 1,
+          "rawMean": 41.7,
+          "pooledMean": 78.1,
+          "shrinkage": 0.0,
+          "ciLow": 41.48,
+          "ciHigh": 114.72
+        }
+      ]
+    },
+    {
+      "metricId": "mediaArtsReadiness",
+      "label": "Media arts readiness",
+      "overallMean": 59.01,
+      "withinVariance": 1119.741,
+      "betweenVariance": 111.221,
+      "states": [
+        {
+          "state": "FL",
+          "stateName": "Florida",
+          "sampleSize": 9,
+          "rawMean": 84.26,
+          "pooledMean": 70.93,
+          "shrinkage": 0.472,
+          "ciLow": 55.91,
+          "ciHigh": 85.95
+        },
+        {
+          "state": "CA",
+          "stateName": "California",
+          "sampleSize": 18,
+          "rawMean": 70.84,
+          "pooledMean": 66.6,
+          "shrinkage": 0.641,
+          "ciLow": 54.22,
+          "ciHigh": 78.98
+        },
+        {
+          "state": "IN",
+          "stateName": "Indiana",
+          "sampleSize": 2,
+          "rawMean": 100.0,
+          "pooledMean": 65.8,
+          "shrinkage": 0.166,
+          "ciLow": 46.92,
+          "ciHigh": 84.68
+        },
+        {
+          "state": "AK",
+          "stateName": "Alaska",
+          "sampleSize": 2,
+          "rawMean": 95.85,
+          "pooledMean": 65.12,
+          "shrinkage": 0.166,
+          "ciLow": 46.24,
+          "ciHigh": 84.0
+        },
+        {
+          "state": "NY",
+          "stateName": "New York",
+          "sampleSize": 9,
+          "rawMean": 69.46,
+          "pooledMean": 63.94,
+          "shrinkage": 0.472,
+          "ciLow": 48.92,
+          "ciHigh": 78.96
+        },
+        {
+          "state": "OH",
+          "stateName": "Ohio",
+          "sampleSize": 7,
+          "rawMean": 69.04,
+          "pooledMean": 63.12,
+          "shrinkage": 0.41,
+          "ciLow": 47.25,
+          "ciHigh": 79.0
+        },
+        {
+          "state": "NV",
+          "stateName": "Nevada",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 62.71,
+          "shrinkage": 0.09,
+          "ciLow": 43.0,
+          "ciHigh": 82.43
+        },
+        {
+          "state": "NJ",
+          "stateName": "New Jersey",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 62.71,
+          "shrinkage": 0.09,
+          "ciLow": 43.0,
+          "ciHigh": 82.43
+        },
+        {
+          "state": "VT",
+          "stateName": "Vermont",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 62.71,
+          "shrinkage": 0.09,
+          "ciLow": 43.0,
+          "ciHigh": 82.43
+        },
+        {
+          "state": "HI",
+          "stateName": "Hawaii",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 62.71,
+          "shrinkage": 0.09,
+          "ciLow": 43.0,
+          "ciHigh": 82.43
+        },
+        {
+          "state": "IL",
+          "stateName": "Illinois",
+          "sampleSize": 6,
+          "rawMean": 68.05,
+          "pooledMean": 62.39,
+          "shrinkage": 0.373,
+          "ciLow": 46.02,
+          "ciHigh": 78.75
+        },
+        {
+          "state": "WV",
+          "stateName": "West Virginia",
+          "sampleSize": 1,
+          "rawMean": 91.7,
+          "pooledMean": 61.96,
+          "shrinkage": 0.09,
+          "ciLow": 42.25,
+          "ciHigh": 81.68
+        },
+        {
+          "state": "MA",
+          "stateName": "Massachusetts",
+          "sampleSize": 4,
+          "rawMean": 66.67,
+          "pooledMean": 61.19,
+          "shrinkage": 0.284,
+          "ciLow": 43.7,
+          "ciHigh": 78.68
+        },
+        {
+          "state": "CT",
+          "stateName": "Connecticut",
+          "sampleSize": 3,
+          "rawMean": 66.7,
+          "pooledMean": 60.78,
+          "shrinkage": 0.23,
+          "ciLow": 42.63,
+          "ciHigh": 78.92
+        },
+        {
+          "state": "OK",
+          "stateName": "Oklahoma",
+          "sampleSize": 3,
+          "rawMean": 66.67,
+          "pooledMean": 60.77,
+          "shrinkage": 0.23,
+          "ciLow": 42.63,
+          "ciHigh": 78.91
+        },
+        {
+          "state": "AZ",
+          "stateName": "Arizona",
+          "sampleSize": 1,
+          "rawMean": 75.0,
+          "pooledMean": 60.46,
+          "shrinkage": 0.09,
+          "ciLow": 40.74,
+          "ciHigh": 80.17
+        },
+        {
+          "state": "TX",
+          "stateName": "Texas",
+          "sampleSize": 14,
+          "rawMean": 59.53,
+          "pooledMean": 59.31,
+          "shrinkage": 0.582,
+          "ciLow": 45.94,
+          "ciHigh": 72.68
+        },
+        {
+          "state": "MD",
+          "stateName": "Maryland",
+          "sampleSize": 6,
+          "rawMean": 59.72,
+          "pooledMean": 59.28,
+          "shrinkage": 0.373,
+          "ciLow": 42.91,
+          "ciHigh": 75.64
+        },
+        {
+          "state": "AL",
+          "stateName": "Alabama",
+          "sampleSize": 3,
+          "rawMean": 58.33,
+          "pooledMean": 58.85,
+          "shrinkage": 0.23,
+          "ciLow": 40.71,
+          "ciHigh": 77.0
+        },
+        {
+          "state": "NM",
+          "stateName": "New Mexico",
+          "sampleSize": 5,
+          "rawMean": 55.0,
+          "pooledMean": 57.68,
+          "shrinkage": 0.332,
+          "ciLow": 40.78,
+          "ciHigh": 74.58
+        },
+        {
+          "state": "DE",
+          "stateName": "Delaware",
+          "sampleSize": 3,
+          "rawMean": 52.77,
+          "pooledMean": 57.58,
+          "shrinkage": 0.23,
+          "ciLow": 39.43,
+          "ciHigh": 75.72
+        },
+        {
+          "state": "NE",
+          "stateName": "Nebraska",
+          "sampleSize": 2,
+          "rawMean": 50.0,
+          "pooledMean": 57.52,
+          "shrinkage": 0.166,
+          "ciLow": 38.64,
+          "ciHigh": 76.4
+        },
+        {
+          "state": "MN",
+          "stateName": "Minnesota",
+          "sampleSize": 1,
+          "rawMean": 41.7,
+          "pooledMean": 57.45,
+          "shrinkage": 0.09,
+          "ciLow": 37.73,
+          "ciHigh": 77.16
+        },
+        {
+          "state": "KS",
+          "stateName": "Kansas",
+          "sampleSize": 1,
+          "rawMean": 33.3,
+          "pooledMean": 56.69,
+          "shrinkage": 0.09,
+          "ciLow": 36.97,
+          "ciHigh": 76.4
+        },
+        {
+          "state": "VA",
+          "stateName": "Virginia",
+          "sampleSize": 2,
+          "rawMean": 41.7,
+          "pooledMean": 56.14,
+          "shrinkage": 0.166,
+          "ciLow": 37.26,
+          "ciHigh": 75.02
+        },
+        {
+          "state": "WA",
+          "stateName": "Washington",
+          "sampleSize": 3,
+          "rawMean": 41.67,
+          "pooledMean": 55.03,
+          "shrinkage": 0.23,
+          "ciLow": 36.89,
+          "ciHigh": 73.17
+        },
+        {
+          "state": "KY",
+          "stateName": "Kentucky",
+          "sampleSize": 2,
+          "rawMean": 33.3,
+          "pooledMean": 54.75,
+          "shrinkage": 0.166,
+          "ciLow": 35.87,
+          "ciHigh": 73.63
+        },
+        {
+          "state": "MO",
+          "stateName": "Missouri",
+          "sampleSize": 4,
+          "rawMean": 43.75,
+          "pooledMean": 54.67,
+          "shrinkage": 0.284,
+          "ciLow": 37.19,
+          "ciHigh": 72.16
+        },
+        {
+          "state": "NC",
+          "stateName": "North Carolina",
+          "sampleSize": 6,
+          "rawMean": 47.23,
+          "pooledMean": 54.61,
+          "shrinkage": 0.373,
+          "ciLow": 38.25,
+          "ciHigh": 70.97
+        },
+        {
+          "state": "CO",
+          "stateName": "Colorado",
+          "sampleSize": 1,
+          "rawMean": 8.3,
+          "pooledMean": 54.43,
+          "shrinkage": 0.09,
+          "ciLow": 34.71,
+          "ciHigh": 74.14
+        },
+        {
+          "state": "NH",
+          "stateName": "New Hampshire",
+          "sampleSize": 3,
+          "rawMean": 36.1,
+          "pooledMean": 53.75,
+          "shrinkage": 0.23,
+          "ciLow": 35.61,
+          "ciHigh": 71.89
+        },
+        {
+          "state": "GA",
+          "stateName": "Georgia",
+          "sampleSize": 8,
+          "rawMean": 41.67,
+          "pooledMean": 51.33,
+          "shrinkage": 0.443,
+          "ciLow": 35.9,
+          "ciHigh": 66.76
+        },
+        {
+          "state": "OR",
+          "stateName": "Oregon",
+          "sampleSize": 2,
+          "rawMean": 12.5,
+          "pooledMean": 51.3,
+          "shrinkage": 0.166,
+          "ciLow": 32.42,
+          "ciHigh": 70.18
+        },
+        {
+          "state": "SC",
+          "stateName": "South Carolina",
+          "sampleSize": 5,
+          "rawMean": 34.98,
+          "pooledMean": 51.04,
+          "shrinkage": 0.332,
+          "ciLow": 34.14,
+          "ciHigh": 67.93
+        },
+        {
+          "state": "WI",
+          "stateName": "Wisconsin",
+          "sampleSize": 2,
+          "rawMean": 8.35,
+          "pooledMean": 50.61,
+          "shrinkage": 0.166,
+          "ciLow": 31.73,
+          "ciHigh": 69.49
+        },
+        {
+          "state": "PA",
+          "stateName": "Pennsylvania",
+          "sampleSize": 6,
+          "rawMean": 30.55,
+          "pooledMean": 48.38,
+          "shrinkage": 0.373,
+          "ciLow": 32.02,
+          "ciHigh": 64.75
+        }
+      ]
+    },
+    {
+      "metricId": "aiConcern",
+      "label": "AI concern",
+      "overallMean": 83.35,
+      "withinVariance": 545.882,
+      "betweenVariance": 61.627,
+      "states": [
+        {
+          "state": "CA",
+          "stateName": "California",
+          "sampleSize": 16,
+          "rawMean": 93.44,
+          "pooledMean": 89.84,
+          "shrinkage": 0.644,
+          "ciLow": 80.66,
+          "ciHigh": 99.03
+        },
+        {
+          "state": "GA",
+          "stateName": "Georgia",
+          "sampleSize": 8,
+          "rawMean": 95.62,
+          "pooledMean": 89.17,
+          "shrinkage": 0.475,
+          "ciLow": 78.02,
+          "ciHigh": 100.32
+        },
+        {
+          "state": "OK",
+          "stateName": "Oklahoma",
+          "sampleSize": 3,
+          "rawMean": 100.0,
+          "pooledMean": 87.56,
+          "shrinkage": 0.253,
+          "ciLow": 74.26,
+          "ciHigh": 100.86
+        },
+        {
+          "state": "IN",
+          "stateName": "Indiana",
+          "sampleSize": 2,
+          "rawMean": 100.0,
+          "pooledMean": 86.41,
+          "shrinkage": 0.184,
+          "ciLow": 72.52,
+          "ciHigh": 100.31
+        },
+        {
+          "state": "OR",
+          "stateName": "Oregon",
+          "sampleSize": 2,
+          "rawMean": 100.0,
+          "pooledMean": 86.41,
+          "shrinkage": 0.184,
+          "ciLow": 72.52,
+          "ciHigh": 100.31
+        },
+        {
+          "state": "DE",
+          "stateName": "Delaware",
+          "sampleSize": 2,
+          "rawMean": 100.0,
+          "pooledMean": 86.41,
+          "shrinkage": 0.184,
+          "ciLow": 72.52,
+          "ciHigh": 100.31
+        },
+        {
+          "state": "FL",
+          "stateName": "Florida",
+          "sampleSize": 9,
+          "rawMean": 88.33,
+          "pooledMean": 85.86,
+          "shrinkage": 0.504,
+          "ciLow": 75.02,
+          "ciHigh": 96.69
+        },
+        {
+          "state": "NY",
+          "stateName": "New York",
+          "sampleSize": 9,
+          "rawMean": 88.33,
+          "pooledMean": 85.86,
+          "shrinkage": 0.504,
+          "ciLow": 75.02,
+          "ciHigh": 96.69
+        },
+        {
+          "state": "MD",
+          "stateName": "Maryland",
+          "sampleSize": 6,
+          "rawMean": 88.33,
+          "pooledMean": 85.36,
+          "shrinkage": 0.404,
+          "ciLow": 73.48,
+          "ciHigh": 97.24
+        },
+        {
+          "state": "CO",
+          "stateName": "Colorado",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 85.03,
+          "shrinkage": 0.101,
+          "ciLow": 70.45,
+          "ciHigh": 99.62
+        },
+        {
+          "state": "WV",
+          "stateName": "West Virginia",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 85.03,
+          "shrinkage": 0.101,
+          "ciLow": 70.45,
+          "ciHigh": 99.62
+        },
+        {
+          "state": "MN",
+          "stateName": "Minnesota",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 85.03,
+          "shrinkage": 0.101,
+          "ciLow": 70.45,
+          "ciHigh": 99.62
+        },
+        {
+          "state": "NJ",
+          "stateName": "New Jersey",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 85.03,
+          "shrinkage": 0.101,
+          "ciLow": 70.45,
+          "ciHigh": 99.62
+        },
+        {
+          "state": "AZ",
+          "stateName": "Arizona",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 85.03,
+          "shrinkage": 0.101,
+          "ciLow": 70.45,
+          "ciHigh": 99.62
+        },
+        {
+          "state": "VT",
+          "stateName": "Vermont",
+          "sampleSize": 1,
+          "rawMean": 100.0,
+          "pooledMean": 85.03,
+          "shrinkage": 0.101,
+          "ciLow": 70.45,
+          "ciHigh": 99.62
+        },
+        {
+          "state": "NC",
+          "stateName": "North Carolina",
+          "sampleSize": 6,
+          "rawMean": 87.5,
+          "pooledMean": 85.02,
+          "shrinkage": 0.404,
+          "ciLow": 73.14,
+          "ciHigh": 96.9
+        },
+        {
+          "state": "CT",
+          "stateName": "Connecticut",
+          "sampleSize": 3,
+          "rawMean": 88.33,
+          "pooledMean": 84.61,
+          "shrinkage": 0.253,
+          "ciLow": 71.31,
+          "ciHigh": 97.9
+        },
+        {
+          "state": "MA",
+          "stateName": "Massachusetts",
+          "sampleSize": 3,
+          "rawMean": 88.33,
+          "pooledMean": 84.61,
+          "shrinkage": 0.253,
+          "ciLow": 71.31,
+          "ciHigh": 97.9
+        },
+        {
+          "state": "WA",
+          "stateName": "Washington",
+          "sampleSize": 3,
+          "rawMean": 88.33,
+          "pooledMean": 84.61,
+          "shrinkage": 0.253,
+          "ciLow": 71.31,
+          "ciHigh": 97.9
+        },
+        {
+          "state": "SC",
+          "stateName": "South Carolina",
+          "sampleSize": 5,
+          "rawMean": 86.0,
+          "pooledMean": 84.3,
+          "shrinkage": 0.361,
+          "ciLow": 72.0,
+          "ciHigh": 96.6
+        },
+        {
+          "state": "KY",
+          "stateName": "Kentucky",
+          "sampleSize": 2,
+          "rawMean": 82.5,
+          "pooledMean": 83.19,
+          "shrinkage": 0.184,
+          "ciLow": 69.29,
+          "ciHigh": 97.09
+        },
+        {
+          "state": "MO",
+          "stateName": "Missouri",
+          "sampleSize": 4,
+          "rawMean": 82.5,
+          "pooledMean": 83.08,
+          "shrinkage": 0.311,
+          "ciLow": 70.31,
+          "ciHigh": 95.85
+        },
+        {
+          "state": "PA",
+          "stateName": "Pennsylvania",
+          "sampleSize": 6,
+          "rawMean": 81.67,
+          "pooledMean": 82.67,
+          "shrinkage": 0.404,
+          "ciLow": 70.79,
+          "ciHigh": 94.55
+        },
+        {
+          "state": "NH",
+          "stateName": "New Hampshire",
+          "sampleSize": 3,
+          "rawMean": 76.67,
+          "pooledMean": 81.66,
+          "shrinkage": 0.253,
+          "ciLow": 68.36,
+          "ciHigh": 94.95
+        },
+        {
+          "state": "AL",
+          "stateName": "Alabama",
+          "sampleSize": 3,
+          "rawMean": 76.67,
+          "pooledMean": 81.66,
+          "shrinkage": 0.253,
+          "ciLow": 68.36,
+          "ciHigh": 94.95
+        },
+        {
+          "state": "NV",
+          "stateName": "Nevada",
+          "sampleSize": 1,
+          "rawMean": 65.0,
+          "pooledMean": 81.48,
+          "shrinkage": 0.101,
+          "ciLow": 66.9,
+          "ciHigh": 96.07
+        },
+        {
+          "state": "TX",
+          "stateName": "Texas",
+          "sampleSize": 13,
+          "rawMean": 78.85,
+          "pooledMean": 80.67,
+          "shrinkage": 0.595,
+          "ciLow": 70.88,
+          "ciHigh": 90.47
+        },
+        {
+          "state": "WI",
+          "stateName": "Wisconsin",
+          "sampleSize": 2,
+          "rawMean": 65.0,
+          "pooledMean": 79.97,
+          "shrinkage": 0.184,
+          "ciLow": 66.07,
+          "ciHigh": 93.86
+        },
+        {
+          "state": "VA",
+          "stateName": "Virginia",
+          "sampleSize": 2,
+          "rawMean": 65.0,
+          "pooledMean": 79.97,
+          "shrinkage": 0.184,
+          "ciLow": 66.07,
+          "ciHigh": 93.86
+        },
+        {
+          "state": "AK",
+          "stateName": "Alaska",
+          "sampleSize": 2,
+          "rawMean": 65.0,
+          "pooledMean": 79.97,
+          "shrinkage": 0.184,
+          "ciLow": 66.07,
+          "ciHigh": 93.86
+        },
+        {
+          "state": "NE",
+          "stateName": "Nebraska",
+          "sampleSize": 2,
+          "rawMean": 62.5,
+          "pooledMean": 79.51,
+          "shrinkage": 0.184,
+          "ciLow": 65.61,
+          "ciHigh": 93.4
+        },
+        {
+          "state": "IL",
+          "stateName": "Illinois",
+          "sampleSize": 4,
+          "rawMean": 63.75,
+          "pooledMean": 77.25,
+          "shrinkage": 0.311,
+          "ciLow": 64.48,
+          "ciHigh": 90.02
+        },
+        {
+          "state": "HI",
+          "stateName": "Hawaii",
+          "sampleSize": 1,
+          "rawMean": 0.0,
+          "pooledMean": 74.89,
+          "shrinkage": 0.101,
+          "ciLow": 60.31,
+          "ciHigh": 89.48
+        },
+        {
+          "state": "NM",
+          "stateName": "New Mexico",
+          "sampleSize": 5,
+          "rawMean": 58.0,
+          "pooledMean": 74.2,
+          "shrinkage": 0.361,
+          "ciLow": 61.9,
+          "ciHigh": 86.5
+        },
+        {
+          "state": "OH",
+          "stateName": "Ohio",
+          "sampleSize": 6,
+          "rawMean": 60.0,
+          "pooledMean": 73.92,
+          "shrinkage": 0.404,
+          "ciLow": 62.04,
+          "ciHigh": 85.8
         }
       ]
     }
   ],
   "quantitativeMethodology": {
-    "approach": "Derived scores are normalized to 0-100, then summarized with descriptive comparisons and exploratory additive models.",
-    "modelingNote": "Model coefficients are ordinary least-squares estimates with bootstrap percentile intervals, intended for pattern finding rather than confirmatory inference.",
+    "approach": "Derived scores are normalized to 0-100, then summarized with descriptive comparisons, regularized state-aware models, and partial-pooling state estimates.",
+    "modelingNote": "Coefficient tables come from ridge-regularized additive models with state controls and bootstrap percentile intervals, intended for pattern finding rather than confirmatory inference.",
     "limitations": [
       "This is a cross-sectional survey, so models show association rather than causation.",
       "The sample is modest and uneven across states and subgroups.",
@@ -1398,10 +3976,108 @@ window.SURVEY_DASHBOARD_DATA = {
     "codingUnit": "Each response to each open-ended survey question is treated as its own coded unit.",
     "limitations": [
       "Theme coding is interpretive and may miss nuance or multi-layered meanings.",
-      "The current build uses reproducible rule-guided coding rather than double-coded human annotation.",
+      "The current build uses reproducible rule-guided coding plus a blinded double-coding workflow, but true human agreement depends on a completed second-coder file.",
       "Theme frequency indicates recurrence, not importance or causal force."
     ]
   },
+  "qualitativeValidation": {
+    "status": "awaiting_human_second_coder",
+    "sampleSize": 36,
+    "report": null,
+    "note": "A blinded sample and coding key have been exported. Agreement becomes active when a completed human second-coder file is placed in scripts/human_double_coding_completed.csv."
+  },
+  "privacySummary": {
+    "anonymous": true,
+    "summary": "The public app is anonymized: it excludes response identifiers and exact response dates, keeps only state-level geography, and redacts obvious personal or institutional references from exported text excerpts.",
+    "safeguards": [
+      "Response IDs are removed from the public dataset.",
+      "Exact response dates are removed from the public dataset.",
+      "Only state-level geography is retained publicly.",
+      "Public quote excerpts are sanitized for links, contact details, and detected place or institution names.",
+      "Appendix files use sanitized text and anonymous sample IDs."
+    ],
+    "sanitizedResponseCount": 37,
+    "redactionCounts": {
+      "domain": 2,
+      "organization_pattern": 6,
+      "person_intro": 43,
+      "url": 1
+    },
+    "publicFieldsRemoved": [
+      "responseId",
+      "recordedDate",
+      "city",
+      "district"
+    ]
+  },
+  "appendixCatalog": [
+    {
+      "label": "Measurement audit table",
+      "description": "Score reliability, coverage, and component diagnostics for the derived measures.",
+      "href": "appendix/measurement-audit.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Model summary table",
+      "description": "State-aware ridge model summaries for the main quantitative outcomes.",
+      "href": "appendix/model-summary.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Model coefficient table",
+      "description": "Bootstrap-banded coefficients from the state-aware ridge models.",
+      "href": "appendix/model-coefficients.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Partial-pooled state estimates",
+      "description": "Empirical-Bayes state estimates for the core score metrics, useful when geography matters.",
+      "href": "appendix/state-pooled-estimates.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Score definitions",
+      "description": "Component-level definitions for each derived score used in the app.",
+      "href": "appendix/score-definitions.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Theme codebook",
+      "description": "Theme definitions, inclusion cues, and boundary rules for the qualitative layer.",
+      "href": "appendix/theme-codebook.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Text question coverage",
+      "description": "Coverage and dominant themes for each open-ended survey question.",
+      "href": "appendix/text-question-coverage.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Blinded double-coding sample",
+      "description": "Anonymous open-response sample for a second coder to label without seeing the primary codes.",
+      "href": "appendix/blinded-double-coding-sample.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Primary coding key",
+      "description": "Primary theme and stance assignments for the blinded validation sample.",
+      "href": "appendix/primary-coding-key.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Qualitative agreement report",
+      "description": "Current status of the double-coding workflow and any available agreement statistics.",
+      "href": "appendix/qualitative-agreement-report.csv",
+      "format": "csv"
+    },
+    {
+      "label": "Privacy safeguards",
+      "description": "Public-data safeguards and redaction counts used to keep the website anonymous.",
+      "href": "appendix/privacy-safeguards.csv",
+      "format": "csv"
+    }
+  ],
   "themeCatalog": [
     {
       "id": "creativity",
@@ -1683,10 +4359,8 @@ window.SURVEY_DASHBOARD_DATA = {
   ],
   "respondents": [
     {
-      "id": "R_2v3ctfaS07x10oL",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2024-11-21",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -1735,7 +4409,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am one who loves research and advancement so I dedicate my time to my educational growth",
+          "text": "[PERSON] research and advancement so I dedicate my time to my educational growth",
           "themes": [
             "training",
             "barriers"
@@ -1757,10 +4431,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1RWbK304RtfvqQA",
       "state": "MD",
       "stateName": "Maryland",
-      "recordedDate": "2024-11-22",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "20 + years",
@@ -1859,10 +4531,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1dX0g1lG36eRBGD",
       "state": "MO",
       "stateName": "Missouri",
-      "recordedDate": "2024-11-22",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -1942,7 +4612,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "There is certainly potential for negative impact in regards to hindering creativity, however I think the positive possibilities are far greater than the negative. When my students and I talk about it, I always equate it to how art had to change with the invention of photography. Art will always find a way, it just has to adapt.",
+          "text": "There is certainly potential for negative impact in regards to hindering creativity, however I think the positive possibilities are far greater than the negative. When my students and I talk about it, I always equate it to how art had to change with the invention of photography. Art will always find a way, it just…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -1964,10 +4634,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1OGE3jqKU1ZwbWK",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2024-11-22",
       "schoolType": "Private",
       "teachingBand": "Other",
       "experienceBand": "16-20 years",
@@ -2074,10 +4742,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5vjrIB6CiXrf1fF",
       "state": "CO",
       "stateName": "Colorado",
-      "recordedDate": "2024-11-27",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -2153,7 +4819,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I'm concerned that we're outsourcing our creativity, instead of doing the work to teach kids how to ideate on their own. Remixing is not the same as originality.",
+          "text": "[PERSON]'re outsourcing our creativity, instead of doing the work to teach kids how to ideate on their own. Remixing is not the same as originality.",
           "themes": [
             "ethics",
             "skillLoss"
@@ -2174,10 +4840,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6pLbRueMOP5IJjb",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2024-12-01",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "4-6 years",
@@ -2259,10 +4923,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1DYHyCaN9ke8qo7",
       "state": "OK",
       "stateName": "Oklahoma",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -2353,10 +5015,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7jI0M7KDd3Z10IB",
       "state": "OH",
       "stateName": "Ohio",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -2417,10 +5077,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7iUNOwYrRWSoR8h",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -2487,7 +5145,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "The digital portfolio is a year long assessment tool that allows students to organize their work and to perfect their artist statement for 1-4 years of high school. At the end it may be applied to AP or college submissions. It is a game changer and has directly influenced my drive to making sure all students are educated to creating digital works as well.",
+          "text": "The digital portfolio is a year long assessment tool that allows students to organize their work and to perfect their artist statement for 1-4 years of high school. At the end it may be applied to AP or college submissions. It is a game changer and has directly influenced my drive to making sure all students are…",
           "themes": [
             "efficiency",
             "engagement",
@@ -2496,7 +5154,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I believe that AI is just one more tool at the hand of the artist. The real work is establishing and teaching ethics on how to use this tool responsibly. Art is more than learning skills- it is about communicating one's individuality and getting the message across to an audience. We need to educate our students to respect their own ideas and to respect others.",
+          "text": "I believe that AI is just one more tool at the hand of the artist. The real work is establishing and teaching ethics on how to use this tool responsibly. Art is more than learning skills- it is about communicating one's individuality and getting the message across to an audience. We need to educate our students to…",
           "themes": [
             "creativity",
             "ethics",
@@ -2526,10 +5184,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_772B8nMvGXQr8Xv",
       "state": "NV",
       "stateName": "Nevada",
-      "recordedDate": "2024-12-04",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -2578,7 +5234,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I fully base my teaching on a learner/learner environment. Using photoshop with my digital photo classes - there are so many tools and updates each year in adobe that we learn as we go. Students also have different cameras, computers and software that changes how lessons are taught and we learn together what works best for each student and the equipment they are using.",
+          "text": "I fully base my teaching on a learner/learner environment. Using photoshop with my digital photo classes - there are so many tools and updates each year in adobe that we learn as we go. Students also have different cameras, computers and software that changes how lessons are taught and we learn together what works…",
           "themes": [
             "access",
             "barriers",
@@ -2636,10 +5292,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3GnuOdY7vJNL4hH",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "0-3 years",
@@ -2723,10 +5377,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1ToVnShCkIcqjjA",
       "state": "PA",
       "stateName": "Pennsylvania",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -2772,7 +5424,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "Ceramics degree from Tyler School of Art influenced how I teach Ceramics I & II courses. We have digital Photography courses 1 - 4 and AP Digital Photography. I utlize ipad for Art Club, Mural Club and Studio Art courses. Have taken courses in ProCreate so that I can teach students how to use the program.",
+          "text": "Ceramics degree from [ORGANIZATION] of Art influenced how I teach Ceramics I & II courses. We have digital Photography courses 1 - 4 and AP Digital Photography. I utlize ipad for Art Club, Mural Club and Studio Art courses. Have taken courses in ProCreate so that I can teach students how to use the program.",
           "themes": [
             "training",
             "making"
@@ -2811,10 +5463,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1hzLTqT8TWqj1GZ",
       "state": "NH",
       "stateName": "New Hampshire",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Other",
       "experienceBand": "16-20 years",
@@ -2908,10 +5558,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5eONTZFf5QyeYjN",
       "state": "PA",
       "stateName": "Pennsylvania",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -2989,7 +5637,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "neutral"
         },
         "aiUseful": {
-          "text": "I have used AI with figure drawing when making super hero drawings from everyday objects. There is not a great way to monitor or evaluate how students are using AI with the project. It is great as a tool that they can create a resource to meet specific ideas that can be used as a reference in their art. Again- delicate balance of how it is used. I feel it really disregards the expertise of the artist and the work that is sometimes needed for understanding.",
+          "text": "I have used AI with figure drawing when making super hero drawings from everyday objects. There is not a great way to monitor or evaluate how students are using AI with the project. It is great as a tool that they can create a resource to meet specific ideas that can be used as a reference in their art. Again-…",
           "themes": [
             "creativity"
           ],
@@ -3007,10 +5655,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_65S1VuIDk8Eoc55",
       "state": "KY",
       "stateName": "Kentucky",
-      "recordedDate": "2024-12-04",
       "schoolType": "Other",
       "teachingBand": "Other",
       "experienceBand": "20 + years",
@@ -3063,10 +5709,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5uoOwYO256NhxkJ",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -3114,7 +5758,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I think integrating technology is important not only to stay current with educational trends and increasing efficacy, but also in order to teach students how to integrate and utilize the newest tech. I think the future will favor those who are creators rather than consumers of tech and art is the perfect place to hone those skills!",
+          "text": "I think integrating technology is important not only to stay current with educational trends and increasing efficacy, but also in order to teach students how to integrate and utilize the newest tech. I think the future will favor those who are creators rather than consumers of tech and art is the perfect place to…",
           "themes": [
             "skillLoss"
           ],
@@ -3134,7 +5778,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I don't have a specific project, but regularly use artsonia.com to upload all student work. Not only does this give me a chance to fulfill the standard of creating a portfolio, but also creates and opportunity for students to learn photography skills and allow me to share digital galleries with the community and beyond!",
+          "text": "I don't have a specific project, but regularly use [LINK] to upload all student work. Not only does this give me a chance to fulfill the standard of creating a portfolio, but also creates and opportunity for students to learn photography skills and allow me to share digital galleries with the community and beyond!",
           "themes": [
             "skillLoss",
             "engagement",
@@ -3171,10 +5815,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5gGeXr1fgFG4TzP",
       "state": "NM",
       "stateName": "New Mexico",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -3257,10 +5899,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1gSjiZZijzQq9sV",
       "state": "SC",
       "stateName": "South Carolina",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "16-20 years",
@@ -3312,14 +5952,14 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I have taken the TAB Institute course at Mass Art in Boston. I follow the teaching for artistic behavior pedagogy.",
+          "text": "I have taken the [ORGANIZATION] course at Mass Art in Boston. I follow the teaching for artistic behavior pedagogy.",
           "themes": [
             "training"
           ],
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "During Covid, I created a virtual classroom using Google slides. It was very comprehensive and had literally hundreds of choices for art-making. Students could access it from home and stay involved in art while we were out of school. I still use this material during inclement weather, when students are home from school.",
+          "text": "During Covid, I created a virtual classroom using Google slides. It was very comprehensive and had literally hundreds of choices for art-making. Students could access it from home and stay involved in art while we were out of school. I still use this material during inclement weather, when students are home from…",
           "themes": [
             "efficiency",
             "access",
@@ -3328,7 +5968,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I am currently working on using QR codes, linked to the Wikipedia page about Piet Mondrian, to serve as the black and white for Mondrian - inspired art pieces that we will use as ornaments for the studio Christmas tree. We will use a larger QR code for interested parties to use to look up the article on Mondrian.",
+          "text": "[PERSON] using QR codes, linked to the Wikipedia page about Piet Mondrian, to serve as the black and white for Mondrian - inspired art pieces that we will use as ornaments for the studio Christmas tree. We will use a larger QR code for interested parties to use to look up the article on Mondrian.",
           "themes": [
             "creativity",
             "engagement"
@@ -3336,7 +5976,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I'm not sure, but my thoughts currently are focused on how to avoid plagiarism in the arts. Additionally, I wonder how much of the student's vision will be replaced by AI, in the end.",
+          "text": "[PERSON], but my thoughts currently are focused on how to avoid plagiarism in the arts. Additionally, I wonder how much of the student's vision will be replaced by AI, in the end.",
           "themes": [
             "ethics"
           ],
@@ -3356,10 +5996,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5psqBMIhmSTceQf",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -3411,7 +6049,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am a NBCT ('08, renewed '18). That process helped me see the value in reflective writing and making sure each student was showing growth. I completed my master's online which has now led to me teaching online art appreciation courses. My students all have chromebooks and use them for Canvas classroom, Artsonia, research and resources. I appreciate the technology access because it helps keep all their resources organized. This question is VERY vague.",
+          "text": "I am a NBCT ('08, renewed '18). That process helped me see the value in reflective writing and making sure each student was showing growth. I completed my master's online which has now led to me teaching online art appreciation courses. My students all have chromebooks and use them for Canvas classroom, Artsonia…",
           "themes": [
             "access",
             "engagement",
@@ -3441,7 +6079,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "It can be helpful for teachers by helping with menial tasks like writing discussion questions and lesson plans. It can be a hinderance when students are working independently and rely to heavily on AI to do all their work for them. It is a negative in art because it steals from other's work and isn't original to the person.",
+          "text": "It can be helpful for teachers by helping with menial tasks like writing discussion questions and lesson plans. It can be a hinderance when students are working independently and rely to heavily on AI to do all their work for them. It is a negative in art because it steals from other's work and isn't original to the…",
           "themes": [
             "efficiency",
             "ethics",
@@ -3470,10 +6108,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6gQnPE4krlCrT4l",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Other",
       "experienceBand": "16-20 years",
@@ -3538,10 +6174,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_19kXvA706Gepx73",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -3623,10 +6257,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1wTa3TsKXC48QUG",
       "state": "WI",
       "stateName": "Wisconsin",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -3718,10 +6350,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5XM98KiuBKhTfLr",
       "state": "NC",
       "stateName": "North Carolina",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "20 + years",
@@ -3776,7 +6406,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am using technology more and more with the improvement of AI software. I have training through the school district on AI and some background in graphic design.",
+          "text": "[PERSON] and more with the improvement of AI software. I have training through the school district on AI and some background in graphic design.",
           "themes": [
             "training",
             "barriers",
@@ -3822,10 +6452,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3RM2wFmbKxkImLn",
       "state": "OH",
       "stateName": "Ohio",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -3873,7 +6501,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I graduated with a degree in Art Education certified K-12. I immediately entered the field teaching at the high school level at Massillon City Schools. This year, I took a new position at Highland Local Schools teaching high school art. I got my Master' degree in Administration but do not intend to use it.",
+          "text": "I graduated with a degree in Art Education certified K-12. I immediately entered the field teaching at the high school level at [ORGANIZATION]. This year, I took a new position at [ORGANIZATION] teaching high school art. I got my Master' degree in Administration but do not intend to use it.",
           "themes": [],
           "stance": "not_scored"
         },
@@ -3883,7 +6511,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "I recently used technology to create a Peter Max inspired portrait of two special needs students in my classroom. Using PhotoPea, I outlined the shapes of their face and added shapes in the background. I printed these for these two students to color so that they could access the curriculum and learn about an artist while other students were doing a Peter Max project on their Chromebooks.",
+          "text": "I recently used technology to create a Peter Max inspired portrait of two special needs students in my classroom. Using PhotoPea, I outlined the shapes of their face and added shapes in the background. I printed these for these two students to color so that they could access the curriculum and learn about an artist…",
           "themes": [
             "creativity",
             "access"
@@ -3891,7 +6519,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I face a lot of push back from my students when I incorporate media arts projects. I believe they suffer from technology burnout and look to art class to be a hands-on zone. However, the media arts project that kids get really excited for is stop-motion animation. I have students get into pairs and create a storyboard for a short film. They build the characters and the props and then use technology to complete a 1 minute long stop-motion film.",
+          "text": "I face a lot of push back from my students when I incorporate media arts projects. I believe they suffer from technology burnout and look to art class to be a hands-on zone. However, the media arts project that kids get really excited for is stop-motion animation. I have students get into pairs and create a…",
           "themes": [
             "skillLoss",
             "engagement",
@@ -3900,7 +6528,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI has the chance to ease the burden on teachers who are tasked with so much administrative work. Using AI to generate lesson plans, craft rubrics, make slides etc has changed the way I view the profession. I am able to focus my energy where it matters, on the kids.",
+          "text": "AI has the chance to ease the burden on teachers who are tasked with so much administrative work. Using AI to generate lesson plans, craft rubrics, make slides etc has changed the way I view the profession. [PERSON] my energy where it matters, on the kids.",
           "themes": [
             "efficiency"
           ],
@@ -3930,10 +6558,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7fSEpxpw5k6xtLV",
       "state": "AL",
       "stateName": "Alabama",
-      "recordedDate": "2024-12-04",
       "schoolType": "Private",
       "teachingBand": "Multi-level",
       "experienceBand": "11-15 years",
@@ -4009,7 +6635,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "uncertain"
         },
         "aiUseful": {
-          "text": "I have used DALL-E as an image generator for students to use as reference photos for paintings and drawings....for example, I had a student who was trying to draw an image of two wooden drawing mannequins in a traditional ballet lift. However, the mannequins in the room were incapable of being physically set up in that lift without falling over. DALL-E was able to generate an image she could look at as a reference for her drawing. She used the AI generated image in combination with observational drawing of the physical mannequins in the room to create her finished artwork.",
+          "text": "I have used DALL-E as an image generator for students to use as reference photos for paintings and drawings....for example, I had a student who was trying to draw an image of two wooden drawing mannequins in a traditional ballet lift. However, the mannequins in the room were incapable of being physically set up in…",
           "themes": [
             "creativity",
             "skillLoss"
@@ -4028,10 +6654,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5q8g1e948XrYB7e",
       "state": "CT",
       "stateName": "Connecticut",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "7-10 years",
@@ -4094,7 +6718,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "My 8th graders do a unit on digital photography that would not be possible without the digital cameras themselves as well as the chromebooks. I also teach a graphic design mini-unit in 7th grade where students can create their own images using digital drawing or they can use gen AI to create images for their designs. Having the option for gen AI is nice for students who lack the drawing skills to execute their vision for their design or can't find a public-domain image to use on Google.",
+          "text": "My 8th graders do a unit on digital photography that would not be possible without the digital cameras themselves as well as the chromebooks. I also teach a graphic design mini-unit in 7th grade where students can create their own images using digital drawing or they can use gen AI to create images for their designs.…",
           "themes": [
             "skillLoss",
             "making"
@@ -4102,7 +6726,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "My students seem to really enjoy both the digital photo unit and the graphic design unit. The photo unit helps them take better pictures with their devices as well as sets them up for more serious photography in the future. The graphic design unit is fun because students have the opportunity to print their designs on shirts and they love being able to wear their art. I only grade on their ability to showcase the principles of graphic design so their drawing skills (or lack there of) have no bearing on their grade. This makes it the perfect unit to offer the option of using AI generated art in their project.",
+          "text": "My students seem to really enjoy both the digital photo unit and the graphic design unit. The photo unit helps them take better pictures with their devices as well as sets them up for more serious photography in the future. The graphic design unit is fun because students have the opportunity to print their designs on…",
           "themes": [
             "skillLoss",
             "making"
@@ -4110,7 +6734,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I worry that students will feel even more indifferent about acquiring the skills of drawing, painting, and creating. Drawing is about so much more than just the physical skill, it is about seeing and analyzing and there were already so many grumbles of \"why does this matter\" even before AI could draw anything they wanted instantly. It sounds dramatic but I don't want us to end up like the humans in the movie Wally.",
+          "text": "I worry that students will feel even more indifferent about acquiring the skills of drawing, painting, and creating. Drawing is about so much more than just the physical skill, it is about seeing and analyzing and there were already so many grumbles of \"why does this matter\" even before AI could draw anything they…",
           "themes": [
             "skillLoss"
           ],
@@ -4134,10 +6758,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3t5sOlSpMCBboRo",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "7-10 years",
@@ -4246,10 +6868,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1EWnSbOXaYz0n9e",
       "state": "MO",
       "stateName": "Missouri",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "20 + years",
@@ -4331,7 +6951,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I'm not sure.",
+          "text": "[PERSON].",
           "themes": [],
           "stance": "uncertain"
         }
@@ -4346,10 +6966,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5n7tZtXqZS3Tfnv",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2024-12-04",
       "schoolType": "Private",
       "teachingBand": "Multi-level",
       "experienceBand": "11-15 years",
@@ -4462,10 +7080,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5rinHZPOJ2Jy0M1",
       "state": "PA",
       "stateName": "Pennsylvania",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -4514,7 +7130,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am a lifelong learner who wants to remain current and relevant in the field of education. I am interested in any experience that can add to my teaching tool box. Teaching K-12, as well as at the college level, has challenged me to continuously refine and hone my teaching practices.",
+          "text": "I am a lifelong learner who wants to remain current and relevant in the field of education. [PERSON] experience that can add to my teaching tool box. Teaching K-12, as well as at the college level, has challenged me to continuously refine and hone my teaching practices.",
           "themes": [
             "engagement"
           ],
@@ -4563,10 +7179,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5S1s6ilvcSQMeHd",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -4647,10 +7261,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6xvG9F7kbWkDzXP",
       "state": "WI",
       "stateName": "Wisconsin",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "20 + years",
@@ -4716,12 +7328,12 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Some of my students are creating art on tablets and have been asking for oportunities to create digital art on tablets in class. We can not afford a classroom of tablets, but I did get a donation from which I was able to purchase 23 Wacom drawing tablets. I've begun using them in my Graphic Communications class and hope to integrate their use throughout my curriculum.",
+          "text": "Some of my students are creating art on tablets and have been asking for oportunities to create digital art on tablets in class. We can not afford a classroom of tablets, but I did get a donation from which I was able to purchase 23 Wacom drawing tablets. I've begun using them in my Graphic Communications class and…",
           "themes": [],
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I really don't know yet. I think Ai will change everything. So I'm excited to learn more about it. It's just really hard, because my school district seems very hesitant to allow it's use.",
+          "text": "I really don't know yet. I think Ai will change everything. So [PERSON] more about it. It's just really hard, because my school district seems very hesitant to allow it's use.",
           "themes": [
             "engagement",
             "barriers"
@@ -4738,10 +7350,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7CgixspWm0WJGpz",
       "state": "PA",
       "stateName": "Pennsylvania",
-      "recordedDate": "2024-12-04",
       "schoolType": "Charter",
       "teachingBand": "Other",
       "experienceBand": "11-15 years",
@@ -4796,7 +7406,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Integrating digital tools, software, apps, robotics, electronics, 3D printing, coding, AR/VR, digital photography, video editing, digital game-making, and beyond to facilitate and enhance students' creative practices, such as creating visual, multimedia, or interactive artworks. This could include using a combination of traditional media and digital media to create art, exploring different media arts techniques and tools, facilitating collaborative art projects, or incorporating AI, virtual or augmented reality (VR or AR), and other emerging technologies into the art-making process.",
+          "text": "Integrating digital tools, software, apps, robotics, electronics, 3D printing, coding, AR/VR, digital photography, video editing, digital game-making, and beyond to facilitate and enhance students' creative practices, such as creating visual, multimedia, or interactive artworks. This could include using a combination…",
           "themes": [
             "skillLoss",
             "access",
@@ -4815,7 +7425,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "The strongest impact that media arts has had with my student learning is creating accessible reading content for my students. Using the i read benchmarks and Lexile reading scores I am able to make content match my students' reading abilities in fluency and comprehension.",
+          "text": "The strongest impact that media arts has had with my student learning is creating accessible reading content for my students. Using the i read benchmarks and Lexile reading scores [PERSON] content match my students' reading abilities in fluency and comprehension.",
           "themes": [
             "access"
           ],
@@ -4829,7 +7439,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "neutral"
         },
         "aiUseful": {
-          "text": "The strongest impact that media arts has had with my student learning is creating accessible reading content for my students. Using the i read benchmarks and Lexile reading scores I am able to make content match my students' reading abilities in fluency and comprehension.",
+          "text": "The strongest impact that media arts has had with my student learning is creating accessible reading content for my students. Using the i read benchmarks and Lexile reading scores [PERSON] content match my students' reading abilities in fluency and comprehension.",
           "themes": [
             "access"
           ],
@@ -4850,10 +7460,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3yAVUqTdGYUtltv",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -4944,10 +7552,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1r26ZEExaWWYhJq",
       "state": "MO",
       "stateName": "Missouri",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -5000,7 +7606,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am constantly researching digital media teaching tools.",
+          "text": "[PERSON] media teaching tools.",
           "themes": [
             "training"
           ],
@@ -5046,10 +7652,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_52OSh2Alss2zjpM",
       "state": "SC",
       "stateName": "South Carolina",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -5149,10 +7753,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5hEX061NeVsrVPx",
       "state": "IL",
       "stateName": "Illinois",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "20 + years",
@@ -5200,7 +7802,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I attend many conferences and PD opportunities where I have learned more about how to best use and develop curriculum for tech and maker ed to use in my classroom. Being an Adobe Creative Innovator and being a part of the maker educator collective through Infosys has driven my content/software knowledge and collaboration with other educators around teaching digital media and hands on making.",
+          "text": "I attend many conferences and PD opportunities where I have learned more about how to best use and develop curriculum for tech and maker ed to use in my classroom. Being an Adobe Creative Innovator and being a part of the maker educator collective through Infosys has driven my content/software knowledge and…",
           "themes": [
             "skillLoss",
             "barriers",
@@ -5214,7 +7816,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Laser cutting and engraving is very engaging for my students. They love creating digitally then watching their creations come off the screen and onto wood, metal, and other materials. The laser cutter has allowed students to create 3d items and iterate quickly and has helped build community and allow students to create items they can use! Our vinyl cutter and heat press are also tools that have changed the way we work in my classroom. Students can create their own shirts, and have created apparel for school teams and clubs which raises money for additional equipment in our lab. This has given student ownership and taught them entrepreneurial skills as well!",
+          "text": "Laser cutting and engraving is very engaging for my students. They love creating digitally then watching their creations come off the screen and onto wood, metal, and other materials. The laser cutter has allowed students to create 3d items and iterate quickly and has helped build community and allow students to…",
           "themes": [
             "creativity",
             "ethics",
@@ -5224,7 +7826,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "We did an issue based photo display in our community that allowed students to share their ideas about stereotypes and how they affect our students. The display involved large scale student portraits wheat pasted onto our school walls (in the style of artist JR). We then collaborated with our drama class to take the ideas from the photos and create a performance for our school community incorporating student photos, video (w/green screen), and audio into a powerful multimedia performance.",
+          "text": "We did an issue based photo display in our community that allowed students to share their ideas about stereotypes and how they affect our students. The display involved large scale student portraits wheat pasted onto our school walls (in the style of artist JR). We then collaborated with our drama class to take the…",
           "themes": [
             "creativity",
             "making"
@@ -5232,7 +7834,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "It allows students to iterate quickly and spend more time being in their ideas to life and trying new concepts rather than spending much of their time on technical tools to bring those ideas to life. On the flip side, it may hinder creativity for some students as they rely more on AI and less on ways to solve creative image making on their own.",
+          "text": "It allows students to iterate quickly and spend more time being in their ideas to life and trying new concepts rather than spending much of their time on technical tools to bring those ideas to life. On the flip side, it may hinder creativity for some students as they rely more on AI and less on ways to solve…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -5241,7 +7843,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "We love generating specific images to get across students' ideas when doing issue based poster making. It is much easier for students to describe exactly what kind of image they want to support their ideas, then use generative fill to quickly enhance or change parts of the image to help them communicate through imagery quicker and more effectively.",
+          "text": "We love generating specific images to get across students' ideas when doing issue based poster making. It is much easier for students to describe exactly what kind of image they want to support their ideas, then use generative fill to quickly enhance or change parts of the image to help them communicate through…",
           "themes": [
             "creativity",
             "access",
@@ -5264,10 +7866,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7LbuoWPKqpUe0tr",
       "state": "IL",
       "stateName": "Illinois",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "20 + years",
@@ -5347,7 +7947,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "I've been using ChatGPT to ask questions about a clay image transfer project. I had questions answered that I would have never found on my own. It gave me the confidence to purchase materials and try something new. It also provided me with video tutorials that did not come up when I first looked on YouTube. I've also used Gamma for presentation creation and it is fantastic! I utilize not only the creation of a presentation but also the embedded AI tools for images and revising text. I download to a PPT and then upload to Google Slides.",
+          "text": "I've been using ChatGPT to ask questions about a clay image transfer project. I had questions answered that I would have never found on my own. It gave me the confidence to purchase materials and try something new. It also provided me with video tutorials that did not come up when I first looked on YouTube. I've also…",
           "themes": [
             "efficiency",
             "training",
@@ -5368,10 +7968,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_12JkCnxeIxB2Pg8",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2024-12-04",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -5423,7 +8021,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "This is quite a loaded questionâ€¦ i'm not sure how to concisely answer. I take good and bad experiences and adapt them to my teaching.",
+          "text": "This is quite a loaded questionâ€¦ [PERSON] to concisely answer. I take good and bad experiences and adapt them to my teaching.",
           "themes": [
             "access"
           ],
@@ -5477,10 +8075,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_31sZQcPrcZLWWeS",
       "state": "VA",
       "stateName": "Virginia",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -5528,7 +8124,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am excited about integrating STEAM lessons into my curriculum, and I'm always looking for ways to integrate technology into my art classes.",
+          "text": "[PERSON] STEAM lessons into my curriculum, and [PERSON] ways to integrate technology into my art classes.",
           "themes": [
             "engagement"
           ],
@@ -5555,7 +8151,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I personally feel like AI has helped me to \"work smarter, not harder.\" I love chatGPT for grant writing and communication with parents. I haven't used it for lesson writing yet because my plans are so interactive and filled with videos, but I do see it as an idea generator. I don't see negatives for myself, but I do worry that new teachers &/or preservice could rely too heavily on it.",
+          "text": "I personally feel like AI has helped me to \"work smarter, not harder.\" I love chatGPT for grant writing and communication with parents. I haven't used it for lesson writing yet because my plans are so interactive and filled with videos, but I do see it as an idea generator. I don't see negatives for myself, but I do…",
           "themes": [
             "creativity",
             "engagement",
@@ -5583,10 +8179,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6xIY1vqKGUK4IMr",
       "state": "NM",
       "stateName": "New Mexico",
-      "recordedDate": "2024-12-04",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "16-20 years",
@@ -5684,10 +8278,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6h7uuPr9AjrS0XD",
       "state": "NE",
       "stateName": "Nebraska",
-      "recordedDate": "2024-12-04",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -5752,7 +8344,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I have not used it in a media arts project - beyond showing graphic design students that the AI generator gives similar ideas to all of us; and having Digital Photography students explore how they could make their slow shutter ghost images even creepier with Photoshop's AI generator - these were not serious projects but one day discoveries.",
+          "text": "I have not used it in a media arts project - beyond showing graphic design students that the AI generator gives similar ideas to all of us; and having Digital Photography students explore how they could make their slow shutter ghost images even creepier with Photoshop's AI generator - these were not serious projects…",
           "themes": [
             "creativity",
             "making"
@@ -5768,7 +8360,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "I used it in a unit with my Honors Art Seniors with the mentality that those of us who understand AI and know how to use it ethically and to speed up our work flow will be ahead of those who have been scared into never ever touching it. I taught students how AI models are trained and discussed ethical uses through a powerpoint I created from various resouces. Student then took a sketch they had created over the summer from their sketchbook, and asked ChatGPT to critique it - we discussed whether the information was useful - most thought classroom critiques were better. We then asked ChatGPT to offer suggestions for titles of their sketch - this was a better use of AI and students felt that it was a more ethical use. For their artmaking, students used a \"half baked idea\" from their sketchbook and Adobe Firefly to generate more ideas and visuals to \"fully bake\" their initial idea. Their finished work was handmade in the media of their choice (digital art was not allowed) after making decisions based on AI research. Finished projects and artist statements can be found here https://www.artsonia.com/museum/gallery.asp?project=2942815",
+          "text": "I used it in a unit with my Honors Art Seniors with the mentality that those of us who understand AI and know how to use it ethically and to speed up our work flow will be ahead of those who have been scared into never ever touching it. I taught students how AI models are trained and discussed ethical uses through a…",
           "themes": [
             "creativity",
             "ethics",
@@ -5792,10 +8384,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1t5N5q3bZNur8n7",
       "state": "WV",
       "stateName": "West Virginia",
-      "recordedDate": "2024-12-05",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "20 + years",
@@ -5840,7 +8430,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "Throughout the course of my career, I have adapted to the ever-changing use and potential of technology embedded within my teaching practice and the creative potential for my students. I have taken every opportunity to engage in professional development virtually and in person to improve my understanding of the use of technology within the art education field.",
+          "text": "Throughout the course of my career, I have adapted to the ever-changing use and potential of technology embedded within my teaching practice and the creative potential for my students. I have taken every opportunity to engage in professional development virtually and in person to improve my understanding of the use…",
           "themes": [
             "access",
             "engagement",
@@ -5854,7 +8444,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "I have used a flipped model within my art classroom giving students choice and learning modules and teacher created video lessons. This approach allowed students choice in projects and learning goals, students still maintained a high level of engagement and were able to learn through the videos while stopping rewinding or pausing when needed And allowed me as the educator to provide more one-on-one support for students in need of help. This method allowed for higher level students to not be held back by disruptions or students struggling with techniques or understanding.",
+          "text": "I have used a flipped model within my art classroom giving students choice and learning modules and teacher created video lessons. This approach allowed students choice in projects and learning goals, students still maintained a high level of engagement and were able to learn through the videos while stopping…",
           "themes": [
             "access",
             "engagement",
@@ -5863,7 +8453,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "In the last two years, I have added to our creative arsenal of tools, a set of laser cutters. Students are seeing the potential in drawing and printing their ideas into tangible products for students. This allows them to see how their creative ideas can become a tangible way to create and potentially sell items in the future.",
+          "text": "In the last two years, I have added to our creative arsenal of tools, a set of laser cutters. Students are seeing the potential in drawing and printing their ideas into tangible products for students. This allows them to see how their creative ideas can become a tangible way to create and potentially sell items in…",
           "themes": [
             "creativity"
           ],
@@ -5895,10 +8485,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3dEFmWeF3UPrCXn",
       "state": "MA",
       "stateName": "Massachusetts",
-      "recordedDate": "2024-12-05",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -5947,7 +8535,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am the lone person with any media training (graphic design, social media, digital photo) in an art program with a team of 5. All other courses are fine arts focused with occasional tablet drawing lessons. My study was diverse from painting > animation and enabled me to teach all of the courses that we offer, our team is currently put in \"specialization\" categories.",
+          "text": "[PERSON] with any media training (graphic design, social media, digital photo) in an art program with a team of 5. All other courses are fine arts focused with occasional tablet drawing lessons. My study was diverse from painting > animation and enabled me to teach all of the courses that we offer, our team is…",
           "themes": [
             "training",
             "making"
@@ -5964,10 +8552,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7QQNahJ8LXvTHa3",
       "state": "MN",
       "stateName": "Minnesota",
-      "recordedDate": "2024-12-05",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -6045,7 +8631,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "Responsible AI use by teachers can enhance lessons or make a lot of paperwork much easier to handle. It could also take the personal aspect out of artistic feedback if used to automate that portion of grading as well, which would be a negative, personal feedback from a real person is much more valuable than from AI. AI use by students can negatively impact their learning by getting rid of a lot of the trial and error aspect of creation. It could help in other areas or as a helping tool, but as a tool for creation it would be majorly detrimental. Students need to be able to make tangible mistakes that can't be corrected by a computer so that they learn to overcome or work with the mistake instead of just start over or delete that mistake.",
+          "text": "Responsible AI use by teachers can enhance lessons or make a lot of paperwork much easier to handle. It could also take the personal aspect out of artistic feedback if used to automate that portion of grading as well, which would be a negative, personal feedback from a real person is much more valuable than from AI.…",
           "themes": [
             "efficiency"
           ],
@@ -6072,10 +8658,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5Ph4PssPe1fJTbE",
       "state": "OH",
       "stateName": "Ohio",
-      "recordedDate": "2024-12-05",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -6176,10 +8760,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7CqBhz5iMC55hvq",
       "state": "KS",
       "stateName": "Kansas",
-      "recordedDate": "2024-12-05",
       "schoolType": "Public",
       "teachingBand": "Other",
       "experienceBand": "11-15 years",
@@ -6251,7 +8833,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "Negative, and it is already doing it. Large stores like Micheal's have AI coloring books out there, so traditional artists LOST A JOB - this is seen over and over again. Not to mention it steals works from artists. IT is DEVALUING the job of an artist. Soon art that has meaning, art that makes an impact won't exist. Want to take over the world? Get rid of the critical thinkers, the artists, and creatives. Seems like a conspiracy theory but seriously this is what will happen and it will happen faster if we just ignore the fact that we are trying to bottle creativity and sell it as a cool tool called AI. Instead of what it is, which is theft and taking no ounce of skill.",
+          "text": "Negative, and it is already doing it. Large stores like Micheal's have AI coloring books out there, so traditional artists LOST A JOB - this is seen over and over again. Not to mention it steals works from artists. IT is DEVALUING the job of an artist. Soon art that has meaning, art that makes an impact won't exist.…",
           "themes": [
             "efficiency",
             "skillLoss"
@@ -6274,10 +8856,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1MokVmIH405b9Fh",
       "state": "IN",
       "stateName": "Indiana",
-      "recordedDate": "2024-12-05",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -6348,7 +8928,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I think that it is extremely important to differentiate between Generative AI software that uses text-to-image, such as Dall-E or Stable Diffusion which scrape \"public\" data, and Generative AI that uses ethically sourced analytical data gathered from inside their own system, such as Adobe Photoshop's \"Content Aware Fill\" tools. Both of these are algorithmically driven \"GenAI\" processes, but the former has committed what basically amounts to theft of billions of images from the internet in order to train their algorithm, while the latter has trained only off of data from users who agreed to use the software (it is in the EULA that you agree to allow Adobe to collect analytical data for the purposes of improving the product). The same goes for Large Language Models such as Chat GPT, which have sourced an unimaginable amount of other people's work from the internet and, again, basically stolen it to train their algorithm. There is a huge ethical difference between that and, say, Microsoft Word's ability to auto-check for grammatical errors. In both cases, the second example (content-aware fill, grammar check) are tools within a larger software, while the former examples (Dall-E, Chat GPT) are tools designed to produce \"new\" information through- simply put- a black box mathematical equation that is designed to guess what the next most common output in a pattern is, but is also designed to hide how it did so. Furthermore, these tools are not only using unethical sources for their training data, but the companies that own them are also charging users for the right to use them; turning profit off millions of peoples' work, which they did not have to pay a dime to use. IF there was a text-to-image generative AI program that ONLY sourced Public Domain images to which no one can claim the rights to, that would be a different story, although the question remains: why have a machine make art?",
+          "text": "I think that it is extremely important to differentiate between Generative AI software that uses text-to-image, such as Dall-E or Stable Diffusion which scrape \"public\" data, and Generative AI that uses ethically sourced analytical data gathered from inside their own system, such as Adobe Photoshop's \"Content Aware…",
           "themes": [
             "ethics",
             "access",
@@ -6382,10 +8962,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6YBufNnNUYSgbPH",
       "state": "WA",
       "stateName": "Washington",
-      "recordedDate": "2024-12-06",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -6433,7 +9011,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "Having such a focus on digital technology in my teaching program caused me to keep it on the forefront of my practice moving forward keeping myself fluid and changing with the times. I am constantly keeping current on technology and it's relevance in the lives of the people I am teaching. I find it beneficial for building relationships, keeping tabs on potentially damaging topics of conversation in my classroom space, and to help them relate to the topics that I am teaching.",
+          "text": "Having such a focus on digital technology in my teaching program caused me to keep it on the forefront of my practice moving forward keeping myself fluid and changing with the times. [PERSON] on technology and it's relevance in the lives of the people [PERSON]. I find it beneficial for building relationships, keeping…",
           "themes": [
             "barriers"
           ],
@@ -6445,7 +9023,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Creating an art historical figure that posts on the internet in modern day - what hashtags would they use, what would they choose to post pictures of and why, if they had access to digital art what direction would their art go next. Framing the assignment through a lens of social media and digital art tools, the students were able to deepen their knowledge of and engage in critical thinking about these artists and their impact on the art world. I have done this assignment in many different ways, and the most current social media platform they are using works the best with student engagement. For example: I used a Facebook profile for a long time - and then students stopped using Facebook, so I had to switch to Instagram. If I were to implement it today, I would use Snapchat or maybe Youtube or something of that nature to keep relevant.",
+          "text": "Creating an art historical figure that posts on the internet in modern day - what hashtags would they use, what would they choose to post pictures of and why, if they had access to digital art what direction would their art go next. Framing the assignment through a lens of social media and digital art tools, the…",
           "themes": [
             "access",
             "engagement",
@@ -6454,7 +9032,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "Creating an art historical figure that posts on the internet in modern day - what hashtags would they use, what would they choose to post pictures of and why, if they had access to digital art what direction would their art go next. Framing the assignment through a lens of social media and digital art tools, the students were able to deepen their knowledge of and engage in critical thinking about these artists and their impact on the art world. This has had a strong impact as it helps solidify parts of Art History in their minds as it relates directly to the artist they are posting as - they empathize by having to tell a story and think about their everyday lives hundreds of years ago.",
+          "text": "Creating an art historical figure that posts on the internet in modern day - what hashtags would they use, what would they choose to post pictures of and why, if they had access to digital art what direction would their art go next. Framing the assignment through a lens of social media and digital art tools, the…",
           "themes": [
             "access",
             "engagement"
@@ -6489,10 +9067,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5l5KtEY0lUegufX",
       "state": "OR",
       "stateName": "Oregon",
-      "recordedDate": "2024-12-06",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -6564,7 +9140,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I am using photoshop right now to help students create self portraits. They seem to take to the program very easily.",
+          "text": "[PERSON] now to help students create self portraits. They seem to take to the program very easily.",
           "themes": [
             "making"
           ],
@@ -6595,10 +9171,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3YRonzzEVI2jw4c",
       "state": "SC",
       "stateName": "South Carolina",
-      "recordedDate": "2024-12-07",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -6705,10 +9279,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3rxHGSW7eUGZ3MC",
       "state": "MD",
       "stateName": "Maryland",
-      "recordedDate": "2024-12-12",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -6814,10 +9386,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_53l6bwxXEszoGMF",
       "state": "IN",
       "stateName": "Indiana",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "4-6 years",
@@ -6906,10 +9476,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5fee7Q68t4HURJD",
       "state": "MA",
       "stateName": "Massachusetts",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "20 + years",
@@ -7014,10 +9582,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1DSbn1iFLFXckZb",
       "state": "PA",
       "stateName": "Pennsylvania",
-      "recordedDate": "2025-01-03",
       "schoolType": "Other",
       "teachingBand": "Other",
       "experienceBand": "20 + years",
@@ -7068,7 +9634,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "Along with my art certification, I am also certified to teacher special education and I am a certified teacher of the blind. Having experience teaching in a classroom before becoming the art teacher has greatly benefitted me.",
+          "text": "Along with my art certification, [PERSON] teacher special education and I am a certified teacher of the blind. Having experience teaching in a classroom before becoming the art teacher has greatly benefitted me.",
           "themes": [
             "training"
           ],
@@ -7093,10 +9659,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5qXxnG6tdgseDK9",
       "state": "AL",
       "stateName": "Alabama",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "16-20 years",
@@ -7149,14 +9713,14 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Just recently, my students used Gelli plates to print textured papers with the intent to create collages. Gelli has a lesson plan wherein students collage birds using the papers. To help students understand the process and map out their final project, students used a drawing app, imported photos of their papers and digitally collaged their birds. This way I could see who understood what the process was going to be.",
+          "text": "Just recently, my students used Gelli plates to print textured papers with the intent to create collages. Gelli has a lesson plan wherein students collage birds using the papers. To help students understand the process and map out their final project, students used a drawing app, imported photos of their papers and…",
           "themes": [
             "efficiency"
           ],
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I used stop motion animation with my middle and high school students. They loved working collaboratively and created some very fun videos that I think they will remember for a long time. Most students think that creativity and art is tied to drawing and this was a concrete life lesson on creativity that had not a thing to do with drawing.",
+          "text": "I used stop motion animation with my middle and high school students. They loved working collaboratively and created some very fun videos that I think they will remember for a long time. Most students think that creativity and art is tied to drawing and this was a concrete life lesson on creativity that had not a…",
           "themes": [
             "barriers",
             "making"
@@ -7164,7 +9728,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I am curious to see how quickly AI either makes a home and stays or it moves on. Is it a trend or is it here to stay? Also, how does it impact the work that goes into art shows that is supposed to be original work?",
+          "text": "[PERSON] how quickly AI either makes a home and stays or it moves on. Is it a trend or is it here to stay? Also, how does it impact the work that goes into art shows that is supposed to be original work?",
           "themes": [
             "ethics"
           ],
@@ -7187,10 +9751,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7aJh0y9KtB1Z9AZ",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -7260,7 +9822,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI can help get things done more efficiently, but it does not change the intelligence or motivations of the user. Some people will take great advantage and some will appear to be of higher quality than they are. The latter will make it difficult to discern where the true quality exists and people will be advanced into positions they don't deserve over others who do.",
+          "text": "AI can help get things done more efficiently, but it does not change the intelligence or motivations of the user. Some people will take great advantage and some will appear to be of higher quality than they are. The latter will make it difficult to discern where the true quality exists and people will be advanced…",
           "themes": [
             "efficiency",
             "engagement"
@@ -7278,10 +9840,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6fqh23nCd1tPXsv",
       "state": "MD",
       "stateName": "Maryland",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -7347,7 +9907,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "I have recently started using it to help me develop slideshows and handouts focusing on art appreciation/art history. I am teaching a new course and do not have access to updated materials (only a textbook from the 90s). I have found it saves me time. I do go back through the content created to edit and improve it.",
+          "text": "I have recently started using it to help me develop slideshows and handouts focusing on art appreciation/art history. [PERSON] a new course and do not have access to updated materials (only a textbook from the 90s). I have found it saves me time. I do go back through the content created to edit and improve it.",
           "themes": [
             "access",
             "training",
@@ -7388,10 +9948,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1Dqm5t2C0F7Pm0j",
       "state": "WA",
       "stateName": "Washington",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -7436,7 +9994,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I teach at a fully remote public school. In some ways my position is vastly different than my previous experience. I taught face to face for 10 years in a general Ed classroom. My pass experience with a variety of different demographics is the knowledge that I use daily to meet my current students needs. Art is political (really anything is). I am drawing for experience to help me respect students backgrounds while simultaneously teaching students to think critically about the cultural impact art has on our world.",
+          "text": "I teach at a fully remote public school. In some ways my position is vastly different than my previous experience. I taught face to face for 10 years in a general Ed classroom. My pass experience with a variety of different demographics is the knowledge that I use daily to meet my current students needs. Art is…",
           "themes": [
             "access"
           ],
@@ -7480,10 +10038,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3ZQCml9vVhGiCY9",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -7545,7 +10101,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "I use video game environments to teach linear perspective and that has definitely increased engagement. Additionally, I use Adobe Firefly (because they commit to not scraping copyright images)to help students generate concept sketches for self-directed projects. It helps their paralytic reaction when given total freedom to create artwork based on loose subject matter.",
+          "text": "I use video game environments to teach linear perspective and that has definitely increased engagement. Additionally, I use Adobe Firefly (because they commit to not scraping copyright images)to help students generate concept sketches for self-directed projects. It helps their paralytic reaction when given total…",
           "themes": [
             "creativity",
             "ethics",
@@ -7555,7 +10111,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I teach in an International Baccalaureate (IB) school and this year we participated in the \"No Place for Hate\" poster contest as part of our Creative Activity Service component. We use Canva and students who have limited technical ability really enjoyed being able to produce a polished artwork. The challenge is to push them beyond the provided templates and instill intention.",
+          "text": "I teach in an International Baccalaureate (IB) school and this year we participated in the \"No Place for Hate\" poster contest as part of our Creative Activity Service component. We use Canva and students who have limited technical ability really enjoyed being able to produce a polished artwork. The challenge is to…",
           "themes": [
             "barriers",
             "making"
@@ -7563,7 +10119,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I am grappling with this now (and plan to pursue my PhD in Art with an emphasis on Art Education this fall 2025 engaging this very topic!) and I believe that with any emerging technology which tends to start off rogue can be detrimental without guardrails. I hit copyright hard at the beginning of all of my courses (long before AI) and work to break the habits many teenage artists have of redrawing their favorite characters or Googled images OVER and OVER. As such, I have found that once a foundation of understanding authorship is laid and rubrics reflect clear expectations, any digital media including AI can be very useful in the ideation and concept sketch process. I have yet to use AI as a finished product. I may get there, but at this moment I am only teaching it as a way to develop more complex ideas and compositions. Prompt engineering has been fun to work out along with students as we are both discovering the potential at the same time. Now I will say that a significant detriment is not in image generation but in content creating for research projects. When I assign formal analysis or we are working on the Comparative Study slide presentation for IB Visual Art, I have called out several students who are only using AI tools such as ChatGPT to complete these projects. They cite stress of overall rigor expected in the IB program and really know the material and just need expedience. But when I asked questions and requested they elaborate on the material they presented it was clear they did not have a grasp of the content which was very disappointing. They also said that critical analysis is BORING. These are students who intend to pursue a creative career so this is where the work of how to make the boring part of art engaging and maybe AI or media studies can be part of the solution:)",
+          "text": "[PERSON] now (and plan to pursue my PhD in Art with an emphasis on Art Education this fall 2025 engaging this very topic!) and I believe that with any emerging technology which tends to start off rogue can be detrimental without guardrails. I hit copyright hard at the beginning of all of my courses (long before AI)…",
           "themes": [
             "creativity",
             "efficiency",
@@ -7576,7 +10132,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "I only use Adobe Firefly at this point because of their commitment to using public domain and stock imagery (not perfect but better so far than Dall-E and Midjourney)and use text to image when generating ideas and compositions. I have a drawing project for a beginning drawing class where students are learning realistic proportions and shading of human hands. Once they learn the drawing skills, they must incorporate two human hands drawn realistically in graphite in a composition. Many students have challenges coming up with a scenario for two hands even after we do mind mapping brainstorming techniques in sketchbooks. This is largely due to disinterest/distraction and not their cognitive abilities. Once I start modeling my own ideas with Adobe Firefly on the Boxlight, students become more engaged and start helping me with prompt engineering to get the results I am trying for. Once I model this problem solving activity many will get on their phones, Chromebooks, in class desktops, or even start working on the Boxlight to generate ideas of their own. I allow them to use the generated image as a concept sketch to guide their real drawing which is open to any 2D media. This process is a choice (all of my projects have choice-based components) and I find that approximately 1/3 of the class will actively engage the use of generative AI.",
+          "text": "I only use Adobe Firefly at this point because of their commitment to using public domain and stock imagery (not perfect but better so far than Dall-E and Midjourney)and use text to image when generating ideas and compositions. I have a drawing project for a beginning drawing class where students are learning…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -7601,10 +10157,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7fXXkBaS7mkrMXv",
       "state": "IL",
       "stateName": "Illinois",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "20 + years",
@@ -7651,7 +10205,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I hold a BFA in drawing and painting as well as an MSED El Ed. I was a working artist before going back to school to earn MSED El Ed. I then taught 5th grade in 3 different settings over the course of 20 years. Post retirement, I am working as an art teacher one day a week for grades K-8 in a small town elementary school, total enrollment. 75 students K-8.",
+          "text": "I hold a BFA in drawing and painting as well as an MSED El Ed. I was a working artist before going back to school to earn MSED El Ed. I then taught 5th grade in 3 different settings over the course of 20 years. Post retirement, [PERSON] art teacher one day a week for grades K-8 in a small town elementary school…",
           "themes": [
             "access",
             "training"
@@ -7678,10 +10232,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1eFqXGHkVaKGBHx",
       "state": "NC",
       "stateName": "North Carolina",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -7772,10 +10324,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_51S0WH0U2EvnoBd",
       "state": "NJ",
       "stateName": "New Jersey",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "20 + years",
@@ -7863,10 +10413,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6ODNGOAFUfkIMOR",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2025-01-03",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "20 + years",
@@ -7945,7 +10493,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I don't think there is an either or answer here. I see some positives (appeal for a variety of leaners, variety of technologies and new possibilities to name two). I am also wary and see the negative side. I already see an over reliance and over usage in the elementary school of technology. I am noticing a trend, particularly when children use clay, of weakened hand strength. Students seem to struggle more to manipulate and mold clay to express specific visual ideas. Additionally, when I conducted my doctoral research using online art making tools and programs, 100% of my participants indicated a preference for creating art using \"traditional\" materials and methods over the use of online tools. While this perception may be different today, at the time, students noted the sensory aspects of materials as a main reason for their preference.",
+          "text": "I don't think there is an either or answer here. I see some positives (appeal for a variety of leaners, variety of technologies and new possibilities to name two). [PERSON] see the negative side. I already see an over reliance and over usage in the elementary school of technology. [PERSON] a trend, particularly when…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -7978,10 +10526,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6eJiTsQdUKXy2ct",
       "state": "VA",
       "stateName": "Virginia",
-      "recordedDate": "2025-01-04",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "4-6 years",
@@ -8076,10 +10622,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7EZJCvUChC0BOyh",
       "state": "NC",
       "stateName": "North Carolina",
-      "recordedDate": "2025-01-06",
       "schoolType": "Public",
       "teachingBand": "Other",
       "experienceBand": "20 + years",
@@ -8129,7 +10673,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "As a program supervisor in NC, there were several teachers wanting to teach Digital Media Arts. Over time, I developed the Digital Media Arts Department for Charlotte Mecklenburg Schools. Created a Middle and High School Media Arts Curriculum Handbook. Hired Digital Media Arts teachers and provided media arts classrooms in high schools and some middle schools.",
+          "text": "As a program supervisor in NC, there were several teachers wanting to teach Digital Media Arts. Over time, I developed the Digital Media Arts Department for [ORGANIZATION]. Created a Middle and [ORGANIZATION] Media Arts Curriculum Handbook. Hired Digital Media Arts teachers and provided media arts classrooms in high…",
           "themes": [
             "barriers"
           ],
@@ -8158,10 +10702,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_502b2i64Sc7x7xc",
       "state": "IL",
       "stateName": "Illinois",
-      "recordedDate": "2025-01-12",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -8225,7 +10767,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "In my experience technology has been a double edged sword: While it has increased accessibility, opened possibilities to go paperless and more environmentally friendly, and has opened communication; it has also decreased student engagement in most instances: The students who are truly interested and personally invested will do good work, however, a majority of students do not have the work ethic to make beneficial use of class time using technology tools. Rather they become distracted by technology, waste class time, and rely on technology to make their decisions rather than think for themselves. This has been dangerous to true student engagement.",
+          "text": "In my experience technology has been a double edged sword: While it has increased accessibility, opened possibilities to go paperless and more environmentally friendly, and has opened communication; it has also decreased student engagement in most instances: The students who are truly interested and personally…",
           "themes": [
             "creativity",
             "ethics",
@@ -8243,7 +10785,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I think it will change it significantly, and there is no turning back; I fear it will be negative; I fear it will reduce student ability to think for themselves and think critically. Throughout my career I have seen a significant decrease in student engagement and critical thinking since the incorporation of technology into classrooms, especially art rooms. AI is removing the human component of art making which is the one special thing that makes us unique as humans. Art making in an art education program is not necessarily about having a great end product, rather it is the path of discovery and creativity that got us to the product. To allow AI to create something for you or do the thinking for you is the opposite of what I want for my students to get out of an art making experience.",
+          "text": "I think it will change it significantly, and there is no turning back; I fear it will be negative; I fear it will reduce student ability to think for themselves and think critically. Throughout my career I have seen a significant decrease in student engagement and critical thinking since the incorporation of…",
           "themes": [
             "engagement"
           ],
@@ -8268,10 +10810,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8GkTivgSmzHRSg9",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "7-10 years",
@@ -8364,10 +10904,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1mVGPdkZHpcNBuA",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "0-3 years",
@@ -8429,10 +10967,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2M46lIE8ZuQU5Pz",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -8493,10 +11029,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5waa7LlNKbyfX2g",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2025-01-22",
       "schoolType": "Private",
       "teachingBand": "Middle",
       "experienceBand": "4-6 years",
@@ -8583,10 +11117,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3xkVkXxxDVQ4pkl",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "4-6 years",
@@ -8678,10 +11210,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1IFak1C6jURqsfY",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -8740,10 +11270,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2fj2ocxA4TajpVj",
       "state": "NC",
       "stateName": "North Carolina",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -8807,7 +11335,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media art refers to artistic works that utilize digital technology and media as a primary medium of expression. This can include various forms such as video art, digital installations, interactive art, and sound art. Media art often explores the relationship between technology and culture, pushing the boundaries of traditional art forms by incorporating elements like animation, virtual reality, and web-based art. It allows artists to engage audiences in new ways, often inviting interaction and participation, which can create a unique experience for viewers. Overall, media art represents a fusion of creativity and technology, reflecting contemporary society's digital landscape.",
+          "text": "Media art refers to artistic works that utilize digital technology and media as a primary medium of expression. This can include various forms such as video art, digital installations, interactive art, and sound art. Media art often explores the relationship between technology and culture, pushing the boundaries of…",
           "themes": [
             "skillLoss",
             "engagement",
@@ -8816,7 +11344,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "One specific instance where technology significantly enhanced teaching and student engagement could be the use of interactive whiteboards in the classroom. For example, when teaching a complex subject like mathematics, using an interactive whiteboard allowed students to visualize problems in real-time. They could come up to the board to solve equations, which made the learning process more dynamic and engaging.",
+          "text": "One specific instance where technology significantly enhanced teaching and student engagement could be the use of interactive whiteboards in the classroom. For example, when teaching a complex subject like mathematics, using an interactive whiteboard allowed students to visualize problems in real-time. They could…",
           "themes": [
             "engagement",
             "barriers"
@@ -8824,7 +11352,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "An impactful media arts project could be a digital storytelling assignment where students create short films based on personal narratives. In this project, students would use video editing software to combine their written stories with visuals, sound, and music. The process begins with brainstorming and writing their narratives, followed by planning the visuals they want to include. Students then film their scenes, edit the footage, and add sound effects or music to enhance their stories. This project not only allows students to express themselves creatively but also teaches them valuable skills in technology and storytelling. The final presentations can foster a sense of community as students share their work with peers, leading to discussions about different perspectives and experiences.",
+          "text": "An impactful media arts project could be a digital storytelling assignment where students create short films based on personal narratives. In this project, students would use video editing software to combine their written stories with visuals, sound, and music. The process begins with brainstorming and writing their…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -8835,7 +11363,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI could significantly change the future of art education in both positive and negative ways. On the positive side, AI can provide personalized learning experiences, adapting to each student's unique style and pace. For instance, AI tools can offer instant feedback on students' work, helping them improve their techniques and creativity. Additionally, AI can assist in generating ideas or even creating art, which can inspire students and expand their understanding of different artistic methods. On the negative side, there could be concerns about over-reliance on technology, which might stifle creativity or critical thinking. If students depend too much on AI for inspiration or technique, they may not develop their own artistic voice. There's also the question of authenticity in art created with the help of AI, which could lead to debates about what constitutes original work.",
+          "text": "AI could significantly change the future of art education in both positive and negative ways. On the positive side, AI can provide personalized learning experiences, adapting to each student's unique style and pace. For instance, AI tools can offer instant feedback on students' work, helping them improve their…",
           "themes": [
             "creativity",
             "ethics",
@@ -8845,7 +11373,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "A specific project where AI tools could be particularly useful in teaching is a collaborative art creation project using AI-driven design software. In this lesson, students could work in groups to create a digital mural. They would start by brainstorming themes and concepts, then use AI tools to generate visual elements based on their ideas. As they incorporate these AI-generated designs into their mural, students would learn about composition, color theory, and the creative process. The AI tool could also provide suggestions for improvements or variations, encouraging students to experiment and refine their work. This project not only enhances creativity but also teaches students how to effectively use technology in their artistic practice, making the learning experience more engaging and relevant.",
+          "text": "A specific project where AI tools could be particularly useful in teaching is a collaborative art creation project using AI-driven design software. In this lesson, students could work in groups to create a digital mural. They would start by brainstorming themes and concepts, then use AI tools to generate visual…",
           "themes": [
             "creativity",
             "engagement",
@@ -8869,10 +11397,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8JDYNLfEBhEVjPx",
       "state": "AK",
       "stateName": "Alaska",
-      "recordedDate": "2025-01-22",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -8961,10 +11487,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6JhI7Q4ZfGix065",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -9032,10 +11556,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5l06VLbTirwMJiZ",
       "state": "AZ",
       "stateName": "Arizona",
-      "recordedDate": "2025-01-22",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -9130,10 +11652,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2AE88owVyHkgzdx",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "4-6 years",
@@ -9204,14 +11724,14 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I would love to share an example of a media arts project that had a strong impact on students. One project that comes to mind is a collaborative video production assignment I facilitated with my students. The goal of the project was for students to work together to create a short film that incorporated various elements of storytelling, cinematography, and editing techniques they had learned in class.",
+          "text": "I would love to share an example of a media arts project that had a strong impact on students. One project that comes to mind is a collaborative video production assignment I facilitated with my students. The goal of the project was for students to work together to create a short film that incorporated various…",
           "themes": [
             "making"
           ],
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI has the potential to revolutionize art education by offering personalized learning experiences, expanding access to resources, and fostering creativity, it is essential to approach its integration thoughtfully to mitigate potential negative consequences such as dependency on technology, standardization of art, and job displacement.",
+          "text": "AI has the potential to revolutionize art education by offering personalized learning experiences, expanding access to resources, and fostering creativity, it is essential to approach its integration thoughtfully to mitigate potential negative consequences such as dependency on technology, standardization of art, and…",
           "themes": [
             "skillLoss",
             "access"
@@ -9239,10 +11759,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3tLmxZIyECAEOUU",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-22",
       "schoolType": "Charter",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -9329,10 +11847,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8Qi72Zn8Nof9qHe",
       "state": "AK",
       "stateName": "Alaska",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -9381,14 +11897,14 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "My previous teaching and professional experiences have significantly shaped my current teaching practices. Early in my career, I worked in diverse classrooms where I encountered students with varying learning styles, cultural backgrounds, and needs. This taught me the importance of differentiated instruction and creating an inclusive environment where every student feels valued and supported.",
+          "text": "My previous teaching and professional experiences have significantly shaped my current teaching practices. Early in my career, I worked in diverse classrooms where I encountered students with varying learning styles, cultural backgrounds, and needs. This taught me the importance of differentiated instruction and…",
           "themes": [
             "access"
           ],
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media arts can be defined as a creative discipline that combines traditional art forms with digital and technological tools to produce, express, and communicate ideas. It includes various forms of media, such as film, photography, animation, graphic design, virtual reality, and interactive media, often involving the use of software, cameras, and other digital devices. Media arts focus on storytelling, visual communication, and innovative approaches to engage audiences, blending creativity with technical skills. It encourages exploration, experimentation, and collaboration, making it a dynamic field in both educational and professional contexts.",
+          "text": "Media arts can be defined as a creative discipline that combines traditional art forms with digital and technological tools to produce, express, and communicate ideas. It includes various forms of media, such as film, photography, animation, graphic design, virtual reality, and interactive media, often involving the…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -9407,7 +11923,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I implemented a media arts project called \"Telling Our Stories Through Digital Media,\" where students created short documentaries about issues or experiences important to them. The project involved using video editing software, cameras, and audio equipment to produce a professional-quality video. One group chose to highlight the impact of climate change in our local community, while another focused on mental health awareness among teenagers. Students conducted interviews, wrote scripts, filmed on location, and edited their final pieces. The impact was profound. Not only did students develop technical skills like filming and editing, but they also honed their storytelling abilities and learned how to communicate complex ideas effectively. They gained confidence in expressing their perspectives and collaborating as a team",
+          "text": "I implemented a media arts project called \"Telling Our Stories Through Digital Media,\" where students created short documentaries about issues or experiences important to them. The project involved using video editing software, cameras, and audio equipment to produce a professional-quality video. One group chose to…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -9417,7 +11933,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI could revolutionize art education by making it more accessible and personalized. With AI, students can receive instant feedback on their work, helping them refine their skills more effectively. It can also introduce students to new creative possibilities, such as exploring generative art or experimenting with techniques they might not have considered. AI-driven tools can simulate professional environments, allowing students to engage with cutting-edge technologies used in industries like animation, graphic design, and filmmaking.",
+          "text": "AI could revolutionize art education by making it more accessible and personalized. With AI, students can receive instant feedback on their work, helping them refine their skills more effectively. It can also introduce students to new creative possibilities, such as exploring generative art or experimenting with…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -9428,7 +11944,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "In a media arts class, I incorporated AI tools to help students create a digital storytelling project. Using ChatGPT, students input their story ideas, and the tool generated suggestions for plot structure, character development, and dialogue refinement. One group focused on creating a short film script about environmental conservation. ChatGPT was particularly helpful in identifying plot inconsistencies and offering suggestions to make the characters more authentic and engaging. For the visual aspect, students used DALL·E 2 to generate concept art for their storyboard, which helped them visualize their ideas before production. The integration of these AI tools streamlined the creative process and encouraged students to think critically about their work. They began to view AI as a collaborator rather than a tool that simply performs tasks, allowing them to improve their storytelling skills with its guidance. The outcome was a cohesive, visually engaging project that the students felt proud to showcase.",
+          "text": "In a media arts class, I incorporated AI tools to help students create a digital storytelling project. Using ChatGPT, students input their story ideas, and the tool generated suggestions for plot structure, character development, and dialogue refinement. One group focused on creating a short film script about…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -9451,10 +11967,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6t0561Dz0V3l5fy",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-22",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -9542,10 +12056,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8I0DzdVG72qg1Rn",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -9615,7 +12127,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI could transform art education by providing personalized learning experiences, offering tools for creative exploration, and automating repetitive tasks, which would give students more time for innovation. However, it might also lead to concerns about over-reliance on technology, potentially diminishing the value of traditional techniques and human creativity in the learning process. Balancing AI integration with hands-on learning could help ensure a positive impact.",
+          "text": "AI could transform art education by providing personalized learning experiences, offering tools for creative exploration, and automating repetitive tasks, which would give students more time for innovation. However, it might also lead to concerns about over-reliance on technology, potentially diminishing the value of…",
           "themes": [
             "skillLoss",
             "barriers"
@@ -9623,7 +12135,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "I used AI tools in a project where students explored digital art creation. They used AI-driven platforms to generate initial designs based on their ideas, then refined them using traditional techniques. This blend of technology and hands-on work allowed students to experiment creatively and push the boundaries of their artistic expression, while also learning how to effectively integrate AI into the creative process.",
+          "text": "I used AI tools in a project where students explored digital art creation. They used AI-driven platforms to generate initial designs based on their ideas, then refined them using traditional techniques. This blend of technology and hands-on work allowed students to experiment creatively and push the boundaries of…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -9644,10 +12156,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8CECjAm9LW6Vkuw",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2025-01-23",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -9696,7 +12206,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "My previous teaching and professional experiences have greatly shaped my current approach to art education. Early on, I worked in a variety of settings, from community workshops to private tutoring, and each experience taught me the value of adapting my methods to suit diverse learning styles. In community-based programs, I saw how art could bring people together and spark creativity in unexpected ways, which influenced my belief in fostering a supportive, open environment in my classroom. Additionally, my own practice as an artist has taught me the importance of experimentation and risk-taking in the creative process. I now encourage students to embrace mistakes as part of their learning, seeing them as opportunities for growth rather than failures. I also draw inspiration from various teaching philosophies, particularly those that emphasize process over product, as I believe this helps students develop their unique voices and confidence in their work. All these experiences have led me to value not only technical skill development but also emotional and intellectual growth. I aim to create a space where students can freely explore their ideas, build resilience, and find joy in the act of creating.",
+          "text": "My previous teaching and professional experiences have greatly shaped my current approach to art education. Early on, I worked in a variety of settings, from community workshops to private tutoring, and each experience taught me the value of adapting my methods to suit diverse learning styles. In community-based…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -9706,7 +12216,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media arts can be defined as the creative use of various digital technologies and platforms to produce, manipulate, and communicate artistic content. This can include anything from video, sound, and interactive design to animation, digital installations, and even virtual reality. Essentially, it's about using modern media tools to express ideas and stories in innovative ways, blending art with technology.",
+          "text": "Media arts can be defined as the creative use of various digital technologies and platforms to produce, manipulate, and communicate artistic content. This can include anything from video, sound, and interactive design to animation, digital installations, and even virtual reality. Essentially, it's about using modern…",
           "themes": [
             "creativity",
             "making"
@@ -9714,7 +12224,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "One instance where technology significantly enhanced my teaching was when I introduced interactive whiteboards in the classroom. I used them to display multimedia presentations, allowing students to interact directly with the content. For example, in a history lesson, we watched historical footage, then had students use the whiteboard to annotate key moments in the video, fostering deeper engagement and critical thinking. The ability to draw, highlight, and manipulate the visuals kept students engaged and allowed for a more dynamic learning experience.",
+          "text": "One instance where technology significantly enhanced my teaching was when I introduced interactive whiteboards in the classroom. I used them to display multimedia presentations, allowing students to interact directly with the content. For example, in a history lesson, we watched historical footage, then had students…",
           "themes": [
             "engagement",
             "making"
@@ -9722,7 +12232,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "A memorable media arts project I implemented was a \"Digital Storytelling\" unit where students created short films using smartphones. They had to plan, shoot, and edit their own videos, incorporating elements like sound design and visual effects. The project had a powerful impact as students were able to express their creativity while learning valuable digital skills. Many students who had been shy in class suddenly found their voices and showed immense pride in their work, especially when they shared their videos with the rest of the class.",
+          "text": "A memorable media arts project I implemented was a \"Digital Storytelling\" unit where students created short films using smartphones. They had to plan, shoot, and edit their own videos, incorporating elements like sound design and visual effects. The project had a powerful impact as students were able to express their…",
           "themes": [
             "skillLoss",
             "making"
@@ -9730,14 +12240,14 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": ". AI could revolutionize art education in both positive and negative ways. On the positive side, AI could provide students with personalized learning experiences, guiding them through techniques at their own pace and offering instant feedback. For example, AI tools could analyze a student’s artwork and suggest ways to improve, providing insights that may not be immediately obvious to the student or teacher. However, there are concerns that AI might stifle creativity by making it too easy to generate work or mimic existing styles, possibly leading students to rely too heavily on technology rather than developing their own artistic voice.",
+          "text": ". AI could revolutionize art education in both positive and negative ways. On the positive side, AI could provide students with personalized learning experiences, guiding them through techniques at their own pace and offering instant feedback. For example, AI tools could analyze a student’s artwork and suggest ways…",
           "themes": [
             "skillLoss"
           ],
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "I used an AI tool in a lesson where students were learning to create digital illustrations. The tool helped students generate initial sketches based on keywords or themes they provided, which they could then use as a foundation to build on and refine. This saved time and allowed students to focus more on their personal interpretation of the image, rather than struggling to get started. The AI provided them with a starting point, but they were still required to engage in the creative process, making the project both innovative and educational.",
+          "text": "I used an AI tool in a lesson where students were learning to create digital illustrations. The tool helped students generate initial sketches based on keywords or themes they provided, which they could then use as a foundation to build on and refine. This saved time and allowed students to focus more on their…",
           "themes": [
             "efficiency",
             "access",
@@ -9763,10 +12273,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2ZOHaMAYFbHV7S2",
       "state": "DE",
       "stateName": "Delaware",
-      "recordedDate": "2025-01-23",
       "schoolType": "Private",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -9830,7 +12338,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "One impactful media art project is the \"Digital Storytelling\" initiative, where students create their own short films or animations using digital tools. This project encourages creativity and self-expression, allowing students to explore personal narratives or social issues through visual storytelling. By collaborating in groups, students can enhance their teamwork skills and learn about various aspects of media production, such as scriptwriting, filming, and editing. The final presentations often lead to discussions and reflections, fostering a deeper understanding of the themes they explored. This project not only enhances their technical skills but also boosts confidence and engagement in the learning process.",
+          "text": "One impactful media art project is the \"Digital Storytelling\" initiative, where students create their own short films or animations using digital tools. This project encourages creativity and self-expression, allowing students to explore personal narratives or social issues through visual storytelling. By…",
           "themes": [
             "skillLoss",
             "engagement",
@@ -9839,7 +12347,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI has the potential to change the future of art education in both positive and negative ways. On the positive side, AI can provide personalized learning experiences, helping students develop their skills at their own pace. Tools like AI-driven design software can assist in creating art, offering suggestions and inspiration that can enhance creativity. Additionally, AI can analyze students' work and provide instant feedback, which can be incredibly beneficial for improvement. However, there are potential negatives as well. Relying too much on AI might stifle creativity, as students could become dependent on technology rather than developing their own artistic voice. There's also the concern that AI-generated art could overshadow traditional methods, leading to a devaluation of human creativity in the art world. Overall, the impact of AI on art education will largely depend on how it's integrated into the curriculum and how educators balance technology with traditional teaching methods.",
+          "text": "AI has the potential to change the future of art education in both positive and negative ways. On the positive side, AI can provide personalized learning experiences, helping students develop their skills at their own pace. Tools like AI-driven design software can assist in creating art, offering suggestions and…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -9849,7 +12357,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "One specific project where AI tools have been effectively used is in \"AI-Assisted Art Creation.\" For example, platforms like DeepArt or Runway ML allow students to create artwork using AI algorithms that transform their images into different artistic styles. In a lesson focused on digital art, students can upload their own photos and apply various artistic filters or styles, learning about the influence of different art movements in the process. This project not only engages students in the creative process but also teaches them about the intersection of technology and art. It encourages experimentation and can lead to discussions about originality and the role of AI in the creative process.",
+          "text": "One specific project where AI tools have been effectively used is in \"AI-Assisted Art Creation.\" For example, platforms like DeepArt or Runway ML allow students to create artwork using AI algorithms that transform their images into different artistic styles. In a lesson focused on digital art, students can upload…",
           "themes": [
             "ethics",
             "access",
@@ -9872,10 +12380,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8q49gEbpGZYRJ0V",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2025-01-23",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -9930,7 +12436,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media Arts encompasses various forms of creative expression that use electronic or digital media as a primary means of communication. It combines art, design, and technology to convey messages, tell stories, and engage audience Media Arts encourages students to think creatively, develop technical skills, and explore the role of media in society.",
+          "text": "Media Arts encompasses various forms of creative expression that use electronic or digital media as a primary means of communication. It combines art, design, and technology to convey messages, tell stories, and engage audience Media Arts encourages students to think creatively, develop technical skills, and explore…",
           "themes": [
             "skillLoss",
             "engagement",
@@ -9949,10 +12455,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6DtNPkIQ5Ml4zDg",
       "state": "MA",
       "stateName": "Massachusetts",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -10043,10 +12547,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7MKUq3ThxmtuAkt",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "20 + years",
@@ -10136,10 +12638,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8shOmvQjMs0xHQx",
       "state": "MD",
       "stateName": "Maryland",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "4-6 years",
@@ -10252,10 +12752,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7OprnKLWLGs73nX",
       "state": "IL",
       "stateName": "Illinois",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -10303,7 +12801,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "My previous teaching experiences have shaped my student-centered approach, emphasizing technology integration and research-informed strategies to enhance student engagement and learning outcomes. Collaborative educational experiences have taught me the value of community building and industry partnerships, which I incorporate into my teaching practices to prepare students for real-world applications. Additionally, my experiences as a mentor and coach have influenced my coaching mindset, providing personalized feedback and guidance to support students' growth and self-awareness.",
+          "text": "My previous teaching experiences have shaped my student-centered approach, emphasizing technology integration and research-informed strategies to enhance student engagement and learning outcomes. Collaborative educational experiences have taught me the value of community building and industry partnerships, which I…",
           "themes": [
             "access",
             "engagement",
@@ -10327,7 +12825,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "One project that had a strong impact was a social justice documentary series, where students researched, scripted, and produced short films on local issues, such as environmental conservation, mental health, and diversity. The project fostered critical thinking, empathy, and storytelling skills, and the final films were showcased at a community event, allowing students to share their voices and perspectives with a broader audience.",
+          "text": "One project that had a strong impact was a social justice documentary series, where students researched, scripted, and produced short films on local issues, such as environmental conservation, mental health, and diversity. The project fostered critical thinking, empathy, and storytelling skills, and the final films…",
           "themes": [
             "skillLoss",
             "training"
@@ -10335,7 +12833,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI can revolutionize art education by providing personalized learning, intelligent feedback, and access to vast art repositories. However, it also raises concerns about homogenization of art, job displacement, and dependence on technology. Ultimately, striking a balance between technological innovation and human creativity is crucial to ensuring AI enhances the artistic process.",
+          "text": "AI can revolutionize art education by providing personalized learning, intelligent feedback, and access to vast art repositories. However, it also raises concerns about homogenization of art, job displacement, and dependence on technology. Ultimately, striking a balance between technological innovation and human…",
           "themes": [
             "skillLoss",
             "access"
@@ -10343,7 +12841,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "In a media arts class, I used AI-powered video editing tools to help students create short documentaries, streamlining tasks like editing sequences and captioning. The AI assistance allowed students to focus on creative storytelling, resulting in engaging and well-crafted documentaries. This project showcased the potential of AI to enhance student learning and creative expression.",
+          "text": "In a media arts class, I used AI-powered video editing tools to help students create short documentaries, streamlining tasks like editing sequences and captioning. The AI assistance allowed students to focus on creative storytelling, resulting in engaging and well-crafted documentaries. This project showcased the…",
           "themes": [
             "engagement",
             "making"
@@ -10364,10 +12862,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2DlrNIzrWQd5AZj",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -10430,10 +12926,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5gzuF1qZpymLZ35",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -10490,7 +12984,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Last year, I used an interactive whiteboard combined with an educational app during a lesson on story sequencing. The app allowed students to drag and drop images from a story in the correct order while the whiteboard displayed the activity for the entire class. Students were excited to take turns participating, and the instant feedback from the app helped them understand the concept much faster than traditional methods. The visual and interactive elements made the lesson memorable and engaging.",
+          "text": "Last year, I used an interactive whiteboard combined with an educational app during a lesson on story sequencing. The app allowed students to drag and drop images from a story in the correct order while the whiteboard displayed the activity for the entire class. Students were excited to take turns participating, and…",
           "themes": [
             "creativity",
             "efficiency",
@@ -10500,7 +12994,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I once guided my students through creating a class stop-motion animation. We used a simple app to capture frames as students arranged paper cutouts to depict a story they had written together. Each student contributed by designing characters, creating backgrounds, or directing scenes. The project not only boosted their creativity but also strengthened collaboration and storytelling skills. Watching their work come to life on screen was empowering and gave them a sense of accomplishment.",
+          "text": "I once guided my students through creating a class stop-motion animation. We used a simple app to capture frames as students arranged paper cutouts to depict a story they had written together. Each student contributed by designing characters, creating backgrounds, or directing scenes. The project not only boosted…",
           "themes": [
             "skillLoss",
             "making"
@@ -10508,7 +13002,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI has the potential to revolutionize art education positively by providing personalized learning experiences, instant feedback, and access to tools that simplify complex artistic techniques. For instance, AI-driven programs can help students experiment with styles, suggest improvements, or even simulate various art forms they may not have access to otherwise. However, the downside could be a reduced emphasis on traditional, hands-on techniques and the risk of students becoming overly reliant on AI tools, which might limit their creative thinking. It’s essential to balance technology with foundational skills to ensure students develop a well-rounded understanding of art.",
+          "text": "AI has the potential to revolutionize art education positively by providing personalized learning experiences, instant feedback, and access to tools that simplify complex artistic techniques. For instance, AI-driven programs can help students experiment with styles, suggest improvements, or even simulate various art…",
           "themes": [
             "skillLoss",
             "access"
@@ -10516,7 +13010,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "In one lesson, I used an AI art generator to help students visualize how a single concept, like “happiness,” could be represented in different styles. We generated several images in diverse art forms—impressionism, surrealism, and modern digital art. The students then analyzed and critiqued the images, sparking a rich discussion about how different visual elements can evoke emotion. The AI tool was invaluable in broadening their understanding of artistic expression in a way that would have been time-intensive to achieve manually.",
+          "text": "In one lesson, I used an AI art generator to help students visualize how a single concept, like “happiness,” could be represented in different styles. We generated several images in diverse art forms—impressionism, surrealism, and modern digital art. The students then analyzed and critiqued the images, sparking a…",
           "themes": [
             "creativity",
             "access",
@@ -10539,10 +13033,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8OqK60NGUd7XQMd",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-23",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "0-3 years",
@@ -10592,7 +13084,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "\"My previous experience working in a high-needs school taught me the importance of adapting my teaching practices to meet the diverse needs of my students. For instance, while teaching in an urban district with English language learners, I developed strategies for incorporating visual aids and collaborative activities into my lessons. Today, I use those same methods to create an inclusive classroom where students of all backgrounds can engage and succeed. Additionally, my time volunteering for after-school programs taught me the value of building strong relationships with students, which now informs my commitment to fostering a supportive and trusting classroom environment.\"",
+          "text": "\"My previous experience working in a high-needs school taught me the importance of adapting my teaching practices to meet the diverse needs of my students. For instance, while teaching in an urban district with English language learners, I developed strategies for incorporating visual aids and collaborative…",
           "themes": [
             "creativity",
             "access",
@@ -10602,7 +13094,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media arts can be defined as the creative practice of designing, producing, and sharing content through various digital and traditional media platforms. It encompasses a wide range of art forms, including film, photography, graphic design, animation, interactive media, and emerging technologies like virtual reality. Media arts emphasize the use of technology as a tool for storytelling, communication, and artistic expression, bridging creativity with innovation to engage audiences in meaningful ways.",
+          "text": "Media arts can be defined as the creative practice of designing, producing, and sharing content through various digital and traditional media platforms. It encompasses a wide range of art forms, including film, photography, graphic design, animation, interactive media, and emerging technologies like virtual reality.…",
           "themes": [
             "skillLoss",
             "engagement",
@@ -10611,7 +13103,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "\"In one of my classes, I introduced an interactive project using augmented reality (AR) to bring historical events to life. Students used an AR app to scan images in their history textbooks, which then displayed 3D models, videos, and narrated stories about the events. For example, when studying World War II, students could explore 3D models of aircraft and battlefields, watch interviews with veterans, and view animations of key events. This approach significantly boosted engagement because it allowed students to immerse themselves in the material in a way that traditional methods couldn’t achieve. They were excited to explore on their own and even started collaborating by sharing discoveries. The project also encouraged critical thinking, as they analyzed how technology shaped their understanding of history. Using AR not only enhanced their learning experience but also motivated them to research more deeply and creatively present their findings.\"",
+          "text": "\"In one of my classes, I introduced an interactive project using augmented reality (AR) to bring historical events to life. Students used an AR app to scan images in their history textbooks, which then displayed 3D models, videos, and narrated stories about the events. For example, when studying World War II…",
           "themes": [
             "skillLoss",
             "engagement",
@@ -10621,7 +13113,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "Project Title: \"My Voice, My Story\" Objective: Encourage students to use digital storytelling to share personal or community narratives while honing media arts skills. Description: I implemented a project where students created 3-5 minute multimedia documentaries about a topic they were passionate about, such as cultural identity, social issues, or personal experiences. The project required them to combine multiple media forms, including video interviews, photography, voiceovers, and background music. Process: 1. Students began by brainstorming topics that were meaningful to them. 2. They learned technical skills like video editing (using Adobe Premiere or iMovie), sound mixing, and creating storyboards. 3. Each student conducted interviews, recorded their voiceovers, and collected visuals to tell their story authentically. 4. Finally, we hosted a “Media Arts Showcase,” where students screened their projects to peers, families, and the school community. Impact: The project had a profound effect on students in several ways: Empowerment: Many students felt a sense of pride in telling their stories and seeing their voices heard. Skill Development: They gained hands-on experience with media tools and improved their storytelling and technical skills. Connection: Sharing their projects fostered empathy and deeper connections among peers, as they learned about each other’s backgrounds and perspectives.",
+          "text": "Project Title: \"My Voice, My Story\" Objective: Encourage students to use digital storytelling to share personal or community narratives while honing media arts skills. Description: I implemented a project where students created 3-5 minute multimedia documentaries about a topic they were passionate about, such as…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -10659,10 +13151,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5Pz81i2A77WLZiV",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -10715,7 +13205,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media arts refers to a broad field that encompasses the creation, study, and distribution of various forms of media, including visual arts, audio, video, and digital content. It combines traditional artistic practices with modern technologies to produce works that can be experienced across different platforms, such as film, television, online media, and interactive installations.",
+          "text": "Media arts refers to a broad field that encompasses the creation, study, and distribution of various forms of media, including visual arts, audio, video, and digital content. It combines traditional artistic practices with modern technologies to produce works that can be experienced across different platforms, such…",
           "themes": [
             "skillLoss",
             "access",
@@ -10741,7 +13231,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "I'm many occasions it's always useful",
+          "text": "[PERSON]'s always useful",
           "themes": [],
           "stance": "positive"
         }
@@ -10757,10 +13247,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1oeaBEBJ2MaMlht",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "7-10 years",
@@ -10817,14 +13305,14 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media arts offer a unique space where creativity, technology, and storytelling converge. As a teacher in this field, I am driven by the belief that education should empower students to think critically, experiment boldly, and produce work that reflects their individuality while engaging with broader societal conversations.",
+          "text": "Media arts offer a unique space where creativity, technology, and storytelling converge. As a teacher in this field, [PERSON] belief that education should empower students to think critically, experiment boldly, and produce work that reflects their individuality while engaging with broader societal conversations.",
           "themes": [
             "engagement"
           ],
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "In one of my courses on interactive media design, I introduced augmented reality (AR) technology as a tool to deepen student engagement and creativity. The project involved students designing interactive AR experiences using platforms like Spark AR or Unity. The goal was to merge storytelling with cutting-edge technology, allowing students to create immersive narratives or visual experiences that responded to user interaction.",
+          "text": "In one of my courses on interactive media design, I introduced augmented reality (AR) technology as a tool to deepen student engagement and creativity. The project involved students designing interactive AR experiences using platforms like Spark AR or Unity. The goal was to merge storytelling with cutting-edge…",
           "themes": [
             "creativity",
             "engagement",
@@ -10834,7 +13322,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "One of the most impactful projects I implemented was called “Stories of Sustainability”, which combined creative media production with real-world environmental issues. The goal was to help students explore how media arts could inspire social change while giving them hands-on experience with storytelling and emerging technologies.",
+          "text": "One of the most impactful projects I implemented was called “Stories of Sustainability”, which combined creative media production with real-world environmental issues. The goal was to help students explore how media arts could inspire social change while giving them hands-on experience with storytelling and emerging…",
           "themes": [
             "creativity",
             "skillLoss"
@@ -10849,7 +13337,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "In one of my media arts courses, I introduced an AI-driven project called \"Reimagining the Classics,\" where students used generative AI tools like DALL·E or RunwayML to reinterpret iconic works of art. The goal was to explore how AI could both expand and challenge traditional artistic methods, while prompting students to think critically about the intersection of technology and creativity.",
+          "text": "In one of my media arts courses, I introduced an AI-driven project called \"Reimagining the Classics,\" where students used generative AI tools like DALL·E or RunwayML to reinterpret iconic works of art. The goal was to explore how AI could both expand and challenge traditional artistic methods, while prompting…",
           "themes": [
             "skillLoss",
             "training"
@@ -10871,10 +13359,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8FibXYkW1eh3ac9",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "0-3 years",
@@ -10943,10 +13429,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_338KLXykSoWTh0s",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "7-10 years",
@@ -10995,7 +13479,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "Throughout my career, I've had various experiences that have significantly impacted my current teaching practices. Previous Teaching Experience: Student centered approach Educational Experience: Collaboration and teamwork Other Professional Experiences: Communication skills. These experiences have collectively shaped my teaching philosophy, by incorporating these principles into my teaching practices, I strive to create an engaging and supportive learning environment that fosters academic excellence and personal growth.",
+          "text": "Throughout my career, I've had various experiences that have significantly impacted my current teaching practices. Previous Teaching Experience: Student centered approach Educational Experience: Collaboration and teamwork Other Professional Experiences: Communication skills. These experiences have collectively shaped…",
           "themes": [
             "skillLoss",
             "access",
@@ -11056,10 +13540,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_14zKZmIf5Hg79pQ",
       "state": "NC",
       "stateName": "North Carolina",
-      "recordedDate": "2025-01-24",
       "schoolType": "Charter",
       "teachingBand": "Multi-level",
       "experienceBand": "11-15 years",
@@ -11153,10 +13635,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7ZKZUUY0R4XxKwX",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "7-10 years",
@@ -11268,10 +13748,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1PMfFop9PCe8alP",
       "state": "NM",
       "stateName": "New Mexico",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -11318,7 +13796,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "techEnhanced": {
-          "text": "I am building a maker space and we have been using a glowforge and 3-D printers",
+          "text": "[PERSON] a maker space and we have been using a glowforge and 3-D printers",
           "themes": [],
           "stance": "not_scored"
         },
@@ -11350,10 +13828,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1kGht78veNBi6fA",
       "state": "VT",
       "stateName": "Vermont",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "16-20 years",
@@ -11455,10 +13931,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7zI0SMo12jrHdr2",
       "state": "IL",
       "stateName": "Illinois",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -11512,7 +13986,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "I define media arts as any time the bulk of the project is created using some tiype of technology that I am in control of. The programs are tools that a multimedia artist uses similiar to that of a traditioal artists.",
+          "text": "I define media arts as any time the bulk of the project is created using some tiype of technology that [PERSON]. The programs are tools that a multimedia artist uses similiar to that of a traditioal artists.",
           "themes": [
             "barriers"
           ],
@@ -11560,10 +14034,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7VL03Hqa7g3pelr",
       "state": "OH",
       "stateName": "Ohio",
-      "recordedDate": "2025-01-24",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -11640,14 +14112,14 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I think art educators need to be sure and address the ethical issues related to using AI in art making. If we emphasize the importance of the inputs coming from the student then it can be a positive tool to use in the creative process; however, if AI is used as a find and take tool it will deteriorate the integrity of students learning and creativity.",
+          "text": "I think art educators need to be sure and address the ethical issues related to using AI in art making. If we emphasize the importance of the inputs coming from the student then it can be a positive tool to use in the creative process; however, if AI is used as a find and take tool it will deteriorate the integrity…",
           "themes": [
             "ethics"
           ],
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "I have used Chat GPT with upper level students to organize artist statements. When I do this I have student record all of their inputs and the outputs given by the AI. I then have them reflect on the process and ask them to evaluate the efficiency and accuracy of the AI generated statements vs their personally written ones. Students tend to realize their words are more important than what AI has to say.",
+          "text": "I have used Chat GPT with upper level students to organize artist statements. When I do this I have student record all of their inputs and the outputs given by the AI. I then have them reflect on the process and ask them to evaluate the efficiency and accuracy of the AI generated statements vs their personally…",
           "themes": [
             "engagement"
           ],
@@ -11666,10 +14138,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7M4IFqtbRw9K4t4",
       "state": "SC",
       "stateName": "South Carolina",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -11757,10 +14227,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1cY8wsfFDjWADrb",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -11814,7 +14282,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I think AI is a plague and should not be used in the classroom at all. It is teaching students to be lazy, to steal ideas that are not their own, and it is robbing them of the opportunity to learn and grow as artists and thinkers. It is also destroying the environment and robbing our art students of future career options. And above all else, AI art is ugly.",
+          "text": "I think AI is a plague and should not be used in the classroom at all. It is teaching students to be lazy, to steal ideas that are not their own, and it is robbing them of the opportunity to learn and grow as artists and thinkers. It is also destroying the environment and robbing our art students of future career…",
           "themes": [
             "creativity"
           ],
@@ -11830,10 +14298,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1CkUqlAB8HiTFx9",
       "state": "HI",
       "stateName": "Hawaii",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -11911,10 +14377,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7GK2PBXnLOurAsN",
       "state": "NC",
       "stateName": "North Carolina",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "20 + years",
@@ -11970,10 +14434,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_30xvKRXcG0k6dZt",
       "state": "NH",
       "stateName": "New Hampshire",
-      "recordedDate": "2025-01-24",
       "schoolType": "Private",
       "teachingBand": "Multi-level",
       "experienceBand": "11-15 years",
@@ -12022,7 +14484,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I am constantly updating my curriculum and playing with new technologies to streamline my teaching or offer new approaches for my students to explore the arts.",
+          "text": "[PERSON] curriculum and playing with new technologies to streamline my teaching or offer new approaches for my students to explore the arts.",
           "themes": [],
           "stance": "not_scored"
         }
@@ -12033,10 +14495,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3kMRpVHYm2BFeut",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -12123,7 +14583,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "I am just starting to integrate AI... I have used it to show how it can be used as a tool to create a catalogue of pose sources, compostion ideas and background possiblities for the creation of traditional art.",
+          "text": "[PERSON] integrate AI... I have used it to show how it can be used as a tool to create a catalogue of pose sources, compostion ideas and background possiblities for the creation of traditional art.",
           "themes": [
             "creativity",
             "skillLoss"
@@ -12143,10 +14603,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6nJyqeLqCFnsVMi",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -12218,7 +14676,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "neutral"
         },
         "aiUseful": {
-          "text": "We use AI constantly. I still use search engines to find examples to use in my presentations. More and more I am using my notes and books to find answers and create lessons to avoid the environmental stress that is caused by our increasing dependence on technology. I ask my students to put their screens away and to practice using real tools and real imagination to create art. I want my classroom to be a place of real experience and real interaction. It doesn't make sense for me to teach them something they know more about.",
+          "text": "We use AI constantly. I still use search engines to find examples to use in my presentations. More and more [PERSON] and books to find answers and create lessons to avoid the environmental stress that is caused by our increasing dependence on technology. I ask my students to put their screens away and to practice…",
           "themes": [
             "creativity",
             "skillLoss"
@@ -12237,10 +14695,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7JzYZFxCdrGQEcF",
       "state": "KY",
       "stateName": "Kentucky",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -12336,10 +14792,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1mRcbGkmQOveTfr",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "16-20 years",
@@ -12420,10 +14874,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6p10traZaDnzzax",
       "state": "NH",
       "stateName": "New Hampshire",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "0-3 years",
@@ -12471,7 +14923,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I work with my high school students on how they can apply their experience in the art classroom to the real world. Trying to get them to make connections to using photography in a variety of workplace settings, thinking about how understanding principles of design can help them to create strong presentations and how learning art history can help them to connect with more people and communities.",
+          "text": "I work with my high school students on how they can apply their experience in the art classroom to the real world. Trying to get them to make connections to using photography in a variety of workplace settings, thinking about how understanding principles of design can help them to create strong presentations and how…",
           "themes": [
             "making"
           ],
@@ -12493,14 +14945,14 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "A popular project is the In The Style Of Project. Students research a photographer and create a photography to emulate that artists work. The students like being able to pick their own artist and learn about them and their work. I have also noticed it influences the direction that students begin to work after the project is over.",
+          "text": "A popular project is the In The Style Of Project. Students research a photographer and create a photography to emulate that artists work. The students like being able to pick their own artist and learn about them and their work. I have also noticed it influences the direction that students begin to work after the…",
           "themes": [
             "training"
           ],
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I lean on the more negative side of AI. In my experience students are using it more so to cheat or skip out on more research based work as well as using it to help them to type their work or essays. I haven't seen too much AI in the work that my students have made through photoshop but I also do not teach them how to use the AI generative fill features.",
+          "text": "I lean on the more negative side of AI. In my experience students are using it more so to cheat or skip out on more research based work as well as using it to help them to type their work or essays. I haven't seen too much AI in the work that my students have made through photoshop but I also do not teach them how to…",
           "themes": [
             "training",
             "making"
@@ -12524,10 +14976,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7OhGkV12cLav03f",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "4-6 years",
@@ -12578,7 +15028,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "My previous experiences have significantly shaped my current teaching practices by helping me develop strategies to create an engaging, inclusive, and student-centered classroom. For example, past teaching roles taught me the importance of building relationships with students and understanding their unique needs, which now informs how I differentiate instruction and foster a supportive learning environment. My education and professional development have also emphasized the value of active learning, so I prioritize hands-on activities, discussions, and collaborative projects to keep students engaged. Additionally, any prior work in diverse settings has deepened my commitment to incorporating culturally responsive teaching practices, ensuring that all students feel seen and valued in the classroom. These experiences continue to guide how I plan lessons, manage my classroom, and connect with students",
+          "text": "My previous experiences have significantly shaped my current teaching practices by helping me develop strategies to create an engaging, inclusive, and student-centered classroom. For example, past teaching roles taught me the importance of building relationships with students and understanding their unique needs…",
           "themes": [
             "skillLoss",
             "access",
@@ -12588,7 +15038,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Absolutely! One specific instance where technology significantly enhanced my teaching and student engagement was during a unit on persuasive writing. I used Flipgrid, a video discussion platform, to create an interactive assignment where students recorded short video pitches presenting their arguments on a topic of their choice. This approach allowed students to practice their persuasive techniques in a creative and modern format while also building confidence in public speaking. What made this so effective was how it engaged even the quieter students who might hesitate to speak up in class. They could record and re-record their videos until they felt comfortable, which gave them a sense of control over their work. Additionally, the platform allowed peers to respond with video feedback, fostering a collaborative and supportive environment. The use of technology not only made the lesson more dynamic but also helped students develop real-world communication skills in a way that felt relevant and exciting to them.",
+          "text": "Absolutely! One specific instance where technology significantly enhanced my teaching and student engagement was during a unit on persuasive writing. I used Flipgrid, a video discussion platform, to create an interactive assignment where students recorded short video pitches presenting their arguments on a topic of…",
           "themes": [
             "skillLoss",
             "access",
@@ -12599,7 +15049,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "One impactful media arts project I implemented involved students creating multimedia autobiographies inspired by the \"Where I’m From\" poetry exercise. Students wrote poems exploring their identities and paired them with photographs they captured using DSLR cameras. They learned photography techniques, such as framing and angles, to visually express the emotions in their poems. Using iMovie, they combined their recorded readings with the images to create short films. The final presentations were deeply personal and powerful, fostering self-expression, technical skills, and confidence. Many students chose to showcase their work at a school-wide exhibition, creating a meaningful connection with the community",
+          "text": "One impactful media arts project I implemented involved students creating multimedia autobiographies inspired by the \"Where I’m From\" poetry exercise. Students wrote poems exploring their identities and paired them with photographs they captured using DSLR cameras. They learned photography techniques, such as framing…",
           "themes": [
             "creativity",
             "skillLoss"
@@ -12607,7 +15057,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI has the potential to greatly impact art education, bringing both benefits and challenges. On the positive side, AI can act as a creative partner, helping students explore new techniques, generate ideas, and experiment with styles they might not otherwise encounter. Tools like AI-driven art generators and virtual reality platforms can make learning more interactive, engaging, and accessible for students with diverse needs. It can also help teachers save time by automating tasks like lesson planning and grading, allowing them to focus more on teaching. On the other hand, there are concerns that relying too much on AI could reduce the development of traditional artistic skills and originality. Ethical issues such as copyright concerns, algorithmic bias, and the risk of creativity becoming too standardized also present challenges. Successfully integrating AI into art education will require finding a balance between leveraging its innovative tools and preserving the unique aspects of human creativity.",
+          "text": "AI has the potential to greatly impact art education, bringing both benefits and challenges. On the positive side, AI can act as a creative partner, helping students explore new techniques, generate ideas, and experiment with styles they might not otherwise encounter. Tools like AI-driven art generators and virtual…",
           "themes": [
             "creativity",
             "efficiency",
@@ -12620,7 +15070,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "One specific project where I used AI tools effectively was during a creative writing lesson focused on storytelling. I introduced students to an AI writing assistant, such as ChatGPT, to help them brainstorm ideas and develop story outlines. Students began by inputting prompts or themes they were interested in, and the AI generated suggestions for plotlines, character development, or dialogue. This gave students a starting point and helped those who struggled with writer’s block. Once they had their outlines, students used the AI tool to workshop their drafts by asking for feedback on sentence structure or alternative ways to express ideas. The AI acted as a supportive guide, encouraging students to refine their work while still maintaining ownership of their stories. This project not only enhanced creativity but also helped students build confidence in their writing skills, as they felt empowered to experiment with new ideas in a low-pressure environment.",
+          "text": "One specific project where I used AI tools effectively was during a creative writing lesson focused on storytelling. I introduced students to an AI writing assistant, such as ChatGPT, to help them brainstorm ideas and develop story outlines. Students began by inputting prompts or themes they were interested in, and…",
           "themes": [
             "creativity",
             "ethics",
@@ -12650,10 +15100,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1V4BiehUVuftlYJ",
       "state": "NM",
       "stateName": "New Mexico",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "11-15 years",
@@ -12702,7 +15150,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "Learning is a continuous process, everything that I learned from the past is the start of new adaptive learning in the present times and even in the future. It brings me strong knowledge and hands-on productive learning experiences that I could impart to my students. Those failures I’ve experienced were the gateway for me to improve my self as an effective educator.",
+          "text": "Learning is a continuous process, everything that I learned from the past is the start of new adaptive learning in the present times and even in the future. It brings me strong knowledge and hands-on productive learning experiences that I could impart to my students. Those failures I’ve experienced were the gateway…",
           "themes": [
             "skillLoss",
             "access",
@@ -12725,7 +15173,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "Code.org sprite Animation and Lego robotics activities.",
+          "text": "[LINK] sprite Animation and Lego robotics activities.",
           "themes": [
             "making"
           ],
@@ -12759,10 +15207,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6GJoLEZ45B041gy",
       "state": "WA",
       "stateName": "Washington",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "16-20 years",
@@ -12814,7 +15260,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I'm trained as a general ed teacher with a K-12 reading specialist endorsement. This background has greatly influenced my ability to integrate all core subjects into art.",
+          "text": "[PERSON] a general ed teacher with a K-12 reading specialist endorsement. This background has greatly influenced my ability to integrate all core subjects into art.",
           "themes": [],
           "stance": "not_scored"
         },
@@ -12859,10 +15305,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_11ElBCJxjlmJ8bL",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "16-20 years",
@@ -12908,7 +15352,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "During my specialist degree, I conducted research on how smartphones have become powerful artistic tools. I explored how the act of taking photos with smartphones, combined with the use of photo editing apps, can be considered a form of artistic expression. Based on this research, I believe it's crucial for individuals to cultivate an artistic mindset when composing photographs, even for casual social media posts. Art teachers are uniquely positioned to guide students in developing this artistic awareness. They can teach students to consider elements like story, composition, lighting, and perspective before capturing and sharing images online. I observe a gap in education's ability to keep pace with the rapid advancements in technology. The art room presents an ideal environment to address this gap by integrating technology into the curriculum and fostering artistic exploration in the digital realm.",
+          "text": "During my specialist degree, I conducted research on how smartphones have become powerful artistic tools. I explored how the act of taking photos with smartphones, combined with the use of photo editing apps, can be considered a form of artistic expression. Based on this research, I believe it's crucial for…",
           "themes": [
             "training"
           ],
@@ -12922,7 +15366,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Integrating technology as an art making tool has taught me I do not have to be an expert to teach it. I can figure it out along with my students. In fact, some of the programs we use are because I saw a student using it during free time and asked them about it. Students are digital natives and they love learning about with and about it. SOmetimes I learn from them. It makes me a better teacher because I work alongside my students. I feel like I am opening up avenues for both myself and them. IT makes my job more fun and interesting.",
+          "text": "Integrating technology as an art making tool has taught me I do not have to be an expert to teach it. I can figure it out along with my students. In fact, some of the programs we use are because I saw a student using it during free time and asked them about it. Students are digital natives and they love learning…",
           "themes": [
             "engagement",
             "barriers"
@@ -12930,14 +15374,14 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I incorporate a project inspired by artist Cindy Sherman, where she utilizes makeup, costumes, and a green screen to dramatically transform her appearance and create striking self-portraits. Students have the opportunity to emulate this process. They choose a costume, apply makeup (if desired), and utilize an iPad and green screen to photograph themselves. They then select and manipulate background images from online sources to create unique and expressive self-portraits. This project fosters a critical discussion about how photographs tell stories. We explore the importance of considering the narrative we wish to convey and how our images might be interpreted by others. This encourages students to develop a more thoughtful and artistic approach to photography, ultimately promoting the creation of effective and appropriate self-portraits while discouraging the posting of inappropriate images online",
+          "text": "I incorporate a project inspired by artist Cindy Sherman, where she utilizes makeup, costumes, and a green screen to dramatically transform her appearance and create striking self-portraits. Students have the opportunity to emulate this process. They choose a costume, apply makeup (if desired), and utilize an iPad…",
           "themes": [
             "creativity"
           ],
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "In my role as a university professor, I frequently observe AI being misused rather than utilized as a tool for enhancing learning. A primary concern is the alarming frequency with which students employ AI to generate essays, effectively circumventing the crucial process of synthesizing information from course readings and engaging in independent critical thinking. Furthermore, I question the pedagogical value of AI-generated art. The inherent value and enjoyment of artistic creation lie within the process itself – the exploration of materials, the development of techniques, and the expression of individual creativity. I am concerned that AI tools may ultimately diminish the artistic process and deprive students of the opportunity to cultivate their unique artistic voices.",
+          "text": "In my role as a university professor, I frequently observe AI being misused rather than utilized as a tool for enhancing learning. A primary concern is the alarming frequency with which students employ AI to generate essays, effectively circumventing the crucial process of synthesizing information from course…",
           "themes": [
             "engagement",
             "training"
@@ -12964,10 +15408,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3TRlVU2CfonYEgx",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-24",
       "schoolType": "Private",
       "teachingBand": "Multi-level",
       "experienceBand": "11-15 years",
@@ -13067,10 +15509,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1NlWyfZJnVWdLuK",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -13172,10 +15612,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1P6j7rRGnWKiNdm",
       "state": "NY",
       "stateName": "New York",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Other",
       "experienceBand": "20 + years",
@@ -13271,10 +15709,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7VHLLcG4ted6aJe",
       "state": "NE",
       "stateName": "Nebraska",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -13374,10 +15810,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2rpknkCuTdvYDNe",
       "state": "FL",
       "stateName": "Florida",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "0-3 years",
@@ -13478,10 +15912,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8NampOC9VEq7OxA",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -13571,10 +16003,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6RCVeO7NxUuSPAt",
       "state": "SC",
       "stateName": "South Carolina",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "11-15 years",
@@ -13631,10 +16061,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6qvKwHJCIeSh2nm",
       "state": "NM",
       "stateName": "New Mexico",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "11-15 years",
@@ -13716,10 +16144,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7LlfBGxvi2LUtG1",
       "state": "OH",
       "stateName": "Ohio",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -13782,7 +16208,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "I teach co-seated classes, so creating videos, interactive media, and online assessments has helped guide students when I cannot work with a certain group. It provides resources for them to check back to as well. I communicate all grades, track all projects, and provide all resources digitally. It allows me to grade from home, connect students with art shows, and more.",
+          "text": "I teach co-seated classes, so creating videos, interactive media, and online assessments has helped guide students when I cannot work with a certain group. It provides resources for them to check back to as well. I communicate all grades, track all projects, and provide all resources digitally. It allows me to grade…",
           "themes": [
             "efficiency",
             "making"
@@ -13790,7 +16216,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "I teach a digital art class that only works with Procreate. We have created character designs, AR filters, digital paintings, sticker/design lessons and more. It has taught students that anyone can utilize digital media arts and create strong work. I have seen kids rise in confidence and kids who were unsure about drawing on the iPad have flourished.",
+          "text": "I teach a digital art class that only works with Procreate. We have created character designs, AR filters, digital paintings, sticker/design lessons and more. It has taught students that anyone can utilize digital media arts and create strong work. I have seen kids rise in confidence and kids who were unsure about…",
           "themes": [
             "making"
           ],
@@ -13804,7 +16230,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "I use it for student artist statements, project design, and creating reference images for students. Just recently, we talked about utilizing AI to help develop references and research surrealism art. Students were able to find pictures that helped them piece together their reference images. These things they cannot go out into the neighborhood to photograph themselves, or perhaps it helps connect the dots to make their idea shine. I use it personally to create content, rubrics, letters of recommendation, press releases, examples and more.",
+          "text": "I use it for student artist statements, project design, and creating reference images for students. Just recently, we talked about utilizing AI to help develop references and research surrealism art. Students were able to find pictures that helped them piece together their reference images. These things they cannot…",
           "themes": [
             "creativity",
             "efficiency",
@@ -13827,10 +16253,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7iPTQsJgofN1Gio",
       "state": "AL",
       "stateName": "Alabama",
-      "recordedDate": "2025-01-24",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "7-10 years",
@@ -13931,10 +16355,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_8lsU5K7VlOqISNr",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-25",
       "schoolType": "Public",
       "teachingBand": "Multi-level",
       "experienceBand": "4-6 years",
@@ -14015,10 +16437,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1rSfePYrfXmFUhB",
       "state": "OH",
       "stateName": "Ohio",
-      "recordedDate": "2025-01-25",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -14119,10 +16539,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6jeKoUAVqIVoY2t",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-25",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "11-15 years",
@@ -14177,7 +16595,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "During virtual learning, I was able to adapt a community quilt project to a google slide assignment, giving every student a drag and drop version of what they would have done in class. The digital collage was then used as my google classroom banner when students logged in for instruction. I was able to create a collaborative piece of art across all my classes during a time when we could not physically be together. It also taught students skills (i.e. cropping, rotation, format options, etc) that we would use on later digital projects online and in-person.",
+          "text": "During virtual learning, I was able to adapt a community quilt project to a google slide assignment, giving every student a drag and drop version of what they would have done in class. The digital collage was then used as my google classroom banner when students logged in for instruction. I was able to create a…",
           "themes": [
             "efficiency",
             "skillLoss",
@@ -14194,7 +16612,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "The use of AI in art education has the potential to offer new tools and opportunities for students and teachers. I think it can revamp a favorite art lesson, add perspective, give access to a student who cannot produce artwork on their own, expand possibilities, be used to generate ideas, and improve connections. Students can use AI to generate ideas for a project, taking their learning to the next level. As a teacher, it is important to provide our students with the foundational skills they need to be successful. But, as an art teacher, I don't want to limit my students to what I know. I want to push them beyond that. AI, in my opinion, is a tool that - if used for good - can be used to increase student ownership and accountability in the art classroom by helping them think.",
+          "text": "The use of AI in art education has the potential to offer new tools and opportunities for students and teachers. I think it can revamp a favorite art lesson, add perspective, give access to a student who cannot produce artwork on their own, expand possibilities, be used to generate ideas, and improve connections.…",
           "themes": [
             "creativity",
             "ethics",
@@ -14204,7 +16622,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "My students create a passion project at the end of the year where they can combine a learned technique with a theme that is most important to them at this moment in time. Using AI, students can create a list of potential art projects they can refine or select to make. AI is not the final product of this project, but is used as a resource to help students jump-start their project.",
+          "text": "My students create a passion project at the end of the year where they can combine a learned technique with a theme that is most important to them at this moment in time. Using AI, students can create a list of potential art projects they can refine or select to make. AI is not the final product of this project, but…",
           "themes": [
             "barriers"
           ],
@@ -14225,10 +16643,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3VxpUQfoNEcW5wv",
       "state": "MD",
       "stateName": "Maryland",
-      "recordedDate": "2025-01-25",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "20 + years",
@@ -14289,7 +16705,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "Kids won't know how to draw themselves and may lack confidence in themselves and become reliant on the tech to communicate their feelings and perspectives. Taking credit for things they didn't really do=false confidence. Everything kids need or want to know about art is online so real teachers or expensive art supplies and classes will become obsolete or will get cut from budgets for education. Hard to see the positive in it; I don't really like it, a lot of images I see are odd and you can tell they're computer generated- it kind of takes away from my viewing pleasure when I find out something is AI generated. The positive could be that it will save people time and you will only need computer skills and creative thinking to create art. Your personal, human craftsmanship and physical abilities, or lack there of, won't matter",
+          "text": "Kids won't know how to draw themselves and may lack confidence in themselves and become reliant on the tech to communicate their feelings and perspectives. Taking credit for things they didn't really do=false confidence. Everything kids need or want to know about art is online so real teachers or expensive art…",
           "themes": [
             "skillLoss",
             "barriers"
@@ -14307,10 +16723,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_72by8Fe2KsUgD9n",
       "state": "DE",
       "stateName": "Delaware",
-      "recordedDate": "2025-01-25",
       "schoolType": "Public",
       "teachingBand": "Other",
       "experienceBand": "20 + years",
@@ -14362,12 +16776,12 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "This is an odd question and I wonder if words may have been let out. Every experience I have everyday influences my teaching practices because teaching is like breathing it's a part of life. Everyone teaches, even small children, everyday. It is part of the human condition and its how we live and grow as a society. I am not sure if I answered this question for you...",
+          "text": "This is an odd question and I wonder if words may have been let out. Every experience I have everyday influences my teaching practices because teaching is like breathing it's a part of life. Everyone teaches, even small children, everyday. It is part of the human condition and its how we live and grow as a society.…",
           "themes": [],
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "After one advanced painting class, students did not clean up the room like they should have. As a \"punishment,\" I had them create tutorial videos of how to clean up the tables, paint trays, sinks, brushes, etc. properly on flipgrid. This \"punishment\" ended up being a great lesson and very engaging for all. It was fun and not a punishment at all. I will be incorporating this lesson into my curriculum for the future since it worked so well. And I have great student created content I can use for other classes! It's a win-win!",
+          "text": "After one advanced painting class, students did not clean up the room like they should have. As a \"punishment,\" I had them create tutorial videos of how to clean up the tables, paint trays, sinks, brushes, etc. properly on flipgrid. This \"punishment\" ended up being a great lesson and very engaging for all. It was fun…",
           "themes": [
             "engagement",
             "training",
@@ -14376,19 +16790,19 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "none, I am not really able to teach a media arts lesson due to my school also having CTE visual communications classes as well.",
+          "text": "none, [PERSON] to teach a media arts lesson due to my school also having CTE visual communications classes as well.",
           "themes": [],
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I think it will push arts education to be more ideation/creativity focused with is good because that is really where the money is. Its not about creating this amazing finished complete painting. It's really about the idea, the meaning, the process that got that artist to that painting. AI can make that one painting. AI cannot create the ideas, the words, the order, that gets that amazing, finished complete painting. That has always been the value, not art teachers have to figure out how to teach this. It is really is a whole new ball game...",
+          "text": "I think it will push arts education to be more ideation/creativity focused with is good because that is really where the money is. Its not about creating this amazing finished complete painting. It's really about the idea, the meaning, the process that got that artist to that painting. AI can make that one painting.…",
           "themes": [
             "creativity"
           ],
           "stance": "neutral"
         },
         "aiUseful": {
-          "text": "Not yet, again that are blocked for students, but I am starting to use them with teachers on how to create lessons and push the imagination and creativity of the teacher. That is where it starts.",
+          "text": "Not yet, again that are blocked for students, but [PERSON] them with teachers on how to create lessons and push the imagination and creativity of the teacher. That is where it starts.",
           "themes": [
             "creativity",
             "barriers"
@@ -14408,10 +16822,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3mh1Mw90THadu9v",
       "state": "MD",
       "stateName": "Maryland",
-      "recordedDate": "2025-01-25",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "0-3 years",
@@ -14480,7 +16892,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "StoryCorps” initiative, a project that combines audio and visual media to foster understanding, empathy, and storytelling. While StoryCorps is primarily an oral history project, it incorporates a wide range of media art forms, including audio recording, animation, and video production, all of which are elements commonly used in media arts education.",
+          "text": "StoryCorps” initiative, a project that combines audio and visual media to foster understanding, empathy, and storytelling. While StoryCorps is primarily an oral history project, it incorporates a wide range of media art forms, including audio recording, animation, and video production, all of which are elements…",
           "themes": [
             "making"
           ],
@@ -14514,10 +16926,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7QQLkNWAlP091Nc",
       "state": "CT",
       "stateName": "Connecticut",
-      "recordedDate": "2025-01-26",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -14591,7 +17001,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "One impactful media arts project I implemented was a digital storytelling assignment where students combined video, sound, and animation to create short films based on a personal or social issue that mattered to them. They were tasked with scripting, filming, and editing their stories, using software like Adobe Premiere Pro or iMovie.",
+          "text": "One impactful media arts project I implemented was a digital storytelling assignment where students combined video, sound, and animation to create short films based on a personal or social issue that mattered to them. They were tasked with scripting, filming, and editing their stories, using software like Adobe…",
           "themes": [
             "barriers",
             "making"
@@ -14599,7 +17009,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "Positively, AI could enhance the learning experience by offering personalized feedback and tailored learning paths. For example, AI could analyze a student’s artwork and provide constructive critiques on techniques, color use, or composition, helping students improve more efficiently. On the negative side, there’s the risk of over-reliance on AI, where students might lean too heavily on these tools and lose the ability to create original work or develop traditional skills like drawing or painting by hand.",
+          "text": "Positively, AI could enhance the learning experience by offering personalized feedback and tailored learning paths. For example, AI could analyze a student’s artwork and provide constructive critiques on techniques, color use, or composition, helping students improve more efficiently. On the negative side, there’s…",
           "themes": [
             "efficiency",
             "ethics",
@@ -14628,10 +17038,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_50OVjyM97fBx2na",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2025-01-26",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -14690,10 +17098,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2o4Gg5Vp5eVmYhA",
       "state": "OK",
       "stateName": "Oklahoma",
-      "recordedDate": "2025-01-27",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "4-6 years",
@@ -14796,10 +17202,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_3Hvx9SOBeqeoqWZ",
       "state": "CT",
       "stateName": "Connecticut",
-      "recordedDate": "2025-01-27",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "16-20 years",
@@ -14867,10 +17271,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6iBWiiYEjG6zt7J",
       "state": "MA",
       "stateName": "Massachusetts",
-      "recordedDate": "2025-01-27",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "16-20 years",
@@ -14946,10 +17348,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7lozpbe4IZ9Qres",
       "state": "OK",
       "stateName": "Oklahoma",
-      "recordedDate": "2025-01-27",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -15013,10 +17413,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6l9uZDSwvonk9Ux",
       "state": "MO",
       "stateName": "Missouri",
-      "recordedDate": "2025-01-27",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "20 + years",
@@ -15124,10 +17522,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_7r1bUzA7PiFJYxd",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-27",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "7-10 years",
@@ -15178,10 +17574,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1wHtSBLSoMktQgr",
       "state": "TX",
       "stateName": "Texas",
-      "recordedDate": "2025-01-27",
       "schoolType": "Public",
       "teachingBand": "Elementary",
       "experienceBand": "16-20 years",
@@ -15228,7 +17622,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I feel my ability to be flexible and problem solve quickly stems from my experience working as an art installer for museums and galleries. Furthermore, I experimented with a wide variety of media and mediums while completing my BFA in painting. If they had offered the degree back then, I would have worked towards a BFA in interdisciplinary practices and emerging forms.",
+          "text": "I feel my ability to be flexible and problem solve quickly stems from my experience working as an art installer for museums and galleries. Furthermore, I experimented with a wide variety of media and mediums while completing my BFA in painting. If they had offered the degree back then, I would have worked towards a…",
           "themes": [],
           "stance": "not_scored"
         },
@@ -15269,10 +17663,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6CC8tj8BxM1sQZO",
       "state": "OR",
       "stateName": "Oregon",
-      "recordedDate": "2025-01-27",
       "schoolType": "Public",
       "teachingBand": "Middle",
       "experienceBand": "16-20 years",
@@ -15350,10 +17742,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6fgfKuzRptw2hPq",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-01-27",
       "schoolType": "Private",
       "teachingBand": "High School",
       "experienceBand": "4-6 years",
@@ -15447,10 +17837,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_75u4aVGegzvR5Bw",
       "state": "GA",
       "stateName": "Georgia",
-      "recordedDate": "2025-01-28",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -15514,7 +17902,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI is negatively impacting art student mental health, confidence, and providing a delusional version of what constitutes an artistic experience. On top of that, there is the obvious moral and ethical issues of plagiarism, since there is no \"ethical\" AI database to generate from, every usage of generative AI platforms is conducting artistic plagiarism",
+          "text": "AI is negatively impacting art student mental health, confidence, and providing a delusional version of what constitutes an artistic experience. On top of that, there is the obvious moral and ethical issues of plagiarism, since there is no \"ethical\" AI database to generate from, every usage of generative AI platforms…",
           "themes": [
             "ethics"
           ],
@@ -15535,10 +17923,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_5H1ZSwjSfX1lY7k",
       "state": "DE",
       "stateName": "Delaware",
-      "recordedDate": "2025-01-28",
       "schoolType": "Private",
       "teachingBand": "Multi-level",
       "experienceBand": "11-15 years",
@@ -15643,10 +18029,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_1ZZRLbvcUBwCLM5",
       "state": "PA",
       "stateName": "Pennsylvania",
-      "recordedDate": "2025-01-29",
       "schoolType": "Charter",
       "teachingBand": "Other",
       "experienceBand": "11-15 years",
@@ -15694,7 +18078,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "My previous teaching experiences in both 1:1 brick-and-mortar schools and the cyber environment have significantly shaped my current teaching practices. In the physical classroom, I learned the value of personalized instruction and the importance of building strong relationships with students. That experience taught me how to assess and adapt lessons in real time based on student engagement and understanding. In the cyber environment, I’ve honed my skills in digital communication, virtual engagement strategies, and creating clear, accessible content for students learning independently. Combining these experiences, I focus on fostering meaningful interactions, providing timely support, and leveraging technology to offer a flexible and inclusive learning experience for all my students.",
+          "text": "My previous teaching experiences in both 1:1 brick-and-mortar schools and the cyber environment have significantly shaped my current teaching practices. In the physical classroom, I learned the value of personalized instruction and the importance of building strong relationships with students. That experience taught…",
           "themes": [
             "skillLoss",
             "access",
@@ -15704,7 +18088,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media arts can be defined as creative works that combine various forms of digital and multimedia elements, such as photography, video, animation, sound design, graphic design, and interactive media. It bridges technology and traditional artistic expression, allowing artists to tell stories, communicate ideas, and create immersive experiences using modern digital tools and platforms.",
+          "text": "Media arts can be defined as creative works that combine various forms of digital and multimedia elements, such as photography, video, animation, sound design, graphic design, and interactive media. It bridges technology and traditional artistic expression, allowing artists to tell stories, communicate ideas, and…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -15713,7 +18097,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Teaching in a 1:1 setting helped lower behavior issues because each lesson was scaffolded and students could work at their own pace, independently. I was able to multiply myself because I was able to do video recordings of my demonstrations. Before students would gather around my table and watch me, this created issues because students would invade each other personal spaces and problem behaviors would occur.",
+          "text": "Teaching in a 1:1 setting helped lower behavior issues because each lesson was scaffolded and students could work at their own pace, independently. I was able to multiply myself because I was able to do video recordings of my demonstrations. Before students would gather around my table and watch me, this created…",
           "themes": [
             "making"
           ],
@@ -15727,7 +18111,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "AI has the potential to transform art education in both positive and challenging ways. On the positive side, AI can enhance creativity by generating ideas, offering personalized feedback, and providing students with access to advanced tools for digital art creation. It can democratize learning by making high-quality art resources and virtual tutorials more accessible to students anywhere. Additionally, AI-driven software can assist teachers in grading creative projects based on criteria like composition and color theory. On the flip side, there are concerns about AI diminishing originality and critical thinking if students rely too heavily on machine-generated designs. Ethical questions around authorship and the role of human creativity in art are also emerging. Teachers will play a crucial role in guiding students to use AI as a tool to enhance their creativity rather than replace it, emphasizing the importance of thoughtful, intentional artistic expression.",
+          "text": "AI has the potential to transform art education in both positive and challenging ways. On the positive side, AI can enhance creativity by generating ideas, offering personalized feedback, and providing students with access to advanced tools for digital art creation. It can democratize learning by making high-quality…",
           "themes": [
             "creativity",
             "efficiency",
@@ -15740,7 +18124,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "mixed"
         },
         "aiUseful": {
-          "text": "Yes, I've found AI tools particularly useful for generating emails in my teaching practice. Crafting clear and professional communication with students and families is essential, and AI helps streamline this process. For example, when sending out reminders, meeting recaps, or project guidelines, I use AI to draft emails that are concise yet informative. This allows me to maintain consistent communication while focusing more of my time on instructional planning and student support. The ability to quickly customize AI-generated drafts ensures that the messages still feel personal and tailored to the recipient's needs. When composing emails or other communications, I often rely on AI tools to ensure that my tone remains professional, empathetic, and solution-oriented, even when the subject matter is delicate.",
+          "text": "Yes, I've found AI tools particularly useful for generating emails in my teaching practice. Crafting clear and professional communication with students and families is essential, and AI helps streamline this process. For example, when sending out reminders, meeting recaps, or project guidelines, I use AI to draft…",
           "themes": [
             "access",
             "barriers"
@@ -15764,10 +18148,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_6gtmcJ5wokAxOgu",
       "state": "OH",
       "stateName": "Ohio",
-      "recordedDate": "2025-01-31",
       "schoolType": "Other",
       "teachingBand": "High School",
       "experienceBand": "11-15 years",
@@ -15818,7 +18200,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "I taught exclusively online for 7 years of my career, which impacts my willingness to use all technology in the class. However, I've always viewed it as a just another tool to use and not a crutch, even online. When online, students would do work with traditional art media just like in a 'regular' classroom setting. I still use some of those lessons today while in a brick and mortar classroom.",
+          "text": "I taught exclusively online for 7 years of my career, which impacts my willingness to use all technology in the class. However, I've always viewed it as a just another tool to use and not a crutch, even online. When online, students would do work with traditional art media just like in a 'regular' classroom setting.…",
           "themes": [
             "skillLoss"
           ],
@@ -15840,7 +18222,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaProject": {
-          "text": "In my Digital Art J-term course, students were able to earn certifications from Adobe which students then were so proud of they put it in their email signatures. I also used generative image AI on my art criticism essay lesson. Students put their Describe paragraph into a generator to see where the gaps were in their write versus the image generated ie 'a pictures worth a thousand words'.",
+          "text": "In my Digital Art J-term course, students were able to earn certifications from Adobe which students then were so proud of they put it in their email signatures. I also used generative image AI on my art criticism essay lesson. Students put their Describe paragraph into a generator to see where the gaps were in their…",
           "themes": [
             "training",
             "making"
@@ -15848,12 +18230,12 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "I think that generative AI could pose problems in media arts based classes; right now it's easy to tell if they used it - but as technology improves it'll be harder and harder. Students also need explicit instruction on how to use it and when to use it. I had instances of students attempting to use it by plugging in the prompt but the AI didn't actually understand so it created something way off track. The student argued that he just plugged in the prompt therefore it should be correct.",
+          "text": "I think that generative AI could pose problems in media arts based classes; right now it's easy to tell if they used it - but as technology improves it'll be harder and harder. Students also need explicit instruction on how to use it and when to use it. I had instances of students attempting to use it by plugging in…",
           "themes": [],
           "stance": "neutral"
         },
         "aiUseful": {
-          "text": "Specifically in my art criticism essay it was useful to review their writing. We first plugged their Describe paragraph into a generative image AI to test if their writing really was descriptive. Then, later, they used the rubric I created and had ChatGPT give them feedback based on the rubric. I taught them explicitly how to use this and it was well received.",
+          "text": "Specifically in my art criticism essay it was useful to review their writing. We first plugged their Describe paragraph into a generative image AI to test if their writing really was descriptive. Then, later, they used the rubric I created and had ChatGPT give them feedback based on the rubric. I taught them…",
           "themes": [
             "efficiency"
           ],
@@ -15872,10 +18254,8 @@ window.SURVEY_DASHBOARD_DATA = {
       }
     },
     {
-      "id": "R_2GrK9Bcx1eKljFv",
       "state": "CA",
       "stateName": "California",
-      "recordedDate": "2025-02-02",
       "schoolType": "Public",
       "teachingBand": "High School",
       "experienceBand": "7-10 years",
@@ -15921,7 +18301,7 @@ window.SURVEY_DASHBOARD_DATA = {
       },
       "openResponses": {
         "priorInfluence": {
-          "text": "My previous teaching, educational, and professional experiences have significantly influenced my current teaching practices. During my early years as an educator, I learned the importance of differentiating instruction to meet the diverse needs of my students. This realization has led me to incorporate various digital tools and resources that allow me to personalize learning experiences for each student. Moreover, my experience working with students from diverse cultural backgrounds has taught me the significance of incorporating culturally relevant content and fostering an inclusive classroom environment. I now prioritize selecting art materials and resources that reflect the rich diversity of my students and encourage them to express their unique cultural identities through their artwork.",
+          "text": "My previous teaching, educational, and professional experiences have significantly influenced my current teaching practices. During my early years as an educator, I learned the importance of differentiating instruction to meet the diverse needs of my students. This realization has led me to incorporate various…",
           "themes": [
             "access",
             "engagement"
@@ -15929,7 +18309,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "mediaDefinition": {
-          "text": "Media arts can be defined as the creation, manipulation, and analysis of digital and electronic media. It encompasses a broad range of disciplines, including digital photography, graphic design, web design, video production, animation, sound design, game design, and 3D modeling, among others. Media arts involve the use of technology and digital tools to explore creative expression, storytelling, and communication in the modern world. This field encourages critical thinking, problem-solving, and the development of technical skills, while also fostering creativity, collaboration, and innovation. Media arts provide a platform for artists to engage with contemporary issues and global perspectives through the integration of traditional art forms with new media technologies.",
+          "text": "Media arts can be defined as the creation, manipulation, and analysis of digital and electronic media. It encompasses a broad range of disciplines, including digital photography, graphic design, web design, video production, animation, sound design, game design, and 3D modeling, among others. Media arts involve the…",
           "themes": [
             "skillLoss",
             "engagement",
@@ -15938,7 +18318,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "techEnhanced": {
-          "text": "Last year, I incorporated a digital photography project into my art curriculum. Students were tasked with using their smartphones or digital cameras to capture images that represented their personal experiences and perspectives. They then used photo editing software to manipulate their images, experimenting with color, composition, and mood. The students shared their final projects on an online platform, where they could view and comment on each other's work. This project not only taught students technical skills in digital photography and editing but also encouraged them to think critically about their own experiences and perspectives. The online sharing platform promoted collaboration and provided a sense of community, as students were able to see and appreciate each other's work. Additionally, the project sparked interesting discussions about the power of imagery and its role in storytelling, further deepening students' engagement and understanding of the topic.",
+          "text": "Last year, I incorporated a digital photography project into my art curriculum. Students were tasked with using their smartphones or digital cameras to capture images that represented their personal experiences and perspectives. They then used photo editing software to manipulate their images, experimenting with…",
           "themes": [
             "creativity",
             "skillLoss",
@@ -15953,7 +18333,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "not_scored"
         },
         "aiFuture": {
-          "text": "Positive: Enhanced creativity: AI can help students explore new creative possibilities by suggesting unique combinations of materials, styles, and techniques that they may not have considered on their own. Personalized learning: AI can analyze each student's learning patterns, strengths, and weaknesses, and provide tailored instruction and feedback to help them progress at their own pace and focus on areas where they need the most support. Efficiency: AI can automate administrative tasks, such as grading, attendance tracking, and resource organization, freeing up more time for teachers to focus on providing high-quality instruction and engaging with their students. Negative: Dehumanization: There is a risk that the increasing reliance on AI in education could lead to a less personalized, more mechanical learning experience, reducing the importance of human interaction and mentorship in the learning process. Dependence on technology: As AI becomes more integrated into art education, students may become overly reliant on technology, potentially stifling their ability to develop traditional art skills and critical thinking abilities.",
+          "text": "Positive: Enhanced creativity: AI can help students explore new creative possibilities by suggesting unique combinations of materials, styles, and techniques that they may not have considered on their own. Personalized learning: AI can analyze each student's learning patterns, strengths, and weaknesses, and provide…",
           "themes": [
             "creativity",
             "efficiency",
@@ -15965,7 +18345,7 @@ window.SURVEY_DASHBOARD_DATA = {
           "stance": "positive"
         },
         "aiUseful": {
-          "text": "In a graphic design class, I introduced students to a generative design tool powered by AI. The tool allowed students to create unique designs by inputting certain parameters, such as color schemes, shapes, and patterns. Students were then tasked with using the AI-generated designs as the basis for a series of posters promoting an upcoming school event. The AI tool helped students quickly generate a variety of design options, which they could then refine and customize to fit the event's theme and target audience. By experimenting with different parameters and exploring the AI-generated designs, students gained a deeper understanding of design principles and learned how to use technology to enhance their creativity. The project was a success, with students producing eye-catching posters that showcased their design skills and demonstrated the potential of AI tools in creative fields. Moreover, the experience encouraged students to think critically about the role of AI in art and design and how it can be used responsibly and ethically in their work.",
+          "text": "In a graphic design class, I introduced students to a generative design tool powered by AI. The tool allowed students to create unique designs by inputting certain parameters, such as color schemes, shapes, and patterns. Students were then tasked with using the AI-generated designs as the basis for a series of…",
           "themes": [
             "ethics",
             "skillLoss",

@@ -1,0 +1,13 @@
+field,value
+anonymous,True
+summary,"The public app is anonymized: it excludes response identifiers and exact response dates, keeps only state-level geography, and redacts obvious personal or institutional references from exported text excerpts."
+sanitizedResponseCount,37
+safeguard,Response IDs are removed from the public dataset.
+safeguard,Exact response dates are removed from the public dataset.
+safeguard,Only state-level geography is retained publicly.
+safeguard,"Public quote excerpts are sanitized for links, contact details, and detected place or institution names."
+safeguard,Appendix files use sanitized text and anonymous sample IDs.
+redaction:domain,2
+redaction:organization_pattern,6
+redaction:person_intro,43
+redaction:url,1
